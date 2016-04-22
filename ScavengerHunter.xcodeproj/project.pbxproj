@@ -31,6 +31,8 @@
 		E5A06A3A1CC6CB6C00F8B7F6 /* SHImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */; };
 		E5A06A3D1CC6E67B00F8B7F6 /* SHLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */; };
 		E5E289CA1CC96B5500EFC52C /* ClueCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */; };
+		E5F1D8D81CCAE9C200886715 /* SHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1D8D71CCAE9C200886715 /* SHLabel.swift */; };
+		E5F1D8DA1CCAEBDE00886715 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1D8D91CCAEBDE00886715 /* Colours.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHImageButton.swift; sourceTree = "<group>"; };
 		E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLocation.swift; sourceTree = "<group>"; };
 		E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClueCreatorViewController.swift; sourceTree = "<group>"; };
+		E5F1D8D71CCAE9C200886715 /* SHLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLabel.swift; sourceTree = "<group>"; };
+		E5F1D8D91CCAEBDE00886715 /* Colours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 				E5A06A321CC6B44A00F8B7F6 /* SHButton.swift */,
 				E5A06A371CC6CADD00F8B7F6 /* SHImage.swift */,
 				E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */,
+				E5F1D8D71CCAE9C200886715 /* SHLabel.swift */,
+				E5F1D8D91CCAEBDE00886715 /* Colours.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -326,7 +332,9 @@
 				E5A06A201CC5734900F8B7F6 /* AddCluesViewController.swift in Sources */,
 				E5A06A221CC5739700F8B7F6 /* HuntSearchViewController.swift in Sources */,
 				E5A06A021CC5709100F8B7F6 /* AppDelegate.swift in Sources */,
+				E5F1D8DA1CCAEBDE00886715 /* Colours.swift in Sources */,
 				E5A06A181CC5729600F8B7F6 /* HomeViewController.swift in Sources */,
+				E5F1D8D81CCAE9C200886715 /* SHLabel.swift in Sources */,
 				E5A06A2B1CC575A000F8B7F6 /* Hunt.swift in Sources */,
 				E5A06A331CC6B44A00F8B7F6 /* SHButton.swift in Sources */,
 				E542DE2C1CC8192900872CBD /* SHImagePicker.swift in Sources */,

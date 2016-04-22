@@ -15,11 +15,11 @@ class HuntDetailViewController: UIViewController {
     // MARK: Outlets
 
     @IBOutlet weak var huntImageView: SHImage!
-    @IBOutlet weak var huntNameLabel: UILabel!
-    @IBOutlet weak var huntCreatorLabel: UILabel!
-    @IBOutlet weak var huntPrizeLabel: UILabel!
-    @IBOutlet weak var numberOfCluesLabel: UILabel!
-    @IBOutlet weak var huntDescriptionLabel: UILabel!
+    @IBOutlet weak var huntNameLabel: SHLabel!
+    @IBOutlet weak var huntCreatorLabel: SHLabel!
+    @IBOutlet weak var huntPrizeLabel: SHLabel!
+    @IBOutlet weak var numberOfCluesLabel: SHLabel!
+    @IBOutlet weak var huntDescriptionLabel: SHLabel!
     @IBOutlet weak var startHuntButton: SHButton!
     
     // MARK: Propertu

@@ -22,10 +22,10 @@ class CreateClueTableViewCell: UITableViewCell, MKMapViewDelegate {
     
     // MARK: Outlets
     
-    @IBOutlet weak var clueNumberLabel: UILabel!
+    @IBOutlet weak var clueNumberLabel: SHLabel!
     @IBOutlet weak var clueImageView: SHImage!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var clueLabel: UILabel!
+    @IBOutlet weak var clueLabel: SHLabel!
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var editButton: SHButton!
 

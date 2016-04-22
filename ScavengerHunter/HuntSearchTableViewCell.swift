@@ -15,7 +15,7 @@ class HuntSearchTableViewCell: UITableViewCell {
     // MARK: Outlets
     
     @IBOutlet weak var huntImageView: SHImage!
-    @IBOutlet weak var huntNameLabel: UILabel!
-    @IBOutlet weak var numberOfCluesLabel: UILabel!
+    @IBOutlet weak var huntNameLabel: SHLabel!
+    @IBOutlet weak var numberOfCluesLabel: SHLabel!
 
 }

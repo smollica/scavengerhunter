@@ -21,6 +21,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     // MARK: Properties
     
     var hunts = [Hunt]()
+    var displayHunts = [Hunt]()
     var currentCell: Int?
     
     // MARK: viewDidLoad
@@ -30,9 +31,15 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
 
         let query = PFQuery(className:"Hunt")
         query.includeKey("clues")
+        query.includeKey("creator")
         query.findObjectsInBackgroundWithBlock({ (array, error) in
             if error == nil && array != nil {
                 self.hunts = array as! [Hunt]
+                
+                for hunt in self.hunts {
+                    self.displayHunts.append(hunt)
+                }
+                
                 self.tableView.reloadData()
             }
         })
@@ -41,7 +48,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     // MARK: Actions
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
-        //perform search
+        performSearch()
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -57,13 +64,13 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     // MARK: UITableViewDataSource/Delegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hunts.count
+        return displayHunts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("huntSearchCell") as! HuntSearchTableViewCell
         
-        let hunt = hunts[indexPath.row]
+        let hunt = displayHunts[indexPath.row]
         
         let huntImage = hunt.image
         huntImage.getDataInBackgroundWithBlock({ (data, error) in
@@ -81,6 +88,20 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.currentCell = indexPath.row
         self.performSegueWithIdentifier("huntDetail", sender: self)
+    }
+    
+    // MARK: Helper Functions
+    
+    func performSearch() {
+        displayHunts.removeAll()
+        if let searchString = self.searchField.text {
+            for hunt in hunts {
+                if hunt.creator!.username!.containsString(searchString) || hunt.name.containsString(searchString) || hunt.prize.containsString(searchString) || hunt.desc.containsString(searchString) || hunt.clues.count == Int(searchString) || self.searchField.text == "" {
+                    displayHunts.append(hunt)
+                }
+            }
+        }
+        self.tableView.reloadData()
     }
     
     // MARK: Segue

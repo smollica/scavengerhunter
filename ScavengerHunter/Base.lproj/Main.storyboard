@@ -285,7 +285,7 @@
             </objects>
             <point key="canvasLocation" x="1334" y="375"/>
         </scene>
-        <!--Hunt Search View Controller-->
+        <!--HUNT SEARCH-->
         <scene sceneID="vOg-f5-6vc">
             <objects>
                 <viewController id="vjO-qb-jPE" customClass="HuntSearchViewController" customModule="ScavengerHunter" customModuleProvider="target" sceneMemberID="viewController">
@@ -333,13 +333,13 @@
                                                         <constraint firstAttribute="height" constant="55" id="wIa-kT-K2r"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-ac-zIb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-ac-zIb" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="109" y="21" width="87" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-Iq-Ysq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-Iq-Ysq" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="260" y="21" width="50" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -395,16 +395,16 @@
                             <constraint firstAttribute="trailing" secondItem="Ldl-FU-5jw" secondAttribute="trailing" id="xCc-x9-4OR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OaM-ml-CsQ">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="hFD-m7-xOQ">
+                    <navigationItem key="navigationItem" title="HUNT SEARCH" id="MVa-73-yhl">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="4rM-GI-YHb">
                             <connections>
-                                <action selector="backButtonPressed:" destination="vjO-qb-jPE" id="IdY-le-v5P"/>
+                                <action selector="backButtonPressed:" destination="vjO-qb-jPE" id="FJJ-8E-1Sw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="backButton" destination="hFD-m7-xOQ" id="mdJ-5C-atd"/>
+                        <outlet property="backButton" destination="4rM-GI-YHb" id="VXs-YE-Lh4"/>
                         <outlet property="searchButton" destination="Ayx-az-rd8" id="RPl-xz-MJI"/>
                         <outlet property="searchField" destination="J5o-sf-8Rd" id="PEE-hM-9sq"/>
                         <outlet property="tableView" destination="Ldl-FU-5jw" id="553-6t-kad"/>
@@ -417,7 +417,7 @@
             </objects>
             <point key="canvasLocation" x="1334" y="1121"/>
         </scene>
-        <!--Hunt Detail View Controller-->
+        <!--HUNT DETAILS-->
         <scene sceneID="zYl-Eg-v7z">
             <objects>
                 <viewController id="0co-fM-xF2" customClass="HuntDetailViewController" customModule="ScavengerHunter" customModuleProvider="target" sceneMemberID="viewController">
@@ -456,7 +456,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esv-LK-wiG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esv-LK-wiG" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="274" width="280" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="EEn-qh-4MC"/>
@@ -465,25 +465,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Prize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXU-9g-Kfd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Prize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXU-9g-Kfd" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="348" width="280" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYb-TC-6bl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYb-TC-6bl" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="311" width="280" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Clues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44N-26-Rm8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Clues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44N-26-Rm8" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="385" width="280" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOM-Z5-uf1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOM-Z5-uf1" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="422" width="280" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9no-0j-Hvi"/>
@@ -537,6 +537,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="HUNT DETAILS" id="jPc-Dm-CCV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="huntCreatorLabel" destination="wYb-TC-6bl" id="b1c-1P-oub"/>
@@ -612,7 +613,7 @@
                                     <constraint firstAttribute="height" constant="70" id="IO6-KO-loP"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-gt-akA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-gt-akA" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="140" y="404" width="170" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -627,7 +628,7 @@
                                     <action selector="hintButtonPressed:" destination="BDV-wD-QGS" eventType="touchUpInside" id="Bwb-VD-OOO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-e4-2pz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-e4-2pz" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="484" width="300" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -688,7 +689,7 @@
             </objects>
             <point key="canvasLocation" x="2207" y="1121"/>
         </scene>
-        <!--Add Clues-->
+        <!--HUNT SUMMARY-->
         <scene sceneID="563-s9-Jco">
             <objects>
                 <exit id="SqV-JJ-16r" userLabel="Exit" sceneMemberID="exit"/>
@@ -709,7 +710,7 @@
                                     <constraint firstAttribute="width" constant="120" id="xr9-iX-aPg"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UY-Pn-iZG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UY-Pn-iZG" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="155" y="74" width="140" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -753,7 +754,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="262"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asb-FZ-AMD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asb-FZ-AMD" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="110" y="5" width="101" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -784,7 +785,7 @@
                                                         <action selector="expandButtonPressed:" destination="NGl-RL-N4Q" eventType="touchUpInside" id="pJb-fk-RjE"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-yN-Db2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-yN-Db2" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="151" width="300" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="OR1-aT-ra7"/>
@@ -879,6 +880,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Clues" image="zoom_in-25" id="cks-VH-pva"/>
+                    <navigationItem key="navigationItem" title="HUNT SUMMARY" id="uua-fP-Xsj"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="createHuntButton" destination="jRN-Fl-nuT" id="ocQ-lu-ZOW"/>
@@ -1089,7 +1091,7 @@
                                     <!--2016-04-18 21:32:09 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpx-ua-kQ4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpx-ua-kQ4" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="370" width="86" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1238,6 +1240,6 @@
         <image name="zoom_in-25" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jt7-D7-p7O"/>
+        <segue reference="Fag-xI-ber"/>
     </inferredMetricsTieBreakers>
 </document>

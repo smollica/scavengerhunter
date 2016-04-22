@@ -16,7 +16,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     // MARK: Outlets
     
     @IBOutlet weak var huntImageView: PFImageView!
-    @IBOutlet weak var huntNameLabel: UILabel!
+    @IBOutlet weak var huntNameLabel: SHLabel!
     @IBOutlet weak var createHuntButton: SHButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!

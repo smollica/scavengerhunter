@@ -18,8 +18,8 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var hotColdLabel: UILabel!
     @IBOutlet weak var clueImageView: PFImageView!
-    @IBOutlet weak var clueLabel: UILabel!
-    @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var clueLabel: SHLabel!
+    @IBOutlet weak var hintLabel: SHLabel!
     @IBOutlet weak var hintButton: SHButton!
     @IBOutlet weak var nextClueButton: SHButton!
     @IBOutlet weak var quitButton: SHButton!
@@ -224,28 +224,4 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     //
     
-}
-
-// MARK: UIColor Extension
-
-extension UIColor {
-    class func gradientPoint(factor factor:CGFloat, color1:UIColor, color2:UIColor) -> UIColor
-    {
-        let c1 = color1.getComponents()
-        let c2 = color2.getComponents()
-        
-        let newR = c1.red + (factor*(c2.red-c1.red))
-        let newG = c1.green + (factor*(c2.green-c1.green))
-        let newB = c1.blue + (factor*(c2.blue-c1.blue))
-        
-        return UIColor.init(red: newR, green: newG, blue: newB, alpha: 1.0)
-    }
-    
-    func getComponents() -> (red:CGFloat, green:CGFloat, blue:CGFloat, alpha:CGFloat)
-    {
-        var red:CGFloat = 0, green:CGFloat = 0, blue:CGFloat = 0, alpha:CGFloat = 0
-        self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return (red, green, blue, alpha)
-    }
-
 }
