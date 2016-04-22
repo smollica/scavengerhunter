@@ -51,19 +51,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
         user.password = passwordField.text
         user.email = emailField.text
         
-//        if let userImage = self.pictureImageView.image {
-//            let userImageData = UIImageJPEGRepresentation(userImage, 0.4)
-//            let imageFile = PFFile(data: userImageData!)
-//            // save it to user.image
-//        }
-        
         user.signUpInBackgroundWithBlock { (result, error) in
             if result {
-                print("saved")
                 self.performSegueWithIdentifier("signUpSegue", sender: self)
-            } else {
-                print(error)
-            }
+            } 
         }
         
         self.cancelButton.hidden = false

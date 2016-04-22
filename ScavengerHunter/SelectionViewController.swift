@@ -22,7 +22,6 @@ class SelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        SHLocation.sharedManager
     }
     
     // MARK: Actions
@@ -38,7 +37,7 @@ class SelectionViewController: UIViewController {
     // MARK: Unwind Segue
     
     @IBAction func unwindToSelection(segue: UIStoryboardSegue) {
-        //
+        //do nothing here
     }
 
 }

@@ -46,7 +46,7 @@ class HuntDetailViewController: UIViewController {
         self.huntNameLabel.text = "Hunt Name: " + self.hunt!.name
         self.huntPrizeLabel.text = "Hunt Prize: " + self.hunt!.prize
         self.numberOfCluesLabel.text = "Hunt Size: " + "\(self.hunt!.clues.count)" + " Clues"
-        self.huntDescriptionLabel.text = "hunt Description: " + self.hunt!.desc
+        self.huntDescriptionLabel.text = "Hunt Description: " + self.hunt!.desc
         
         let huntImage = hunt!.image
         huntImage.getDataInBackgroundWithBlock({ (data, error) in
@@ -60,7 +60,7 @@ class HuntDetailViewController: UIViewController {
             try self.hunt!.creator!.fetchIfNeeded()
             self.huntCreatorLabel.text = "Hunt Creator: " + self.hunt!.creator!.username!
         } catch _ {
-            print("There was an error")
+            //do nothing here
         }
     }
     

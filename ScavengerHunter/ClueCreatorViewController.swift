@@ -29,6 +29,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     var clue: Clue?
     var newHunt: Hunt?
     var newClue = true
+    var overlays = [MKOverlay]()
     
     // MARK: viewDidLoad
 
@@ -54,14 +55,10 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
             let clueImage = clue!.image
             clueImage.getDataInBackgroundWithBlock({ (data, error) in
                 if error == nil {
-                    print("got image")
                     self.imageView.image = UIImage(data: data!)
-                } else {
-                    print("error")
                 }
             })
         }
-        
     }
     
     // MARK: Actions
@@ -107,7 +104,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = self.clueLocation!
-                annotation.title = "clue"
+                annotation.title = "clue solution"
                 
                 self.mapView.addAnnotation(annotation)
                 
@@ -115,15 +112,13 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 self.cluePFGeoPoint!.latitude = self.clueLocation!.latitude
                 self.cluePFGeoPoint!.longitude = self.clueLocation!.longitude
                 
-            } else if error != nil {
-                print(error)
             }
         }
     }
     
     func editClue() {
         
-        //create protection for creating incomplete clues
+        //create protection for creating incomplete clues alert
         
         guard let clueText = clueField.text else {
             //add alert
@@ -159,12 +154,6 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         }
         
         self.clue!.isExpanded = false
-        
-    }
-    
-    func showGeoFence() {
-        let visualGeoFence = MKCircle(centerCoordinate: self.clueLocation!, radius: (self.clue?.accuracy)!)
-        self.mapView.addOverlay(visualGeoFence)
     }
     
     // MARK: UITextFieldDelegate
@@ -185,11 +174,31 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                     self.clue!.accuracy = accuracyDouble
                 } else {
                     self.clue!.accuracy = 50
+                    self.accuracyField.text = "50"
                 }
             } else {
                 self.clue!.accuracy = 50
+                self.accuracyField.text = "50"
             }
         }
+    }
+    
+    // MARK: MKMapViewDelegate
+    
+    func showGeoFence() {
+        self.mapView.removeOverlays(self.overlays)
+        self.overlays.removeAll()
+        let visualGeoFence = MKCircle(centerCoordinate: self.clueLocation!, radius: (self.clue?.accuracy)!)
+        self.mapView.addOverlay(visualGeoFence)
+        self.overlays.append(visualGeoFence)
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleView = MKCircleRenderer(overlay: overlay)
+        circleView.fillColor = UIColor.orangeColor().colorWithAlphaComponent(0.4)
+        circleView.strokeColor = UIColor.redColor()
+        circleView.lineWidth = 1
+        return circleView
     }
     
 }

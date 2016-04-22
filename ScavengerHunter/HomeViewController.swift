@@ -28,8 +28,7 @@ class HomeViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func signInButtonPressed(sender: AnyObject) {
-        if let user = PFUser.currentUser() {
-            print("logged in as \(user.username)")
+        if let _ = PFUser.currentUser() {
             self.performSegueWithIdentifier("signInSegue", sender: self)
         } else {
             loginAlert()
@@ -58,10 +57,7 @@ class HomeViewController: UIViewController {
             
             PFUser.logInWithUsernameInBackground(usernameTextField!.text!, password: passwordTextField!.text!, block: { (user, error) in
                 if user != nil {
-                    print("logged in as \(user!.username)")
                     self.performSegueWithIdentifier("signInSegue", sender: self)
-                } else {
-                    print(error)
                 }
             })
         }))
@@ -72,7 +68,7 @@ class HomeViewController: UIViewController {
     // MARK: Unwind Segue
     
     @IBAction func unwindHome(segue: UIStoryboardSegue) {
-        //
+        //do nothing here
     }
 
 }

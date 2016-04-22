@@ -29,15 +29,11 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         super.viewDidLoad()
 
         let query = PFQuery(className:"Hunt")
+        query.includeKey("clues")
         query.findObjectsInBackgroundWithBlock({ (array, error) in
             if error == nil && array != nil {
-                print("got results")
                 self.hunts = array as! [Hunt]
                 self.tableView.reloadData()
-            } else  if array == nil {
-                print("no Results")
-            } else {
-                print(error)
             }
         })
     }
@@ -72,7 +68,6 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         let huntImage = hunt.image
         huntImage.getDataInBackgroundWithBlock({ (data, error) in
             if error == nil {
-                print("got image")
                 cell.huntImageView.image = UIImage(data: data!)
             }
         })

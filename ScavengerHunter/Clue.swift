@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import Parse
 
 class Clue: PFObject, PFSubclassing {
@@ -28,15 +29,5 @@ class Clue: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "Clue"
     }
-    
-    // MARK: Init
-    
-//    init(type: String, clue: String, solution: PFGeoPoint) {
-//        super.init()
-//        self.type = type
-//        self.clue = clue
-//        self.solution = solution
-//        self.isExpanded = true
-//    }
     
 }

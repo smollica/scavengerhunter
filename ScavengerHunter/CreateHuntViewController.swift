@@ -17,7 +17,6 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var prizeField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
-    @IBOutlet weak var backButton: SHButton!
     @IBOutlet weak var addCluesButton: SHButton!
     
     // MARK: Properties

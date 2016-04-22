@@ -259,7 +259,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="CREATE NEW HUNT" id="I2z-lG-u9Y">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Nrx-rz-tgk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Nrx-rz-tgk">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="psl-0q-eDo" id="xfv-YH-7a5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -311,32 +315,32 @@
                                     <action selector="searchButtonPressed:" destination="vjO-qb-jPE" eventType="touchUpInside" id="pw8-Jp-042"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ldl-FU-5jw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ldl-FU-5jw">
                                 <rect key="frame" x="0.0" y="134" width="320" height="434"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="huntSearchCell" rowHeight="44" id="eNf-4z-eYs" customClass="HuntSearchTableViewCell" customModule="ScavengerHunter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="huntSearchCell" rowHeight="63" id="eNf-4z-eYs" customClass="HuntSearchTableViewCell" customModule="ScavengerHunter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eNf-4z-eYs" id="xMG-mg-Asa">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-KM-spI" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
-                                                    <rect key="frame" x="4" y="4" width="60" height="35"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-KM-spI" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                                                    <rect key="frame" x="4" y="4" width="95" height="55"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="SjX-In-XHr"/>
-                                                        <constraint firstAttribute="height" constant="35" id="wIa-kT-K2r"/>
+                                                        <constraint firstAttribute="width" constant="95" id="SjX-In-XHr"/>
+                                                        <constraint firstAttribute="height" constant="55" id="wIa-kT-K2r"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-ac-zIb">
-                                                    <rect key="frame" x="74" y="11" width="87" height="21"/>
+                                                    <rect key="frame" x="109" y="21" width="87" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-Iq-Ysq">
-                                                    <rect key="frame" x="260" y="11" width="50" height="21"/>
+                                                    <rect key="frame" x="260" y="21" width="50" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -591,7 +595,7 @@
                                     <outlet property="delegate" destination="BDV-wD-QGS" id="UPj-Le-ali"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot / Cold" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-x5-G51">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-x5-G51">
                                 <rect key="frame" x="0.0" y="364" width="320" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

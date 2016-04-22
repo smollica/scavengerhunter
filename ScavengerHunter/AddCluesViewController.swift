@@ -30,8 +30,8 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.loadingIndicator.hidden = true
+        
+        getFields()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,7 +42,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     
     @IBAction func createHuntButtonPressed(sender: AnyObject) {
         
-        //create protection for creating incomplete hunts
+        //create protection for creating incomplete hunts alert
         
         newHunt.creator = PFUser.currentUser()
         
@@ -100,23 +100,25 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
                 }
             })
             
-            
             let defaultPFGeoPoint = PFGeoPoint(latitude: 0, longitude: 0)
             
             if clue.solution != defaultPFGeoPoint {
-                let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-                let clueLocation = CLLocationCoordinate2D(latitude: clue.solution.latitude, longitude: clue.solution.longitude)
-                let region = MKCoordinateRegion(center: clueLocation, span: span)
+                let range = 0.002 / 50 * clue.accuracy
+                let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
+                self.showGeoFence(cell)
+                
+                let center = CLLocationCoordinate2D(latitude: cell.clue!.solution.latitude, longitude: (cell.clue?.solution.longitude)!)
+            
+                let region = MKCoordinateRegion(center: center, span: span)
                 
                 cell.mapView.setRegion(region, animated: true)
                 
                 let annotation = MKPointAnnotation()
-                annotation.coordinate = clueLocation
+                annotation.coordinate = center
                 annotation.title = "clue"
                 
                 cell.mapView.addAnnotation(annotation)
             }
-            
             
             cell.editButton.tag = indexPath.row
             
@@ -131,10 +133,8 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         } else {
             cell.clueNumberLabel.text = "Add Clue"
             cell.expandButton.hidden = true
-            
             cell.editButton.tag = -1
         }
-        
         
         return cell
     }
@@ -177,6 +177,37 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             self.indexClicked = NSIndexPath(forRow: row, inSection: 0)
         }
         performSegueWithIdentifier("clueDetails", sender: self)
+    }
+    
+    // MARK: Helper Functions
+    
+    func getFields() {
+        self.huntNameLabel.text = "Hunt Name: " + self.newHunt.name
+        
+        let huntImage = newHunt.image
+        huntImage.getDataInBackgroundWithBlock({ (data, error) in
+            if error == nil {
+                self.huntImageView.image = UIImage(data: data!)
+            }
+        })
+        
+        self.loadingIndicator.hidden = true
+    }
+    
+    // MARK: MKMapViewDelegate
+    
+    func showGeoFence(cell: CreateClueTableViewCell) {
+        let center = CLLocationCoordinate2D(latitude: cell.clue!.solution.latitude, longitude: (cell.clue?.solution.longitude)!)
+        let visualGeoFence = MKCircle(centerCoordinate: center, radius: cell.clue!.accuracy)
+        cell.mapView.addOverlay(visualGeoFence)
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleView = MKCircleRenderer(overlay: overlay)
+        circleView.fillColor = UIColor.orangeColor().colorWithAlphaComponent(0.4)
+        circleView.strokeColor = UIColor.redColor()
+        circleView.lineWidth = 1
+        return circleView
     }
     
     // MARK: Segue
