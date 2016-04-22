@@ -9,25 +9,34 @@
 import UIKit
 import Parse
 
-class Clue: PFObject {
+class Clue: PFObject, PFSubclassing {
     
     // MARK: Properties
     
-    var number: Int
-    var type: String
-    var image: PFFile?
-    var clue: String
-    var solution: PFGeoPoint
-    var hint: String?
+    @NSManaged var number: Int
+    @NSManaged var type: String
+    @NSManaged var image: PFFile
+    @NSManaged var clue: String
+    @NSManaged var solution: PFGeoPoint
+    @NSManaged var solutionText: String
+    @NSManaged var accuracy: Double
+    @NSManaged var hint: String
+    @NSManaged var isExpanded: Bool
+    
+    // MARK: Parse
+    
+    static func parseClassName() -> String {
+        return "Clue"
+    }
     
     // MARK: Init
     
-    init(number: Int, type: String, clue: String, solution: PFGeoPoint) {
-        self.number = number
-        self.type = type
-        self.clue = clue
-        self.solution = solution
-        super.init()
-    }
+//    init(type: String, clue: String, solution: PFGeoPoint) {
+//        super.init()
+//        self.type = type
+//        self.clue = clue
+//        self.solution = solution
+//        self.isExpanded = true
+//    }
     
 }

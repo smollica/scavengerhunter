@@ -18,12 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Parse.setApplicationId("akecYT0cWwQyHap9cKZzySETecY1VloS1WFBqL6M", clientKey: "Gbd6l3zYJLBgZa1RAXYDCXqh6JAb24lbiX4V36P7")
-        
-//        let configuration = ParseClientConfiguration {
-//            $0.applicationId = "akecYT0cWwQyHap9cKZzySETecY1VloS1WFBqL6M"
-//            $0.server = "Gbd6l3zYJLBgZa1RAXYDCXqh6JAb24lbiX4V36P7"
-//        }
-//        Parse.initializeWithConfiguration(configuration)
+
+        Hunt.registerSubclass()
+        Clue.registerSubclass()
         
         return true
     }

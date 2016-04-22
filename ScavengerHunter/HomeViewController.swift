@@ -13,9 +13,9 @@ class HomeViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var logoImageView: SHLogo!
+    @IBOutlet weak var signInButton: SHButton!
+    @IBOutlet weak var signUpButton: SHButton!
     
     // MARK: viewDidLoad
 
@@ -28,7 +28,51 @@ class HomeViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func signInButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("signInSegue", sender: self)
+        if let user = PFUser.currentUser() {
+            print("logged in as \(user.username)")
+            self.performSegueWithIdentifier("signInSegue", sender: self)
+        } else {
+            loginAlert()
+        }
+    }
+    
+    // MARK: Alerts
+    
+    func loginAlert() {
+        let alertController = UIAlertController(title: "Log In Please", message:
+            "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "username"
+        }
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "password"
+            textField.secureTextEntry = true
+        }
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "Log In", style: UIAlertActionStyle.Default,handler: { action in
+            let usernameTextField = alertController.textFields?.first
+            let passwordTextField = alertController.textFields?.last
+            
+            PFUser.logInWithUsernameInBackground(usernameTextField!.text!, password: passwordTextField!.text!, block: { (user, error) in
+                if user != nil {
+                    print("logged in as \(user!.username)")
+                    self.performSegueWithIdentifier("signInSegue", sender: self)
+                } else {
+                    print(error)
+                }
+            })
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: Unwind Segue
+    
+    @IBAction func unwindHome(segue: UIStoryboardSegue) {
+        //
     }
 
 }

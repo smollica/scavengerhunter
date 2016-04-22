@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePickerContext {
     
     // MARK: Outlets
     
@@ -17,27 +17,66 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var displayNameField: UITextField!
-    @IBOutlet weak var dobPicker: UIDatePicker!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
-
+    @IBOutlet weak var cancelButton: SHButton!
+    @IBOutlet weak var signUpButton: SHButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
     // MARK: viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //
+        loadingIndicator.hidden = true
     }
     
     // MARK: Actions
     
+    @IBAction func pictureTapped(sender: AnyObject) {
+        SHImagePicker.imageAlert(self)
+    }
+    
     @IBAction func cancelButtonPressed(sender: AnyObject) {
-        //unwind to home vc
+        self.performSegueWithIdentifier("unwindHome", sender: self)
     }
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("signUpSegue", sender: self)
+        
+        self.cancelButton.hidden = true
+        self.signUpButton.hidden = true
+        self.loadingIndicator.hidden = false
+        self.loadingIndicator.startAnimating()
+        
+        let user = PFUser()
+        user.username = usernameField.text
+        user.password = passwordField.text
+        user.email = emailField.text
+        
+//        if let userImage = self.pictureImageView.image {
+//            let userImageData = UIImageJPEGRepresentation(userImage, 0.4)
+//            let imageFile = PFFile(data: userImageData!)
+//            // save it to user.image
+//        }
+        
+        user.signUpInBackgroundWithBlock { (result, error) in
+            if result {
+                print("saved")
+                self.performSegueWithIdentifier("signUpSegue", sender: self)
+            } else {
+                print(error)
+            }
+        }
+        
+        self.cancelButton.hidden = false
+        self.signUpButton.hidden = false
+        self.loadingIndicator.hidden = true
+        self.loadingIndicator.stopAnimating()
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        dismissViewControllerAnimated(true) {}
+        self.pictureImageView.image = image
     }
     
     // MARK: UITextFieldDelegate

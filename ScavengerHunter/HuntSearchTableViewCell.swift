@@ -8,12 +8,13 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class HuntSearchTableViewCell: UITableViewCell {
     
     // MARK: Outlets
     
-    @IBOutlet weak var huntImageView: PFImageView!
+    @IBOutlet weak var huntImageView: SHImage!
     @IBOutlet weak var huntNameLabel: UILabel!
     @IBOutlet weak var numberOfCluesLabel: UILabel!
 

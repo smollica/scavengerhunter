@@ -13,7 +13,7 @@ class SelectionViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var logoImageView: SHLogo!
     @IBOutlet weak var playHuntImageView: UIImageView!
     @IBOutlet weak var createHuntImageView: UIImageView!
     
@@ -21,7 +21,8 @@ class SelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
+        
+//        SHLocation.sharedManager
     }
     
     // MARK: Actions
@@ -32,6 +33,12 @@ class SelectionViewController: UIViewController {
     
     @IBAction func createHuntTapped(sender: AnyObject) {
         performSegueWithIdentifier("createHuntSegue", sender: self)
+    }
+    
+    // MARK: Unwind Segue
+    
+    @IBAction func unwindToSelection(segue: UIStoryboardSegue) {
+        //
     }
 
 }

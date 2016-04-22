@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		714E7585A761D8D4A3AB1816 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF0181FD8C984550BCBCC69 /* Pods.framework */; };
+		E542DE2C1CC8192900872CBD /* SHImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E542DE2B1CC8192900872CBD /* SHImagePicker.swift */; };
 		E5A06A021CC5709100F8B7F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A011CC5709100F8B7F6 /* AppDelegate.swift */; };
 		E5A06A071CC5709100F8B7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A06A051CC5709100F8B7F6 /* Main.storyboard */; };
 		E5A06A091CC5709100F8B7F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A06A081CC5709100F8B7F6 /* Assets.xcassets */; };
@@ -20,18 +21,23 @@
 		E5A06A221CC5739700F8B7F6 /* HuntSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A211CC5739700F8B7F6 /* HuntSearchViewController.swift */; };
 		E5A06A251CC573CD00F8B7F6 /* HuntDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A241CC573CD00F8B7F6 /* HuntDetailViewController.swift */; };
 		E5A06A271CC573E700F8B7F6 /* HuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A261CC573E700F8B7F6 /* HuntViewController.swift */; };
-		E5A06A291CC5758200F8B7F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A281CC5758200F8B7F6 /* User.swift */; };
 		E5A06A2B1CC575A000F8B7F6 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A2A1CC575A000F8B7F6 /* Hunt.swift */; };
 		E5A06A2D1CC575B300F8B7F6 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A2C1CC575B300F8B7F6 /* Clue.swift */; };
 		E5A06A2F1CC594E600F8B7F6 /* CreateClueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A2E1CC594E600F8B7F6 /* CreateClueTableViewCell.swift */; };
 		E5A06A311CC5955C00F8B7F6 /* HuntSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A301CC5955C00F8B7F6 /* HuntSearchTableViewCell.swift */; };
 		E5A06A331CC6B44A00F8B7F6 /* SHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A321CC6B44A00F8B7F6 /* SHButton.swift */; };
+		E5A06A361CC6CAA100F8B7F6 /* SHLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A351CC6CAA100F8B7F6 /* SHLogo.swift */; };
+		E5A06A381CC6CADD00F8B7F6 /* SHImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A371CC6CADD00F8B7F6 /* SHImage.swift */; };
+		E5A06A3A1CC6CB6C00F8B7F6 /* SHImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */; };
+		E5A06A3D1CC6E67B00F8B7F6 /* SHLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */; };
+		E5E289CA1CC96B5500EFC52C /* ClueCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B060A3FC79939B1D9619EF7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BFF0181FD8C984550BCBCC69 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21E21B2FFA4BFB9B6E2D21B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E542DE2B1CC8192900872CBD /* SHImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHImagePicker.swift; sourceTree = "<group>"; };
 		E5A069FE1CC5709100F8B7F6 /* ScavengerHunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScavengerHunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A06A011CC5709100F8B7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A06A061CC5709100F8B7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,12 +52,16 @@
 		E5A06A211CC5739700F8B7F6 /* HuntSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntSearchViewController.swift; sourceTree = "<group>"; };
 		E5A06A241CC573CD00F8B7F6 /* HuntDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailViewController.swift; sourceTree = "<group>"; };
 		E5A06A261CC573E700F8B7F6 /* HuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntViewController.swift; sourceTree = "<group>"; };
-		E5A06A281CC5758200F8B7F6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E5A06A2A1CC575A000F8B7F6 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
 		E5A06A2C1CC575B300F8B7F6 /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		E5A06A2E1CC594E600F8B7F6 /* CreateClueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateClueTableViewCell.swift; sourceTree = "<group>"; };
 		E5A06A301CC5955C00F8B7F6 /* HuntSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntSearchTableViewCell.swift; sourceTree = "<group>"; };
 		E5A06A321CC6B44A00F8B7F6 /* SHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHButton.swift; sourceTree = "<group>"; };
+		E5A06A351CC6CAA100F8B7F6 /* SHLogo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLogo.swift; sourceTree = "<group>"; };
+		E5A06A371CC6CADD00F8B7F6 /* SHImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHImage.swift; sourceTree = "<group>"; };
+		E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHImageButton.swift; sourceTree = "<group>"; };
+		E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLocation.swift; sourceTree = "<group>"; };
+		E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClueCreatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 		E5A06A001CC5709100F8B7F6 /* ScavengerHunter */ = {
 			isa = PBXGroup;
 			children = (
+				E5A06A3B1CC6CCB800F8B7F6 /* UI */,
 				E5A06A161CC571C000F8B7F6 /* Controller */,
 				E5A06A151CC571BC00F8B7F6 /* View */,
 				E5A06A141CC571B700F8B7F6 /* Model */,
@@ -125,9 +136,10 @@
 		E5A06A141CC571B700F8B7F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E5A06A281CC5758200F8B7F6 /* User.swift */,
 				E5A06A2A1CC575A000F8B7F6 /* Hunt.swift */,
 				E5A06A2C1CC575B300F8B7F6 /* Clue.swift */,
+				E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */,
+				E542DE2B1CC8192900872CBD /* SHImagePicker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -136,8 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				E5A06A341CC6B45100F8B7F6 /* Custom UI */,
-				E5A06A0A1CC5709100F8B7F6 /* LaunchScreen.storyboard */,
-				E5A06A051CC5709100F8B7F6 /* Main.storyboard */,
 				E5A06A2E1CC594E600F8B7F6 /* CreateClueTableViewCell.swift */,
 				E5A06A301CC5955C00F8B7F6 /* HuntSearchTableViewCell.swift */,
 			);
@@ -152,6 +162,7 @@
 				E5A06A1B1CC572DF00F8B7F6 /* SelectionViewController.swift */,
 				E5A06A1D1CC5732C00F8B7F6 /* CreateHuntViewController.swift */,
 				E5A06A1F1CC5734900F8B7F6 /* AddCluesViewController.swift */,
+				E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */,
 				E5A06A211CC5739700F8B7F6 /* HuntSearchViewController.swift */,
 				E5A06A241CC573CD00F8B7F6 /* HuntDetailViewController.swift */,
 				E5A06A261CC573E700F8B7F6 /* HuntViewController.swift */,
@@ -162,9 +173,21 @@
 		E5A06A341CC6B45100F8B7F6 /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				E5A06A351CC6CAA100F8B7F6 /* SHLogo.swift */,
 				E5A06A321CC6B44A00F8B7F6 /* SHButton.swift */,
+				E5A06A371CC6CADD00F8B7F6 /* SHImage.swift */,
+				E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */,
 			);
 			name = "Custom UI";
+			sourceTree = "<group>";
+		};
+		E5A06A3B1CC6CCB800F8B7F6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E5A06A0A1CC5709100F8B7F6 /* LaunchScreen.storyboard */,
+				E5A06A051CC5709100F8B7F6 /* Main.storyboard */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +315,11 @@
 			files = (
 				E5A06A1E1CC5732C00F8B7F6 /* CreateHuntViewController.swift in Sources */,
 				E5A06A1A1CC572AF00F8B7F6 /* SignUpViewController.swift in Sources */,
+				E5E289CA1CC96B5500EFC52C /* ClueCreatorViewController.swift in Sources */,
+				E5A06A3D1CC6E67B00F8B7F6 /* SHLocation.swift in Sources */,
+				E5A06A3A1CC6CB6C00F8B7F6 /* SHImageButton.swift in Sources */,
 				E5A06A2F1CC594E600F8B7F6 /* CreateClueTableViewCell.swift in Sources */,
+				E5A06A361CC6CAA100F8B7F6 /* SHLogo.swift in Sources */,
 				E5A06A251CC573CD00F8B7F6 /* HuntDetailViewController.swift in Sources */,
 				E5A06A311CC5955C00F8B7F6 /* HuntSearchTableViewCell.swift in Sources */,
 				E5A06A1C1CC572DF00F8B7F6 /* SelectionViewController.swift in Sources */,
@@ -302,9 +329,10 @@
 				E5A06A181CC5729600F8B7F6 /* HomeViewController.swift in Sources */,
 				E5A06A2B1CC575A000F8B7F6 /* Hunt.swift in Sources */,
 				E5A06A331CC6B44A00F8B7F6 /* SHButton.swift in Sources */,
-				E5A06A291CC5758200F8B7F6 /* User.swift in Sources */,
+				E542DE2C1CC8192900872CBD /* SHImagePicker.swift in Sources */,
 				E5A06A2D1CC575B300F8B7F6 /* Clue.swift in Sources */,
 				E5A06A271CC573E700F8B7F6 /* HuntViewController.swift in Sources */,
+				E5A06A381CC6CADD00F8B7F6 /* SHImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
