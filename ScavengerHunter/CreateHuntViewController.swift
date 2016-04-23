@@ -28,6 +28,7 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     
     override func viewWillDisappear(animated: Bool) {

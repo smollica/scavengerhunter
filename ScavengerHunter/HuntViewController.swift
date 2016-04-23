@@ -28,15 +28,18 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     var hunt: Hunt?
     var currentClue: Clue?
-    var currentClueSolution: CLLocationCoordinate2D?
     var hotCold: Double?
     var overlays = [MKOverlay]()
+    var treasureView: UIImageView?
+    var treasureViewHeight: NSLayoutConstraint?
+    var treasureViewWidth: NSLayoutConstraint?
     
     // MARK: LocationManager
     
     var locationManager: CLLocationManager?
     var currentLocation: CLLocation?
     var lastLocation: CLLocation?
+    var currentClueSolution: CLLocationCoordinate2D?
     var currentGeoFence: CLCircularRegion?
     var startingDistance: CLLocationDistance?
     var currentDistance: CLLocationDistance?
@@ -60,17 +63,16 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     // MARK: Actions
     
     @IBAction func hintButtonPressed(sender: AnyObject) {
-        getHint()
+        makeTreasure()
+        //warningAlert("Hints that are SEEN cannot be UNSEEN!", optional: true, todo: "getHint")
     }
     
     @IBAction func nextClueButtonPressed(sender: AnyObject) {
-        // alert
-        nextClue()
+        warningAlert("Are you sure you want to go on to the NEXT CLUE (cannot be undone)?", optional: true, todo: "nextClue")
     }
     
     @IBAction func quitButtonPressed(sender: AnyObject) {
-        // alert quit
-        self.performSegueWithIdentifier("quitHunt", sender: self)
+        warningAlert("Are you sure you want to QUIT the hunt (cannot be undone)?", optional: true, todo: "quitHunt")
     }
     
     // MARK: CLLocationManagerDelegate
@@ -146,17 +148,20 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     // MARK: Helper Functions
     
     func getFields() {
-        self.currentClue = hunt!.clues.first
-        
-        self.currentClueSolution = CLLocationCoordinate2D(latitude: (self.currentClue?.solution.latitude)!, longitude: self.currentClue!.solution.longitude)
-        
-        self.clueLabel.text = self.currentClue?.clue
-        self.hintLabel.text = self.currentClue?.hint
-        
-        let clueImage = self.currentClue!.image
-        clueImage.getDataInBackgroundWithBlock({ (data, error) in
+        hunt!.clues.first?.fetchIfNeededInBackgroundWithBlock({ (object, error) in
             if error == nil {
-                self.clueImageView.image = UIImage(data: data!)
+                self.currentClue = object as? Clue
+                self.currentClueSolution = CLLocationCoordinate2D(latitude: self.currentClue!.solution.latitude, longitude: self.currentClue!.solution.longitude)
+                
+                self.clueLabel.text = self.currentClue?.clue
+                self.hintLabel.text = self.currentClue?.hint
+                
+                let clueImage = self.currentClue!.image
+                clueImage.getDataInBackgroundWithBlock({ (data, error) in
+                    if error == nil {
+                        self.clueImageView.image = UIImage(data: data!)
+                    }
+                })
             }
         })
     }
@@ -196,7 +201,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func checkFoundClue() {
-        if self.hotCold >= 0 {
+        if self.hotCold <= 0 {
             // alert win
             nextClue()
         }
@@ -220,8 +225,74 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         return circleView
     }
     
-    // MARK: Alerts
     
-    //
+    // MARK: Alert
     
+    func warningAlert(string: String, optional: Bool, todo: String) {
+        let alertController = UIAlertController(title: "Warning!", message: string, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        if optional {
+            alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: { action in
+                if todo == "getHint" {
+                    self.getHint()
+                } else if todo == "nextClue" {
+                    self.nextClue()
+                } else if todo == "quitHunt" {
+                    self.performSegueWithIdentifier("quitHunt", sender: self)
+                }
+            }))
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: Image Alert
+    
+    func makeTreasure() {
+        treasureView = UIImageView(frame: CGRectZero)
+        treasureView!.image = UIImage(named: "treasure3")
+        treasureView!.alpha = 0
+        addTapGesture(treasureView!)
+        view.addSubview(treasureView!)
+        
+        let centerX = NSLayoutConstraint(item: treasureView!, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: mapView, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0)
+        view.addConstraint(centerX)
+        
+        let centerY = NSLayoutConstraint(item: treasureView!, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: mapView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0)
+        view.addConstraint(centerY)
+        
+        let height = NSLayoutConstraint(item: treasureView!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 0)
+        view.addConstraint(height)
+        
+        let width = NSLayoutConstraint(item: treasureView!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 0)
+        view.addConstraint(width)
+        
+        self.view.layoutIfNeeded()
+        
+        width.constant = self.view.frame.size.width / 1.25
+        height.constant = width.constant / 1
+        
+        UIView.animateWithDuration(2, delay: 0, options: .CurveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+            self.treasureView!.alpha = 1
+        }) { (finished) in
+            //
+        }
+    }
+    
+    func addTapGesture(imageView: UIImageView) {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.userInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.dismissTreasure))
+        imageView.addGestureRecognizer(tapGesture)
+    }
+
+    func dismissTreasure() {
+        treasureView!.userInteractionEnabled = false
+        treasureView!.hidden = true
+        treasureView!.removeFromSuperview()
+    }
+
 }

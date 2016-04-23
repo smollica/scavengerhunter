@@ -38,8 +38,7 @@ class HomeViewController: UIViewController {
     // MARK: Alerts
     
     func loginAlert() {
-        let alertController = UIAlertController(title: "Log In Please", message:
-            "", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Log In Please", message:"", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "username"
@@ -50,14 +49,16 @@ class HomeViewController: UIViewController {
             textField.secureTextEntry = true
         }
         
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        alertController.addAction(UIAlertAction(title: "Log In", style: UIAlertActionStyle.Default,handler: { action in
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Log In", style: UIAlertActionStyle.Default, handler: { action in
             let usernameTextField = alertController.textFields?.first
             let passwordTextField = alertController.textFields?.last
             
             PFUser.logInWithUsernameInBackground(usernameTextField!.text!, password: passwordTextField!.text!, block: { (user, error) in
                 if user != nil {
                     self.performSegueWithIdentifier("signInSegue", sender: self)
+                }  else if error != nil {
+                    self.errorAlert(error!)
                 }
             })
         }))
@@ -69,6 +70,16 @@ class HomeViewController: UIViewController {
     
     @IBAction func unwindHome(segue: UIStoryboardSegue) {
         //do nothing here
+    }    
+    
+    // MARK: Alert
+    
+    func errorAlert(error: NSError) {
+        let alertController = UIAlertController(title: "Error!", message: error.description, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
 }

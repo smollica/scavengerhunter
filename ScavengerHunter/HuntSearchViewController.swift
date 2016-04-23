@@ -39,16 +39,18 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
                 for hunt in self.hunts {
                     self.displayHunts.append(hunt)
                 }
-                
+
                 self.tableView.reloadData()
             }
         })
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     
     // MARK: Actions
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
-        performSearch()
+//        performSearch()
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -109,7 +111,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "huntDetail" {
             let vc = segue.destinationViewController as! HuntDetailViewController
-            vc.hunt = self.hunts[currentCell!]
+            vc.hunt = self.displayHunts[currentCell!]
         }
     }
 

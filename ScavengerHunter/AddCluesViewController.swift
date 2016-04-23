@@ -32,6 +32,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         super.viewDidLoad()
         
         getFields()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -41,20 +42,22 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     // MARK: Actions
     
     @IBAction func createHuntButtonPressed(sender: AnyObject) {
+        let defaultImageData = UIImageJPEGRepresentation(UIImage(named: "empty")!, 0.4)
+        let defaultFile = PFFile(data: defaultImageData!)
         
-        //create protection for creating incomplete hunts alert
-        
-        newHunt.creator = PFUser.currentUser()
-        
-        self.loadingIndicator.hidden = false
-        self.createHuntButton.hidden = true
-        self.loadingIndicator.startAnimating()
-        
-        newHunt.saveInBackgroundWithBlock { (result, error) in
-            self.loadingIndicator.hidden = true
-            self.createHuntButton.hidden = false
-            self.loadingIndicator.stopAnimating()
-            self.performSegueWithIdentifier("backToSelection", sender: self)
+        if newHunt.name == "" {
+            errorAlert("Missing Hunt Name", optional: false)
+        } else if newHunt.prize == "" {
+            errorAlert("Missing Hunt Prize", optional: false)
+        } else if newHunt.desc == "" {
+            errorAlert("Missing Hunt Descreption", optional: true)
+        } else if newHunt.image == defaultFile {
+            errorAlert("Missing Hunt Image", optional: true)
+        } else if newHunt.clues.count == 0 {
+            errorAlert("Your Hunt has Zero Clues", optional: false)
+        } else {
+            let string = "Your Hunt has " + String(self.newHunt.clues.count) + " Clues"
+            errorAlert(string, optional: true)
         }
     }
     
@@ -93,10 +96,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             let clueImage = clue.image
             clueImage.getDataInBackgroundWithBlock({ (data, error) in
                 if error == nil {
-                    print("got image")
                     cell.clueImageView.image = UIImage(data: data!)
-                } else {
-                    print("error")
                 }
             })
             
@@ -194,6 +194,21 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         self.loadingIndicator.hidden = true
     }
     
+    func createHunt() {
+        newHunt.creator = PFUser.currentUser()
+        
+        self.loadingIndicator.hidden = false
+        self.createHuntButton.hidden = true
+        self.loadingIndicator.startAnimating()
+        
+        newHunt.saveInBackgroundWithBlock { (result, error) in
+            self.loadingIndicator.hidden = true
+            self.createHuntButton.hidden = false
+            self.loadingIndicator.stopAnimating()
+            self.performSegueWithIdentifier("backToSelection", sender: self)
+        }
+    }
+    
     // MARK: MKMapViewDelegate
     
     func showGeoFence(cell: CreateClueTableViewCell) {
@@ -224,6 +239,22 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     
     @IBAction func unwindToClues(segue: UIStoryboardSegue) {
         //
+    }
+    
+    // MARK: Alert
+    
+    func errorAlert(string: String, optional: Bool) {
+        let alertController = UIAlertController(title: "Warning!", message: string, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        if optional {
+            alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: { action in
+                self.createHunt()
+            }))
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
 }

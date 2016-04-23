@@ -30,8 +30,10 @@ class HuntDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        organizeClues()
         setFields()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     
     // MARK: Actions
@@ -51,17 +53,16 @@ class HuntDetailViewController: UIViewController {
         let huntImage = hunt!.image
         huntImage.getDataInBackgroundWithBlock({ (data, error) in
             if error == nil {
-                print("got image")
                 self.huntImageView.image = UIImage(data: data!)
             }
         })
-        
-        do {
-            try self.hunt!.creator!.fetchIfNeeded()
-            self.huntCreatorLabel.text = "Hunt Creator: " + self.hunt!.creator!.username!
-        } catch _ {
-            //do nothing here
-        }
+
+        self.huntCreatorLabel.text = "Hunt Creator: " + self.hunt!.creator!.username!
+    }
+    
+    func organizeClues() {
+        hunt?.clues.sortInPlace({ $0.number < $1.number })
+
     }
     
     // MARK: Segue

@@ -40,7 +40,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
     }
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
-        
         self.cancelButton.hidden = true
         self.signUpButton.hidden = true
         self.loadingIndicator.hidden = false
@@ -54,13 +53,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
         user.signUpInBackgroundWithBlock { (result, error) in
             if result {
                 self.performSegueWithIdentifier("signUpSegue", sender: self)
-            } 
+            } else if error != nil {
+                self.errorAlert(error!)
+            }
+            self.cancelButton.hidden = false
+            self.signUpButton.hidden = false
+            self.loadingIndicator.hidden = true
+            self.loadingIndicator.stopAnimating()
         }
-        
-        self.cancelButton.hidden = false
-        self.signUpButton.hidden = false
-        self.loadingIndicator.hidden = true
-        self.loadingIndicator.stopAnimating()
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -74,6 +74,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
+    }
+    
+    // MARK: Alert
+    
+    func errorAlert(error: NSError) {
+        let alertController = UIAlertController(title: "Error!", message: error.description, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
 }

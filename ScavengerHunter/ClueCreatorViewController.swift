@@ -69,10 +69,23 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     
     @IBAction func createCluePressed(sender: AnyObject) {
         editClue()
-        if self.newClue {
-            self.newHunt!.clues.append(self.clue!)
+        
+        let defaultImageData = UIImageJPEGRepresentation(UIImage(named: "empty")!, 0.4)
+        let defaultFile = PFFile(data: defaultImageData!)
+        
+        if clue!.clue == "" {
+            errorAlert("Missing Clue", optional: false)
+        } else if clue!.solutionText == "" || clue!.solution == PFGeoPoint() {
+            errorAlert("Missing Clue Solution", optional: false)
+        } else if clue!.accuracy == 50 {
+            errorAlert("Clue has Maximum Accuracy (50m)", optional: true)
+        } else if clue!.image == defaultFile {
+            errorAlert("Missing Clue Image", optional: true)
+        } else if clue!.hint == "No Hint Available" {
+            errorAlert("Missing Clue Hint", optional: true)
+        } else {
+            createClue()
         }
-        performSegueWithIdentifier("unwindToClues", sender: self)
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -117,17 +130,12 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     }
     
     func editClue() {
-        
-        //create protection for creating incomplete clues alert
-        
         guard let clueText = clueField.text else {
-            //add alert
             return
         }
         self.clue!.clue = clueText
         
         guard let geoPoint = self.cluePFGeoPoint else {
-            //add alert
             return
         }
         self.clue!.solution = geoPoint
@@ -141,6 +149,8 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         
         if let clueHint = hintField.text {
             self.clue!.hint = clueHint
+        } else {
+            self.clue!.hint = "No Hint Available"
         }
         
         if let accuracyString = accuracyField.text, let accuracyDouble = Double(accuracyString) {
@@ -154,6 +164,13 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         }
         
         self.clue!.isExpanded = false
+    }
+    
+    func createClue() {
+        if self.newClue {
+            self.newHunt!.clues.append(self.clue!)
+        }
+        performSegueWithIdentifier("unwindToClues", sender: self)
     }
     
     // MARK: UITextFieldDelegate
@@ -199,6 +216,22 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         circleView.strokeColor = UIColor.redColor()
         circleView.lineWidth = 1
         return circleView
+    }
+    
+    // MARK: Alert
+    
+    func errorAlert(string: String, optional: Bool) {
+        let alertController = UIAlertController(title: "Warning!", message: string, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        if optional {
+            alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: { action in
+                self.createClue()
+            }))
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }

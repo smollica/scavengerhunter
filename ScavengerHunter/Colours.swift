@@ -9,6 +9,33 @@
 import UIKit
 
 extension UIColor {
+    class func myColour1() -> UIColor {
+        let myRed = CGFloat(0)
+        let myGreen = CGFloat(0)
+        let myBlue = CGFloat(0)
+        let myAlpha = CGFloat(0)
+
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: myAlpha)
+    }
+    
+    class func myColour2() -> UIColor {
+        let myRed = CGFloat(0)
+        let myGreen = CGFloat(0)
+        let myBlue = CGFloat(0)
+        let myAlpha = CGFloat(0)
+        
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: myAlpha)
+    }
+    
+    class func myColour3() -> UIColor {
+        let myRed = CGFloat(0)
+        let myGreen = CGFloat(0)
+        let myBlue = CGFloat(0)
+        let myAlpha = CGFloat(0)
+        
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: myAlpha)
+    }
+    
     class func gradientPoint(factor factor:CGFloat, color1:UIColor, color2:UIColor) -> UIColor
     {
         let c1 = color1.getComponents()
