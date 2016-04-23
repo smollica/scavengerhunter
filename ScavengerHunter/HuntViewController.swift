@@ -16,7 +16,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var hotColdLabel: UILabel!
+    @IBOutlet weak var hotColdLabel: SHHotColdLabel!
     @IBOutlet weak var clueImageView: PFImageView!
     @IBOutlet weak var clueLabel: SHLabel!
     @IBOutlet weak var hintLabel: SHLabel!
@@ -31,8 +31,6 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     var hotCold: Double?
     var overlays = [MKOverlay]()
     var treasureView: UIImageView?
-    var treasureViewHeight: NSLayoutConstraint?
-    var treasureViewWidth: NSLayoutConstraint?
     
     // MARK: LocationManager
     
@@ -63,8 +61,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     // MARK: Actions
     
     @IBAction func hintButtonPressed(sender: AnyObject) {
-        makeTreasure()
-        //warningAlert("Hints that are SEEN cannot be UNSEEN!", optional: true, todo: "getHint")
+        warningAlert("Hints that are SEEN cannot be UNSEEN!", optional: true, todo: "getHint")
     }
     
     @IBAction func nextClueButtonPressed(sender: AnyObject) {
@@ -173,15 +170,18 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             getFields()
             setupGeoFence()
             self.hintLabel.hidden = true
+            self.hotColdLabel.text = ""
             self.overlays.removeAll()
         } else {
-            // alert end of game
+            youWin()
         }
     }
     
     func getHint() {
         if self.hintLabel.hidden {
             self.hintLabel.hidden = false
+        } else if self.hotColdLabel.text == "" {
+            self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
         } else {
             self.showGeoFence()
         }
@@ -202,8 +202,10 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func checkFoundClue() {
         if self.hotCold <= 0 {
-            // alert win
-            nextClue()
+            makeTreasure()
+            self.hintLabel.text = "Clue " + String(self.currentClue!.number) + " Found!"
+            self.hintLabel.hidden = false
+            self.clueLabel.text = "CONGRATULATIONS"
         }
     }
     
@@ -278,7 +280,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             self.view.layoutIfNeeded()
             self.treasureView!.alpha = 1
         }) { (finished) in
-            //
+            //do nothing here
         }
     }
     
@@ -293,6 +295,11 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         treasureView!.userInteractionEnabled = false
         treasureView!.hidden = true
         treasureView!.removeFromSuperview()
+        nextClue()
+    }
+    
+    func youWin() {
+        // fireworks display + you win 
     }
 
 }

@@ -14,9 +14,9 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
     // MARK: Outlets
     
     @IBOutlet weak var huntImageView: SHImage!
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var prizeField: UITextField!
-    @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var nameField: SHTextField!
+    @IBOutlet weak var prizeField: SHTextField!
+    @IBOutlet weak var descriptionField: SHTextField!
     @IBOutlet weak var addCluesButton: SHButton!
     
     // MARK: Properties

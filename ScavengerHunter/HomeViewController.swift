@@ -16,13 +16,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logoImageView: SHLogo!
     @IBOutlet weak var signInButton: SHButton!
     @IBOutlet weak var signUpButton: SHButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //
+        self.loadingIndicator.hidden = true
     }
     
     // MARK: Actions
@@ -53,9 +54,17 @@ class HomeViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Log In", style: UIAlertActionStyle.Default, handler: { action in
             let usernameTextField = alertController.textFields?.first
             let passwordTextField = alertController.textFields?.last
+            self.signInButton.hidden = true
+            self.signUpButton.hidden = true
+            self.loadingIndicator.hidden = false
+            self.loadingIndicator.startAnimating()
             
             PFUser.logInWithUsernameInBackground(usernameTextField!.text!, password: passwordTextField!.text!, block: { (user, error) in
                 if user != nil {
+                    self.signInButton.hidden = false
+                    self.signUpButton.hidden = false
+                    self.loadingIndicator.hidden = true
+                    self.loadingIndicator.stopAnimating()
                     self.performSegueWithIdentifier("signInSegue", sender: self)
                 }  else if error != nil {
                     self.errorAlert(error!)

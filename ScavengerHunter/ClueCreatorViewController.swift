@@ -15,10 +15,10 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var solutionField: UITextField!
-    @IBOutlet weak var clueField: UITextField!
-    @IBOutlet weak var hintField: UITextField!
-    @IBOutlet weak var accuracyField: UITextField!
+    @IBOutlet weak var solutionField: SHTextField!
+    @IBOutlet weak var clueField: SHTextField!
+    @IBOutlet weak var hintField: SHTextField!
+    @IBOutlet weak var accuracyField: SHTextField!
     @IBOutlet weak var imageView: SHImage!
     
     // MARK: Properties

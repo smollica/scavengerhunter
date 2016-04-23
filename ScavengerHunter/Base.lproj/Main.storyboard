@@ -44,6 +44,13 @@
                                     <action selector="signInButtonPressed:" destination="tWP-zK-8hE" eventType="touchUpInside" id="2ws-2Q-vAd"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Img-Lx-pVd">
+                                <rect key="frame" x="141" y="265" width="39" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="7Av-gm-qKa"/>
+                                    <constraint firstAttribute="height" constant="39" id="qt3-LW-kny"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -51,11 +58,14 @@
                             <constraint firstItem="pbr-va-aS9" firstAttribute="centerX" secondItem="SFE-fF-pDg" secondAttribute="centerX" id="33T-4O-vRm"/>
                             <constraint firstItem="pbr-va-aS9" firstAttribute="centerY" secondItem="SFE-fF-pDg" secondAttribute="centerY" id="Bj3-IF-pFD"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="leading" secondItem="pbr-va-aS9" secondAttribute="trailing" id="CIF-AR-2rq"/>
+                            <constraint firstItem="Img-Lx-pVd" firstAttribute="centerX" secondItem="SFE-fF-pDg" secondAttribute="centerX" id="CNv-Mc-tun"/>
                             <constraint firstItem="9O8-uL-Gip" firstAttribute="centerX" secondItem="SFE-fF-pDg" secondAttribute="centerX" id="J0a-j4-GWY"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="top" secondItem="pbr-va-aS9" secondAttribute="bottom" constant="50" id="Jvm-M9-oFX"/>
+                            <constraint firstItem="Img-Lx-pVd" firstAttribute="centerY" secondItem="SFE-fF-pDg" secondAttribute="centerY" id="MWz-hn-KrP"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="top" secondItem="pbr-va-aS9" secondAttribute="bottom" constant="50" id="Ui2-gm-MD4"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="centerX" secondItem="pbr-va-aS9" secondAttribute="centerX" id="dy6-dX-tBL"/>
                             <constraint firstItem="pbr-va-aS9" firstAttribute="top" secondItem="9O8-uL-Gip" secondAttribute="bottom" constant="25" id="ee5-83-ROM"/>
+                            <constraint firstItem="Img-Lx-pVd" firstAttribute="top" secondItem="pbr-va-aS9" secondAttribute="bottom" constant="10" id="jHl-9Z-M46"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="height" secondItem="pbr-va-aS9" secondAttribute="height" id="kgf-MC-osn"/>
                             <constraint firstItem="pbr-va-aS9" firstAttribute="centerY" secondItem="SFE-fF-pDg" secondAttribute="centerY" id="r3o-wG-yRR"/>
                             <constraint firstItem="pbr-va-aS9" firstAttribute="top" secondItem="9O8-uL-Gip" secondAttribute="bottom" constant="75" id="sQm-Wl-oHV"/>
@@ -70,11 +80,13 @@
                                 <exclude reference="CIF-AR-2rq"/>
                                 <exclude reference="Jvm-M9-oFX"/>
                                 <exclude reference="dy6-dX-tBL"/>
+                                <exclude reference="jHl-9Z-M46"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="Img-Lx-pVd" id="YKS-KH-F2W"/>
                         <outlet property="logoImageView" destination="9O8-uL-Gip" id="6I2-Gg-FAW"/>
                         <outlet property="signInButton" destination="pbr-va-aS9" id="iQF-Ve-8IO"/>
                         <outlet property="signUpButton" destination="s0b-NS-cv0" id="Q0i-s7-JpY"/>
@@ -176,7 +188,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-f7-uVI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-f7-uVI" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="244" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -185,7 +197,7 @@
                                     <outlet property="delegate" destination="psl-0q-eDo" id="fWY-VH-A8q"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="prize" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1gf-bD-qXl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="prize" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1gf-bD-qXl" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="294" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -216,7 +228,7 @@
                                     <segue destination="x4y-VB-Gtz" kind="show" identifier="addCluesSegue" id="WCP-z2-PvR"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Aw-fo-f5f">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Aw-fo-f5f" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="344" width="300" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="x75-w2-Ko7"/>
@@ -258,7 +270,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="CREATE NEW HUNT" id="I2z-lG-u9Y">
+                    <navigationItem key="navigationItem" title="CREATE NEW HUNT" id="I2z-lG-u9Y" customClass="SHNavigationItem" customModule="ScavengerHunter" customModuleProvider="target">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Nrx-rz-tgk">
                             <connections>
                                 <action selector="backButtonPressed:" destination="psl-0q-eDo" id="xfv-YH-7a5"/>
@@ -333,13 +345,13 @@
                                                         <constraint firstAttribute="height" constant="55" id="wIa-kT-K2r"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-ac-zIb" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-ac-zIb" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="109" y="21" width="87" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-Iq-Ysq" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-Iq-Ysq" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="260" y="21" width="50" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -373,7 +385,7 @@
                                     <outlet property="delegate" destination="vjO-qb-jPE" id="QeA-Te-zxF"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search for custom hunt" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J5o-sf-8Rd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search for custom hunt" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J5o-sf-8Rd" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="84" width="233" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -395,7 +407,7 @@
                             <constraint firstAttribute="trailing" secondItem="Ldl-FU-5jw" secondAttribute="trailing" id="xCc-x9-4OR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="HUNT SEARCH" id="MVa-73-yhl">
+                    <navigationItem key="navigationItem" title="HUNT SEARCH" id="MVa-73-yhl" customClass="SHNavigationItem" customModule="ScavengerHunter" customModuleProvider="target">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="4rM-GI-YHb">
                             <connections>
                                 <action selector="backButtonPressed:" destination="vjO-qb-jPE" id="FJJ-8E-1Sw"/>
@@ -483,7 +495,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOM-Z5-uf1" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOM-Z5-uf1" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="422" width="280" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9no-0j-Hvi"/>
@@ -537,7 +549,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="HUNT DETAILS" id="jPc-Dm-CCV"/>
+                    <navigationItem key="navigationItem" title="HUNT DETAILS" id="jPc-Dm-CCV" customClass="SHNavigationItem" customModule="ScavengerHunter" customModuleProvider="target"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="huntCreatorLabel" destination="wYb-TC-6bl" id="b1c-1P-oub"/>
@@ -596,7 +608,7 @@
                                     <outlet property="delegate" destination="BDV-wD-QGS" id="UPj-Le-ali"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-x5-G51">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-x5-G51" customClass="SHHotColdLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="364" width="320" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -613,7 +625,7 @@
                                     <constraint firstAttribute="height" constant="70" id="IO6-KO-loP"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-gt-akA" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-gt-akA" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="140" y="404" width="170" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -752,7 +764,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="262"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asb-FZ-AMD" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asb-FZ-AMD" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="110" y="5" width="101" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -783,7 +795,7 @@
                                                         <action selector="expandButtonPressed:" destination="NGl-RL-N4Q" eventType="touchUpInside" id="pJb-fk-RjE"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-yN-Db2" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-yN-Db2" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="151" width="300" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="OR1-aT-ra7"/>
@@ -878,7 +890,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Clues" image="zoom_in-25" id="cks-VH-pva"/>
-                    <navigationItem key="navigationItem" title="HUNT SUMMARY" id="uua-fP-Xsj"/>
+                    <navigationItem key="navigationItem" title="HUNT SUMMARY" id="uua-fP-Xsj" customClass="SHNavigationItem" customModule="ScavengerHunter" customModuleProvider="target"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="createHuntButton" destination="jRN-Fl-nuT" id="ocQ-lu-ZOW"/>
@@ -907,7 +919,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="clue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yig-eb-Jh2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="clue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yig-eb-Jh2" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="282" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -916,7 +928,7 @@
                                     <outlet property="delegate" destination="TeI-1P-KDs" id="iwv-TE-dQM"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hint (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-9J-drD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hint (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-9J-drD" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="332" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -925,7 +937,7 @@
                                     <outlet property="delegate" destination="TeI-1P-KDs" id="34X-wd-Ko7"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="accuracy (in meters - min 50m)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-nV-KKQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="accuracy (in meters - min 50m)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-nV-KKQ" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="382" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -973,7 +985,7 @@
                                     <outlet property="delegate" destination="TeI-1P-KDs" id="YNg-gM-DTv"/>
                                 </connections>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location (solution)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1r-Px-98r">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location (solution)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1r-Px-98r" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="232" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1021,7 +1033,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="CLUE DETAILS" id="zNG-26-q4W"/>
+                    <navigationItem key="navigationItem" title="CLUE DETAILS" id="zNG-26-q4W" customClass="SHNavigationItem" customModule="ScavengerHunter" customModuleProvider="target"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="accuracyField" destination="3IG-nV-KKQ" id="dRb-CR-Krl"/>
@@ -1055,7 +1067,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="uwR-pT-Xxc">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="uwR-pT-Xxc" customClass="SHPicture" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="100" y="40" width="120" height="160"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -1066,7 +1078,7 @@
                                     <outletCollection property="gestureRecognizers" destination="UVv-zx-4jV" appends="YES" id="BfR-eZ-oOR"/>
                                 </connections>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdW-fx-8eX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdW-fx-8eX" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="270" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -1074,7 +1086,7 @@
                                     <outlet property="delegate" destination="9IX-G3-STm" id="veh-SG-2tS"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8j-CJ-uQQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8j-CJ-uQQ" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="320" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1091,7 +1103,7 @@
                                     <!--2016-04-18 21:32:09 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpx-ua-kQ4" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpx-ua-kQ4" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="370" width="86" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1106,7 +1118,7 @@
                                     <action selector="signUpButtonPressed:" destination="9IX-G3-STm" eventType="touchUpInside" id="v4Z-oT-9on"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCq-Gf-e7d">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCq-Gf-e7d" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="220" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1240,6 +1252,6 @@
         <image name="zoom_in-25" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fag-xI-ber"/>
+        <segue reference="jt7-D7-p7O"/>
     </inferredMetricsTieBreakers>
 </document>

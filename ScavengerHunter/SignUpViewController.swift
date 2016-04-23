@@ -13,10 +13,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
     
     // MARK: Outlets
     
-    @IBOutlet weak var pictureImageView: UIImageView!
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var pictureImageView: SHPicture!
+    @IBOutlet weak var usernameField: SHTextField!
+    @IBOutlet weak var passwordField: SHTextField!
+    @IBOutlet weak var emailField: SHTextField!
     @IBOutlet weak var cancelButton: SHButton!
     @IBOutlet weak var signUpButton: SHButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!

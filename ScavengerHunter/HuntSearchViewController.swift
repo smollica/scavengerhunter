@@ -14,7 +14,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     // MARK: Outlets
     
     @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var searchField: SHTextField!
     @IBOutlet weak var searchButton: SHButton!
     @IBOutlet weak var tableView: UITableView!
     

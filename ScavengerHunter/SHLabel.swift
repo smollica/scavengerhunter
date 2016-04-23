@@ -9,5 +9,12 @@
 import UIKit
 
 class SHLabel: UILabel {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        //override
+    }
 
 }

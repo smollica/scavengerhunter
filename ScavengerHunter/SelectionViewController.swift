@@ -14,8 +14,8 @@ class SelectionViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var logoImageView: SHLogo!
-    @IBOutlet weak var playHuntImageView: UIImageView!
-    @IBOutlet weak var createHuntImageView: UIImageView!
+    @IBOutlet weak var playHuntImageView: SHImageButton!
+    @IBOutlet weak var createHuntImageView: SHImageButton!
     
     // MARK: viewDidLoad
 

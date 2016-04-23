@@ -45,7 +45,7 @@ extension UIColor {
         let newG = c1.green + (factor*(c2.green-c1.green))
         let newB = c1.blue + (factor*(c2.blue-c1.blue))
         
-        return UIColor.init(red: newR, green: newG, blue: newB, alpha: 1.0)
+        return UIColor.init(red: newR, green: newG, blue: newB, alpha: 0.6)
     }
     
     func getComponents() -> (red:CGFloat, green:CGFloat, blue:CGFloat, alpha:CGFloat)
