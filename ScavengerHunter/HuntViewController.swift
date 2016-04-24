@@ -321,7 +321,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     // MARK: Map Controls
     
-    let buttonSpacing = CGFloat(40)
+    let buttonSpacing = CGFloat(25)
     
     func createButtons() {
         mapView.translatesAutoresizingMaskIntoConstraints = false

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="9O8-uL-Gip" customClass="SHLogo" customModule="ScavengerHunter" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasurehunter2" translatesAutoresizingMaskIntoConstraints="NO" id="9O8-uL-Gip" customClass="SHLogo" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="40" y="51" width="240" height="140"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -77,15 +77,16 @@
                                 <exclude reference="ee5-83-ROM"/>
                                 <exclude reference="r3o-wG-yRR"/>
                                 <exclude reference="xUm-cz-cMd"/>
+                                <exclude reference="jHl-9Z-M46"/>
                                 <exclude reference="CIF-AR-2rq"/>
                                 <exclude reference="Jvm-M9-oFX"/>
                                 <exclude reference="dy6-dX-tBL"/>
-                                <exclude reference="jHl-9Z-M46"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="Img-Lx-pVd" id="Q5j-cd-Q3o"/>
                         <outlet property="logoImageView" destination="9O8-uL-Gip" id="6I2-Gg-FAW"/>
                         <outlet property="signInButton" destination="pbr-va-aS9" id="iQF-Ve-8IO"/>
                         <outlet property="signUpButton" destination="s0b-NS-cv0" id="Q0i-s7-JpY"/>
@@ -108,7 +109,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-6P-4dC" customClass="SHLogo" customModule="ScavengerHunter" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasurehunter" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-6P-4dC" customClass="SHLogo" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="40" y="70" width="240" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="3zs-Z6-ddP"/>
@@ -1247,6 +1248,8 @@
         <image name="magical_scroll-25" width="25" height="25"/>
         <image name="plus" width="425" height="425"/>
         <image name="plus_math-25" width="25" height="25"/>
+        <image name="treasurehunter" width="284" height="177"/>
+        <image name="treasurehunter2" width="300" height="168"/>
         <image name="user" width="550" height="550"/>
         <image name="zoom_in-25" width="25" height="25"/>
     </resources>

@@ -13,7 +13,7 @@ let cornerRadius: CGFloat = 10
 let shadowOffset = CGSize(width: 5, height: 5)
 let shadowOpacity: Float = 0.5
 let buttonFontSize: CGFloat = 25
-let buttonFont = "ChalkboardSE-Regular"
+let buttonFont = "ChalkboardSE-Bold"
 
 class SHButton: UIButton {
     
