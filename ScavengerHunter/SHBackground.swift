@@ -14,7 +14,7 @@ class SHBackground: UIImageView {
         super.init(coder: aDecoder)
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        self.image = UIImage(named: "background1")
-        self.alpha = 0.15
+        self.image = UIImage(named: "background2")
+        self.alpha = 0.7
     }
 }

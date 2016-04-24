@@ -46,7 +46,6 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
         self.searchButton.titleLabel!.adjustsFontSizeToFitWidth = true
-        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.myColour2(), NSFontAttributeName: labelFont]
     }
     
     // MARK: Actions

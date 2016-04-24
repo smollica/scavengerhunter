@@ -31,6 +31,7 @@
 		E5A06A3A1CC6CB6C00F8B7F6 /* SHImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */; };
 		E5A06A3D1CC6E67B00F8B7F6 /* SHLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */; };
 		E5B6B0B41CCD63E10060B92C /* SHScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B0B31CCD63E10060B92C /* SHScroll.swift */; };
+		E5B6B0B61CCD8C510060B92C /* SHWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B0B51CCD8C510060B92C /* SHWallpaper.swift */; };
 		E5E289CA1CC96B5500EFC52C /* ClueCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */; };
 		E5E6B8BA1CCB562000F1B8D9 /* SHNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8B91CCB562000F1B8D9 /* SHNavigationItem.swift */; };
 		E5E6B8BC1CCBD83B00F1B8D9 /* SHHotColdLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8BB1CCBD83B00F1B8D9 /* SHHotColdLabel.swift */; };
@@ -75,6 +76,7 @@
 		E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHImageButton.swift; sourceTree = "<group>"; };
 		E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLocation.swift; sourceTree = "<group>"; };
 		E5B6B0B31CCD63E10060B92C /* SHScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHScroll.swift; sourceTree = "<group>"; };
+		E5B6B0B51CCD8C510060B92C /* SHWallpaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHWallpaper.swift; sourceTree = "<group>"; };
 		E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClueCreatorViewController.swift; sourceTree = "<group>"; };
 		E5E6B8B91CCB562000F1B8D9 /* SHNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationItem.swift; sourceTree = "<group>"; };
 		E5E6B8BB1CCBD83B00F1B8D9 /* SHHotColdLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHHotColdLabel.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E6B8CB1CCD5FA500F1B8D9 /* SHBackground.swift */,
+				E5B6B0B51CCD8C510060B92C /* SHWallpaper.swift */,
 				E5B6B0B31CCD63E10060B92C /* SHScroll.swift */,
 				E5A06A351CC6CAA100F8B7F6 /* SHLogo.swift */,
 				E5E6B8C11CCBDAA500F1B8D9 /* SHPicture.swift */,
@@ -375,6 +378,7 @@
 				E5E6B8BC1CCBD83B00F1B8D9 /* SHHotColdLabel.swift in Sources */,
 				E5F1D8D81CCAE9C200886715 /* SHLabel.swift in Sources */,
 				E5E6B8CA1CCD12F300F1B8D9 /* SHLargeButton.swift in Sources */,
+				E5B6B0B61CCD8C510060B92C /* SHWallpaper.swift in Sources */,
 				E5A06A2B1CC575A000F8B7F6 /* Hunt.swift in Sources */,
 				E5A06A331CC6B44A00F8B7F6 /* SHButton.swift in Sources */,
 				E5E6B8C21CCBDAA500F1B8D9 /* SHPicture.swift in Sources */,

@@ -51,7 +51,7 @@ extension UIColor {
         let myGreen:CGFloat = 243 / 255
         let myBlue:CGFloat = 206 / 255
         
-        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 0.4)
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 0.25)
     }
     
     class func gradientPoint(factor factor:CGFloat, color1:UIColor, color2:UIColor) -> UIColor
