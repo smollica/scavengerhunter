@@ -8,6 +8,8 @@
 
 import UIKit
 
+let buttonSpacing = CGFloat(30)
+
 class SHMapButton: UIImageView {
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,16 +24,16 @@ class SHMapButton: UIImageView {
         self.backgroundColor = UIColor.myColour5()
         self.tintColor = UIColor.myColour4()
         self.layer.borderColor = UIColor.myColour4().CGColor
-        self.layer.borderWidth = borderWidth
-        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.borderWidth = borderWidth / 1.5
+        self.layer.cornerRadius = buttonSpacing / 2
         self.layer.shadowColor = UIColor.myColour3().CGColor
         self.layer.shadowOffset = CGSize(width: shadowOffset.width / 2, height: shadowOffset.height / 2)
         self.layer.shadowOpacity = shadowOpacity / 2
-        
-        if (self.superview != nil) {
-            self.superview!.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.superview!, attribute: NSLayoutAttribute.Width, multiplier: 0.25, constant: 0))
-            self.superview!.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self.superview!, attribute: NSLayoutAttribute.Width, multiplier: 0.25, constant: 0))
-        }
+    }
+    
+    func autoLayout() {
+        self.superview!.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: buttonSpacing))
+        self.superview!.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: buttonSpacing))
     }
 
 }

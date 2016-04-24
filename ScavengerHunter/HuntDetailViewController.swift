@@ -34,6 +34,7 @@ class HuntDetailViewController: UIViewController {
         organizeClues()
         setFields()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
+        startHuntButton.autoLayout(view)
     }
     
     // MARK: Actions

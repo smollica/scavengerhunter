@@ -27,6 +27,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
         super.viewDidLoad()
 
         loadingIndicator.hidden = true
+        cancelButton.autoLayout(view)
+        signUpButton.autoLayout(view)
     }
     
     // MARK: Actions

@@ -12,8 +12,8 @@ let borderWidth: CGFloat = 2
 let cornerRadius: CGFloat = 10
 let shadowOffset = CGSize(width: 5, height: 5)
 let shadowOpacity: Float = 0.5
-let buttonFontSize: CGFloat = 25
-let buttonFont = "ChalkboardSE-Bold"
+let buttonFontSize: CGFloat = 20
+let buttonFont = "ArialRoundedMTBold"
 
 class SHButton: UIButton {
     
@@ -30,12 +30,12 @@ class SHButton: UIButton {
         self.layer.shadowOffset = shadowOffset
         self.layer.shadowOpacity = shadowOpacity
         self.titleLabel!.font = UIFont(name: buttonFont, size: buttonFontSize)
-
-        if (self.superview != nil) {
-            self.superview!.translatesAutoresizingMaskIntoConstraints = false
-            self.superview!.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.superview!, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0))
-            self.superview!.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0))
-        }
+        self.titleLabel!.adjustsFontSizeToFitWidth = true
+    }
+    
+    func autoLayout(superView: UIView) {
+        superView.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0))
+        superView.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: superview, attribute: NSLayoutAttribute.Width, multiplier: 0.3 * 0.4, constant: 0))
     }
 
 }

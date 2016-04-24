@@ -14,8 +14,8 @@ class HomeViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var logoImageView: SHLogo!
-    @IBOutlet weak var signInButton: SHButton!
-    @IBOutlet weak var signUpButton: SHButton!
+    @IBOutlet weak var signInButton: SHLargeButton!
+    @IBOutlet weak var signUpButton: SHLargeButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: viewDidLoad
@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         self.loadingIndicator.hidden = true
+        signInButton.autoLayout(view)
     }
     
     // MARK: Actions

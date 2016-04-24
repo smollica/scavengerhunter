@@ -37,6 +37,9 @@
 		E5E6B8C01CCBD96700F1B8D9 /* SHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8BF1CCBD96700F1B8D9 /* SHTextField.swift */; };
 		E5E6B8C21CCBDAA500F1B8D9 /* SHPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8C11CCBDAA500F1B8D9 /* SHPicture.swift */; };
 		E5E6B8C41CCC3AA700F1B8D9 /* SHMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8C31CCC3AA700F1B8D9 /* SHMapButton.swift */; };
+		E5E6B8C61CCCA2F400F1B8D9 /* SHTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8C51CCCA2F400F1B8D9 /* SHTableView.swift */; };
+		E5E6B8C81CCCA33A00F1B8D9 /* SHNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8C71CCCA33A00F1B8D9 /* SHNavigationController.swift */; };
+		E5E6B8CA1CCD12F300F1B8D9 /* SHLargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8C91CCD12F300F1B8D9 /* SHLargeButton.swift */; };
 		E5F1D8D81CCAE9C200886715 /* SHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1D8D71CCAE9C200886715 /* SHLabel.swift */; };
 		E5F1D8DA1CCAEBDE00886715 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1D8D91CCAEBDE00886715 /* Colours.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +79,9 @@
 		E5E6B8BF1CCBD96700F1B8D9 /* SHTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHTextField.swift; sourceTree = "<group>"; };
 		E5E6B8C11CCBDAA500F1B8D9 /* SHPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHPicture.swift; sourceTree = "<group>"; };
 		E5E6B8C31CCC3AA700F1B8D9 /* SHMapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMapButton.swift; sourceTree = "<group>"; };
+		E5E6B8C51CCCA2F400F1B8D9 /* SHTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHTableView.swift; sourceTree = "<group>"; };
+		E5E6B8C71CCCA33A00F1B8D9 /* SHNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationController.swift; sourceTree = "<group>"; };
+		E5E6B8C91CCD12F300F1B8D9 /* SHLargeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLargeButton.swift; sourceTree = "<group>"; };
 		E5F1D8D71CCAE9C200886715 /* SHLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLabel.swift; sourceTree = "<group>"; };
 		E5F1D8D91CCAEBDE00886715 /* Colours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +198,7 @@
 				E5A06A351CC6CAA100F8B7F6 /* SHLogo.swift */,
 				E5E6B8C11CCBDAA500F1B8D9 /* SHPicture.swift */,
 				E5A06A321CC6B44A00F8B7F6 /* SHButton.swift */,
+				E5E6B8C91CCD12F300F1B8D9 /* SHLargeButton.swift */,
 				E5A06A371CC6CADD00F8B7F6 /* SHImage.swift */,
 				E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */,
 				E5F1D8D71CCAE9C200886715 /* SHLabel.swift */,
@@ -200,6 +207,8 @@
 				E5E6B8B91CCB562000F1B8D9 /* SHNavigationItem.swift */,
 				E5E6B8BB1CCBD83B00F1B8D9 /* SHHotColdLabel.swift */,
 				E5E6B8C31CCC3AA700F1B8D9 /* SHMapButton.swift */,
+				E5E6B8C51CCCA2F400F1B8D9 /* SHTableView.swift */,
+				E5E6B8C71CCCA33A00F1B8D9 /* SHNavigationController.swift */,
 				E5F1D8D91CCAEBDE00886715 /* Colours.swift */,
 			);
 			name = "Custom UI";
@@ -345,6 +354,7 @@
 				E5A06A2F1CC594E600F8B7F6 /* CreateClueTableViewCell.swift in Sources */,
 				E5E6B8C01CCBD96700F1B8D9 /* SHTextField.swift in Sources */,
 				E5A06A361CC6CAA100F8B7F6 /* SHLogo.swift in Sources */,
+				E5E6B8C81CCCA33A00F1B8D9 /* SHNavigationController.swift in Sources */,
 				E5A06A251CC573CD00F8B7F6 /* HuntDetailViewController.swift in Sources */,
 				E5A06A311CC5955C00F8B7F6 /* HuntSearchTableViewCell.swift in Sources */,
 				E5A06A1C1CC572DF00F8B7F6 /* SelectionViewController.swift in Sources */,
@@ -357,6 +367,7 @@
 				E5E6B8BE1CCBD8D800F1B8D9 /* SHSmallLabel.swift in Sources */,
 				E5E6B8BC1CCBD83B00F1B8D9 /* SHHotColdLabel.swift in Sources */,
 				E5F1D8D81CCAE9C200886715 /* SHLabel.swift in Sources */,
+				E5E6B8CA1CCD12F300F1B8D9 /* SHLargeButton.swift in Sources */,
 				E5A06A2B1CC575A000F8B7F6 /* Hunt.swift in Sources */,
 				E5A06A331CC6B44A00F8B7F6 /* SHButton.swift in Sources */,
 				E5E6B8C21CCBDAA500F1B8D9 /* SHPicture.swift in Sources */,
@@ -365,6 +376,7 @@
 				E5A06A271CC573E700F8B7F6 /* HuntViewController.swift in Sources */,
 				E5E6B8BA1CCB562000F1B8D9 /* SHNavigationItem.swift in Sources */,
 				E5A06A381CC6CADD00F8B7F6 /* SHImage.swift in Sources */,
+				E5E6B8C61CCCA2F400F1B8D9 /* SHTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

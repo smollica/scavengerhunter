@@ -22,6 +22,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     @IBOutlet weak var hintField: SHTextField!
     @IBOutlet weak var accuracyField: SHTextField!
     @IBOutlet weak var imageView: SHImage!
+    @IBOutlet weak var creatClueButton: SHButton!
     
     // MARK: Properties
     
@@ -60,6 +61,8 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 }
             })
         }
+        
+        creatClueButton.autoLayout(view)
     }
     
     // MARK: Actions

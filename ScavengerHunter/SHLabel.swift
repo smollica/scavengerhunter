@@ -9,7 +9,7 @@
 import UIKit
 
 let labelFontSize: CGFloat = buttonFontSize
-let labelFont = buttonFont
+let labelFont = "Copperplate"
 
 class SHLabel: UILabel {
     

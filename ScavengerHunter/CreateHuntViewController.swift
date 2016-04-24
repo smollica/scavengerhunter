@@ -29,6 +29,7 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
         super.viewDidLoad()
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
+        addCluesButton.autoLayout(view)
     }
     
     override func viewWillDisappear(animated: Bool) {

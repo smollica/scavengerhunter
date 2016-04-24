@@ -21,7 +21,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var huntImageView: PFImageView!
     @IBOutlet weak var huntNameLabel: SHLabel!
     @IBOutlet weak var createHuntButton: SHButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: SHTableView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
@@ -40,6 +40,8 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
+        
+        createHuntButton.autoLayout(view)
     }
     
     // MARK: Actions
@@ -138,6 +140,8 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             cell.expandButton.hidden = true
             cell.editButton.tag = -1
         }
+        
+//        cell.editButton.autoLayout(view)
         
         return cell
     }

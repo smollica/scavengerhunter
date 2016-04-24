@@ -64,6 +64,10 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         createButtons()
         self.play = true
+        
+        hintButton.autoLayout(view)
+        nextClueButton.autoLayout(view)
+        quitButton.autoLayout(view)
     }
     
     // MARK: Actions
@@ -90,13 +94,8 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations.last
-
-        let currentLocation2D = CLLocationCoordinate2D(latitude: (self.currentLocation?.coordinate.latitude)!, longitude: (self.currentLocation?.coordinate.longitude)!)
-        let region = MKCoordinateRegion(center: currentLocation2D, span: self.span)
         
-        if play == true {
-            self.mapView.setRegion(region, animated: true)
-        }
+        refreshMap()
         
         if self.lastLocation == nil {
             getFields()
@@ -227,6 +226,15 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
     }
     
+    func refreshMap() {
+        let currentLocation2D = CLLocationCoordinate2D(latitude: (self.currentLocation?.coordinate.latitude)!, longitude: (self.currentLocation?.coordinate.longitude)!)
+        let region = MKCoordinateRegion(center: currentLocation2D, span: self.span)
+        
+        if play == true {
+            self.mapView.setRegion(region, animated: true)
+        }
+    }
+    
     // MARK: MKMapViewDelegate
     
     func showGeoFence() {
@@ -321,8 +329,6 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     // MARK: Map Controls
     
-    let buttonSpacing = CGFloat(25)
-    
     func createButtons() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
@@ -336,6 +342,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         let minusTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.zoomOut))
         minusButton!.addGestureRecognizer(minusTapGesture)
         view.addSubview(minusButton!)
+        minusButton!.autoLayout()
         
         view.addConstraint(NSLayoutConstraint(item: minusButton!, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.mapView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: buttonSpacing))
         view.addConstraint(NSLayoutConstraint(item: minusButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.mapView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -buttonSpacing))
@@ -345,6 +352,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         let plusTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.zommIn))
         plusButton!.addGestureRecognizer(plusTapGesture)
         view.addSubview(plusButton!)
+        plusButton!.autoLayout()
         
         view.addConstraint(NSLayoutConstraint(item: plusButton!, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: plusButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: -buttonSpacing))
@@ -354,15 +362,17 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         let playTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.playPause))
         playButton!.addGestureRecognizer(playTapGesture )
         view.addSubview(playButton!)
+        playButton!.autoLayout()
         
         view.addConstraint(NSLayoutConstraint(item: playButton!, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.mapView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -buttonSpacing))
         view.addConstraint(NSLayoutConstraint(item: playButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0))
         
         defaultButton = SHMapButton(frame: CGRectZero)
-        defaultButton!.image = UIImage(named: "region_code_filled-25")
+        defaultButton!.image = UIImage(named: "wind_rose_filled-25")
         let defaultTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.defaultMap))
         defaultButton!.addGestureRecognizer(defaultTapGesture)
         view.addSubview(defaultButton!)
+        defaultButton!.autoLayout()
         
         view.addConstraint(NSLayoutConstraint(item: defaultButton!, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: playButton, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: defaultButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: plusButton!, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0))
@@ -374,6 +384,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func zoomOut() {
         self.span.longitudeDelta +=  zoomFactor
         self.span.longitudeDelta +=  zoomFactor
+        refreshMap()
     }
     
     func zommIn() {
@@ -381,6 +392,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             self.span.longitudeDelta -=  zoomFactor
             self.span.longitudeDelta -=  zoomFactor
         }
+        refreshMap()
     }
     
     func playPause() {
@@ -390,12 +402,15 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         } else {
             playButton!.image = UIImage(named: "pause_filled-25")
             play = true
+            refreshMap()
         }
     }
     
     func defaultMap() {
         self.span.longitudeDelta =  0.002
         self.span.longitudeDelta =  0.002
+        play = true
+        refreshMap()
     }
 
 }

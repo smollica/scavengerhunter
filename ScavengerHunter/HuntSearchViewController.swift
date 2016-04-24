@@ -16,7 +16,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var searchField: SHTextField!
     @IBOutlet weak var searchButton: SHButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: SHTableView!
     
     // MARK: Properties
     
@@ -45,6 +45,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         })
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
+        searchButton.autoLayout(view)
     }
     
     // MARK: Actions
