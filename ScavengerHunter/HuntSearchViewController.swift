@@ -82,7 +82,13 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         })
        
         cell.huntNameLabel.text = hunt.name
-        cell.numberOfCluesLabel.text = "\(hunt.clues.count)" + " Clues"
+        
+        var clueCountLabel = "\(hunt.clues.count)" + " Clue"
+        if hunt.clues.count > 1 {
+            clueCountLabel += "s"
+        }
+        
+        cell.numberOfCluesLabel.text = clueCountLabel
         
         return cell
     }

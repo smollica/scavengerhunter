@@ -13,6 +13,7 @@ class SHImageButton: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.userInteractionEnabled = true
         
         //override
     }

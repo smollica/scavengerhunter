@@ -11,6 +11,9 @@ import MapKit
 import Parse
 import ParseUI
 
+let smallCell: Double = 35
+let largeCell: Double = 265
+
 class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CreateClueTableViewCellDelegate {
     
     // MARK: Outlets
@@ -42,22 +45,22 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     // MARK: Actions
     
     @IBAction func createHuntButtonPressed(sender: AnyObject) {
-        let defaultImageData = UIImageJPEGRepresentation(UIImage(named: "empty")!, 0.4)
-        let defaultFile = PFFile(data: defaultImageData!)
         
+        var clueCountWarning = "Your Hunt has " + String(self.newHunt.clues.count) + " Clue"
+        if self.newHunt.clues.count > 1 {
+            clueCountWarning += "s"
+        }
+
         if newHunt.name == "" {
-            errorAlert("Missing Hunt Name", optional: false)
+            warningAlert("Missing Hunt Name", optional: false)
         } else if newHunt.prize == "" {
-            errorAlert("Missing Hunt Prize", optional: false)
-        } else if newHunt.desc == "" {
-            errorAlert("Missing Hunt Descreption", optional: true)
-        } else if newHunt.image == defaultFile {
-            errorAlert("Missing Hunt Image", optional: true)
+            warningAlert("Missing Hunt Prize", optional: false)
         } else if newHunt.clues.count == 0 {
-            errorAlert("Your Hunt has Zero Clues", optional: false)
+            warningAlert("Your Hunt has Zero Clues", optional: false)
+        } else if newHunt.desc == "" {
+            warningAlert("Missing Hunt Description\n" + clueCountWarning, optional: true)
         } else {
-            let string = "Your Hunt has " + String(self.newHunt.clues.count) + " Clues"
-            errorAlert(string, optional: true)
+            warningAlert(clueCountWarning, optional: true)
         }
     }
     
@@ -103,7 +106,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             let defaultPFGeoPoint = PFGeoPoint(latitude: 0, longitude: 0)
             
             if clue.solution != defaultPFGeoPoint {
-                let range = 0.002 / 50 * clue.accuracy
+                let range = 0.002 / minAccuracy * clue.accuracy
                 let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
                 self.showGeoFence(cell)
                 
@@ -142,16 +145,16 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
             if indexPath.row > newHunt.clues.count {
-                return 265
+                return CGFloat(largeCell)
             } else {
                 if !newHunt.clues[indexPath.row].isExpanded {
-                    return 35
+                    return CGFloat(smallCell)
                 } else {
-                    return 265
+                    return CGFloat(largeCell)
                 }
             }
         } else {
-            return 265
+            return CGFloat(largeCell)
         }
     }
     
@@ -182,7 +185,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     // MARK: Helper Functions
     
     func getFields() {
-        self.huntNameLabel.text = "Hunt Name: " + self.newHunt.name
+        self.huntNameLabel.text = self.newHunt.name
         
         let huntImage = newHunt.image
         huntImage.getDataInBackgroundWithBlock({ (data, error) in
@@ -243,7 +246,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     
     // MARK: Alert
     
-    func errorAlert(string: String, optional: Bool) {
+    func warningAlert(string: String, optional: Bool) {
         let alertController = UIAlertController(title: "Warning!", message: string, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))

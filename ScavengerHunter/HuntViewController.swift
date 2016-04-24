@@ -29,8 +29,13 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     var hunt: Hunt?
     var currentClue: Clue?
     var hotCold: Double?
-    var overlays = [MKOverlay]()
     var treasureView: UIImageView?
+    var plusButton: SHMapButton?
+    var minusButton: SHMapButton?
+    var playButton: SHMapButton?
+    var defaultButton: SHMapButton?
+    var play: Bool?
+    var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
     
     // MARK: LocationManager
     
@@ -56,6 +61,9 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         self.navigationController!.setNavigationBarHidden(true, animated: true)
         self.hintLabel.hidden = true
+        
+        createButtons()
+        self.play = true
     }
     
     // MARK: Actions
@@ -83,11 +91,12 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations.last
 
-        let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
         let currentLocation2D = CLLocationCoordinate2D(latitude: (self.currentLocation?.coordinate.latitude)!, longitude: (self.currentLocation?.coordinate.longitude)!)
-        let region = MKCoordinateRegion(center: currentLocation2D, span: span)
+        let region = MKCoordinateRegion(center: currentLocation2D, span: self.span)
         
-        self.mapView.setRegion(region, animated: true)
+        if play == true {
+            self.mapView.setRegion(region, animated: true)
+        }
         
         if self.lastLocation == nil {
             getFields()
@@ -171,7 +180,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             setupGeoFence()
             self.hintLabel.hidden = true
             self.hotColdLabel.text = ""
-            self.overlays.removeAll()
+            self.mapView.removeOverlays(self.mapView.overlays)
         } else {
             youWin()
         }
@@ -191,17 +200,26 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         let targetLocation = CLLocation(latitude: (self.currentClue?.solution.latitude)!, longitude: (self.currentClue?.solution.longitude)!)
         self.currentDistance = (currentLocation?.distanceFromLocation(targetLocation))! - (self.currentGeoFence?.radius)!
         self.hotCold = self.currentDistance! / self.startingDistance!
-        if self.hotCold > 1 {
-            self.hotColdLabel.backgroundColor = UIColor.blueColor()
-        } else if self.hotCold >= 0.5 {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.5) * 2), color1: UIColor.yellowColor(), color2: UIColor.blueColor())
+        if self.hotColdLabel.text != "" {
+            self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
+        }
+        if self.hotCold > 1.00 {
+            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(0.5), color1: UIColor.blueColor(), color2: UIColor.blueColor())
+        } else if self.hotCold >= 0.75 {
+            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.75) * 4), color1: UIColor.greenColor(), color2: UIColor.blueColor())
+        } else if self.hotCold >= 0.50 {
+            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.5) * 4), color1: UIColor.yellowColor(), color2: UIColor.greenColor())
+        } else if self.hotCold >= 0.25 {
+            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.25) * 4), color1: UIColor.orangeColor(), color2: UIColor.yellowColor())
+        } else if self.hotCold >= 0 {
+            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(self.hotCold! * 4), color1: UIColor.redColor(), color2: UIColor.orangeColor())
         } else {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(self.hotCold! * 2), color1: UIColor.redColor(), color2: UIColor.yellowColor())
+            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(0.5), color1: UIColor.redColor(), color2: UIColor.redColor())
         }
     }
     
     func checkFoundClue() {
-        if self.hotCold <= 0 {
+        if self.hotCold <= 0 && self.clueLabel.text != "CONGRATULATIONS" {
             makeTreasure()
             self.hintLabel.text = "Clue " + String(self.currentClue!.number) + " Found!"
             self.hintLabel.hidden = false
@@ -212,11 +230,9 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     // MARK: MKMapViewDelegate
     
     func showGeoFence() {
-        self.mapView.removeOverlays(self.overlays)
-        self.overlays.removeAll()
+        self.mapView.removeOverlays(self.mapView.overlays)
         let visualGeoFence = MKCircle(centerCoordinate: self.currentClueSolution!, radius: (self.currentClue?.accuracy)!)
         self.mapView.addOverlay(visualGeoFence)
-        self.overlays.append(visualGeoFence)
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -256,6 +272,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         treasureView = UIImageView(frame: CGRectZero)
         treasureView!.image = UIImage(named: "treasure3")
         treasureView!.alpha = 0
+        treasureView!.userInteractionEnabled = true
         addTapGesture(treasureView!)
         view.addSubview(treasureView!)
         
@@ -300,6 +317,85 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func youWin() {
         // fireworks display + you win 
+    }
+    
+    // MARK: Map Controls
+    
+    let buttonSpacing = CGFloat(40)
+    
+    func createButtons() {
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0))
+        
+        
+        minusButton = SHMapButton(frame: CGRectZero)
+        minusButton!.image = UIImage(named: "minus_math-25")
+        let minusTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.zoomOut))
+        minusButton!.addGestureRecognizer(minusTapGesture)
+        view.addSubview(minusButton!)
+        
+        view.addConstraint(NSLayoutConstraint(item: minusButton!, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.mapView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: buttonSpacing))
+        view.addConstraint(NSLayoutConstraint(item: minusButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.mapView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -buttonSpacing))
+        
+        plusButton = SHMapButton(frame: CGRectZero)
+        plusButton!.image = UIImage(named: "plus_math-25")
+        let plusTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.zommIn))
+        plusButton!.addGestureRecognizer(plusTapGesture)
+        view.addSubview(plusButton!)
+        
+        view.addConstraint(NSLayoutConstraint(item: plusButton!, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: plusButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: -buttonSpacing))
+        
+        playButton = SHMapButton(frame: CGRectZero)
+        playButton!.image = UIImage(named: "pause_filled-25")
+        let playTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.playPause))
+        playButton!.addGestureRecognizer(playTapGesture )
+        view.addSubview(playButton!)
+        
+        view.addConstraint(NSLayoutConstraint(item: playButton!, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.mapView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -buttonSpacing))
+        view.addConstraint(NSLayoutConstraint(item: playButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0))
+        
+        defaultButton = SHMapButton(frame: CGRectZero)
+        defaultButton!.image = UIImage(named: "region_code_filled-25")
+        let defaultTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.defaultMap))
+        defaultButton!.addGestureRecognizer(defaultTapGesture)
+        view.addSubview(defaultButton!)
+        
+        view.addConstraint(NSLayoutConstraint(item: defaultButton!, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: playButton, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: defaultButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: plusButton!, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0))
+
+    }
+    
+    let zoomFactor = CLLocationDegrees(0.001)
+    
+    func zoomOut() {
+        self.span.longitudeDelta +=  zoomFactor
+        self.span.longitudeDelta +=  zoomFactor
+    }
+    
+    func zommIn() {
+        if self.span.longitudeDelta > zoomFactor {
+            self.span.longitudeDelta -=  zoomFactor
+            self.span.longitudeDelta -=  zoomFactor
+        }
+    }
+    
+    func playPause() {
+        if play == true {
+            playButton!.image = UIImage(named: "play_filled-25")
+            play = false
+        } else {
+            playButton!.image = UIImage(named: "pause_filled-25")
+            play = true
+        }
+    }
+    
+    func defaultMap() {
+        self.span.longitudeDelta =  0.002
+        self.span.longitudeDelta =  0.002
     }
 
 }

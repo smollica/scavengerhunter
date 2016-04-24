@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import Parse
 
+let minAccuracy: Double = 50
+
 class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, SHImagePickerContext {
     
     // MARK: Outlets
@@ -29,7 +31,6 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     var clue: Clue?
     var newHunt: Hunt?
     var newClue = true
-    var overlays = [MKOverlay]()
     
     // MARK: viewDidLoad
 
@@ -38,7 +39,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         
         if clueIndex!.section == 1 {
             self.clue = Clue()
-            self.clue!.accuracy = 50
+            self.clue!.accuracy = minAccuracy
             self.clue!.number = self.newHunt!.clues.count + 1
         } else {
             self.clue = newHunt!.clues[clueIndex!.row]
@@ -69,25 +70,25 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     
     @IBAction func createCluePressed(sender: AnyObject) {
         editClue()
-        
-        let defaultImageData = UIImageJPEGRepresentation(UIImage(named: "empty")!, 0.4)
-        let defaultFile = PFFile(data: defaultImageData!)
-        
+ 
         if clue!.clue == "" {
-            errorAlert("Missing Clue", optional: false)
+            warningAlert("Missing Clue", optional: false)
         } else if clue!.solutionText == "" || clue!.solution == PFGeoPoint() {
-            errorAlert("Missing Clue Solution", optional: false)
-        } else if clue!.accuracy == 50 {
-            errorAlert("Clue has Maximum Accuracy (50m)", optional: true)
-        } else if clue!.image == defaultFile {
-            errorAlert("Missing Clue Image", optional: true)
-        } else if clue!.hint == "No Hint Available" {
-            errorAlert("Missing Clue Hint", optional: true)
+            warningAlert("Missing Clue Solution", optional: false)
+        } else if clue!.hint == "No Hint Available" || clue!.accuracy == minAccuracy {
+            var warning = ""
+            if clue!.hint == "No Hint Available" {
+                warning += "Missing Clue Hint\n"
+            }
+            if clue!.accuracy == minAccuracy {
+                warning += String(format: "Clue has Maximum Accuracy (%.0fm)!", minAccuracy)
+            }
+            warningAlert(warning, optional: true)
         } else {
-            createClue()
+            self.createClue()
         }
     }
-    
+
     // MARK: UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -101,13 +102,15 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         let geo = CLGeocoder()
         geo.geocodeAddressString(self.solutionField.text!) { (placemarks, error) in
             if placemarks != nil {
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                
                 let selection = placemarks!.first
                 
                 self.clueLocation = CLLocationCoordinate2D(latitude: selection!.location!.coordinate.latitude, longitude: selection!.location!.coordinate.longitude)
                 
                 //var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
                
-                let range = 0.002 / 50 * (self.clue?.accuracy)!
+                let range = 0.002 / minAccuracy * (self.clue?.accuracy)!
                 let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
                 self.showGeoFence()
     
@@ -124,7 +127,6 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 self.cluePFGeoPoint = PFGeoPoint()
                 self.cluePFGeoPoint!.latitude = self.clueLocation!.latitude
                 self.cluePFGeoPoint!.longitude = self.clueLocation!.longitude
-                
             }
         }
     }
@@ -147,20 +149,20 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
             self.clue!.image = PFFile(data: clueImageData!)!
         }
         
-        if let clueHint = hintField.text {
-            self.clue!.hint = clueHint
+        if self.hintField.text != "" {
+            self.clue!.hint = self.hintField.text!
         } else {
             self.clue!.hint = "No Hint Available"
         }
         
         if let accuracyString = accuracyField.text, let accuracyDouble = Double(accuracyString) {
-            if accuracyDouble > 50 {
+            if accuracyDouble > minAccuracy {
                 self.clue!.accuracy = accuracyDouble
             } else {
-                self.clue!.accuracy = 50
+                self.clue!.accuracy = minAccuracy
             }
         } else {
-            self.clue!.accuracy = 50
+            self.clue!.accuracy = minAccuracy
         }
         
         self.clue!.isExpanded = false
@@ -187,15 +189,15 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 search()
             }
             if let accuracyString = accuracyField.text, let accuracyDouble = Double(accuracyString) {
-                if accuracyDouble > 50 {
+                if accuracyDouble > minAccuracy {
                     self.clue!.accuracy = accuracyDouble
                 } else {
-                    self.clue!.accuracy = 50
-                    self.accuracyField.text = "50"
+                    self.clue!.accuracy = minAccuracy
+                    self.accuracyField.text = String(minAccuracy)
                 }
             } else {
-                self.clue!.accuracy = 50
-                self.accuracyField.text = "50"
+                self.clue!.accuracy = minAccuracy
+                self.accuracyField.text = String(minAccuracy)
             }
         }
     }
@@ -203,11 +205,9 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     // MARK: MKMapViewDelegate
     
     func showGeoFence() {
-        self.mapView.removeOverlays(self.overlays)
-        self.overlays.removeAll()
+        self.mapView.removeOverlays(self.mapView.overlays)
         let visualGeoFence = MKCircle(centerCoordinate: self.clueLocation!, radius: (self.clue?.accuracy)!)
         self.mapView.addOverlay(visualGeoFence)
-        self.overlays.append(visualGeoFence)
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -220,7 +220,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     
     // MARK: Alert
     
-    func errorAlert(string: String, optional: Bool) {
+    func warningAlert(string: String, optional: Bool) {
         let alertController = UIAlertController(title: "Warning!", message: string, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))

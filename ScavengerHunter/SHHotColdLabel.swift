@@ -14,6 +14,8 @@ class SHHotColdLabel: UILabel {
         super.init(coder: aDecoder)
         self.translatesAutoresizingMaskIntoConstraints = false
         
+        self.text = ""
+        
         //override
     }
 

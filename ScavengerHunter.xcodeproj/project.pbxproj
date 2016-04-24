@@ -36,6 +36,7 @@
 		E5E6B8BE1CCBD8D800F1B8D9 /* SHSmallLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8BD1CCBD8D800F1B8D9 /* SHSmallLabel.swift */; };
 		E5E6B8C01CCBD96700F1B8D9 /* SHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8BF1CCBD96700F1B8D9 /* SHTextField.swift */; };
 		E5E6B8C21CCBDAA500F1B8D9 /* SHPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8C11CCBDAA500F1B8D9 /* SHPicture.swift */; };
+		E5E6B8C41CCC3AA700F1B8D9 /* SHMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8C31CCC3AA700F1B8D9 /* SHMapButton.swift */; };
 		E5F1D8D81CCAE9C200886715 /* SHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1D8D71CCAE9C200886715 /* SHLabel.swift */; };
 		E5F1D8DA1CCAEBDE00886715 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1D8D91CCAEBDE00886715 /* Colours.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		E5E6B8BD1CCBD8D800F1B8D9 /* SHSmallLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHSmallLabel.swift; sourceTree = "<group>"; };
 		E5E6B8BF1CCBD96700F1B8D9 /* SHTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHTextField.swift; sourceTree = "<group>"; };
 		E5E6B8C11CCBDAA500F1B8D9 /* SHPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHPicture.swift; sourceTree = "<group>"; };
+		E5E6B8C31CCC3AA700F1B8D9 /* SHMapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMapButton.swift; sourceTree = "<group>"; };
 		E5F1D8D71CCAE9C200886715 /* SHLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLabel.swift; sourceTree = "<group>"; };
 		E5F1D8D91CCAEBDE00886715 /* Colours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				E5E6B8BF1CCBD96700F1B8D9 /* SHTextField.swift */,
 				E5E6B8B91CCB562000F1B8D9 /* SHNavigationItem.swift */,
 				E5E6B8BB1CCBD83B00F1B8D9 /* SHHotColdLabel.swift */,
+				E5E6B8C31CCC3AA700F1B8D9 /* SHMapButton.swift */,
 				E5F1D8D91CCAEBDE00886715 /* Colours.swift */,
 			);
 			name = "Custom UI";
@@ -347,6 +350,7 @@
 				E5A06A1C1CC572DF00F8B7F6 /* SelectionViewController.swift in Sources */,
 				E5A06A201CC5734900F8B7F6 /* AddCluesViewController.swift in Sources */,
 				E5A06A221CC5739700F8B7F6 /* HuntSearchViewController.swift in Sources */,
+				E5E6B8C41CCC3AA700F1B8D9 /* SHMapButton.swift in Sources */,
 				E5A06A021CC5709100F8B7F6 /* AppDelegate.swift in Sources */,
 				E5F1D8DA1CCAEBDE00886715 /* Colours.swift in Sources */,
 				E5A06A181CC5729600F8B7F6 /* HomeViewController.swift in Sources */,
