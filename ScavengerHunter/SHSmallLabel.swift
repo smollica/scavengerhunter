@@ -12,8 +12,9 @@ class SHSmallLabel: SHLabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.translatesAutoresizingMaskIntoConstraints = false
         
-        //override
+        self.font = UIFont(name: labelFont, size: labelFontSize * 0.67)
     }
 
 }

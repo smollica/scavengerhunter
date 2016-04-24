@@ -15,7 +15,13 @@ class SHPicture: UIImageView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.userInteractionEnabled = true
         
-        //override
+        self.tintColor = UIColor.myColour2()
+        self.layer.borderColor = UIColor.myColour4().CGColor
+        self.layer.borderWidth = borderWidth
+        self.layer.cornerRadius = cornerRadius
+        self.layer.shadowColor = UIColor.myColour3().CGColor
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowOpacity = shadowOpacity
     }
     
 }

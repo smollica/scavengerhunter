@@ -10,30 +10,48 @@ import UIKit
 
 extension UIColor {
     class func myColour1() -> UIColor {
-        let myRed = CGFloat(0)
-        let myGreen = CGFloat(0)
-        let myBlue = CGFloat(0)
-        let myAlpha = CGFloat(0)
+        //blue-green
+        let myRed:CGFloat = 33 / 255
+        let myGreen:CGFloat = 124 / 255
+        let myBlue:CGFloat = 163 / 255
 
-        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: myAlpha)
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
     }
     
     class func myColour2() -> UIColor {
-        let myRed = CGFloat(0)
-        let myGreen = CGFloat(0)
-        let myBlue = CGFloat(0)
-        let myAlpha = CGFloat(0)
-        
-        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: myAlpha)
+        //mustard
+        let myRed:CGFloat = 226 / 255
+        let myGreen:CGFloat = 153 / 255
+        let myBlue:CGFloat = 55 / 255
+
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
     }
     
     class func myColour3() -> UIColor {
-        let myRed = CGFloat(0)
-        let myGreen = CGFloat(0)
-        let myBlue = CGFloat(0)
-        let myAlpha = CGFloat(0)
+        //asphalt
+        let myRed:CGFloat = 50 / 255
+        let myGreen:CGFloat = 56 / 255
+        let myBlue:CGFloat = 77 / 255
+
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
+    }
+    
+    class func myColour4() -> UIColor {
+        //shadow
+        let myRed:CGFloat = 33 / 255
+        let myGreen:CGFloat = 31 / 255
+        let myBlue:CGFloat = 48 / 255
         
-        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: myAlpha)
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
+    }
+    
+    class func myColour5() -> UIColor {
+        //ivory
+        let myRed:CGFloat = 241 / 255
+        let myGreen:CGFloat = 243 / 255
+        let myBlue:CGFloat = 206 / 255
+        
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 0.5)
     }
     
     class func gradientPoint(factor factor:CGFloat, color1:UIColor, color2:UIColor) -> UIColor
@@ -56,3 +74,37 @@ extension UIColor {
     }
     
 }
+
+/*
+ combo1:
+ bl-gr  217ca3  33  124 163
+ musta  e29937  226 153 55
+ asph   32384d  50  56  77
+ shadow 211f30  33  31  48
+ 
+ combo2:
+ red    f62a00  246 42  0
+ navy   00293c  0   41  60
+ l-blue 1e656d  30  101 109
+ ivory  f1f3c3  241 243 206
+ 
+ combo3:
+ yellow f9ba32  249 186 50
+ blue   426e86  66  110 134
+ coal   2f3131  47  49  49
+ bone   f8f1e5  248 241 229
+ 
+ combo4:
+ blue   344d90  52  77  144
+ l-blue 5cc5ef  92  197 239
+ orange e7552c  231 85  44
+ l-ora  ffb745  255 183 69
+ 
+ fonts:
+        ChalkboardSE-Regular (or Bold)
+        Copperplate
+        DevanagariSangamMN
+        BanglaSangamMN
+        ArialRoundedMTBold
+        AmericanTypewriter-Bold
+ */

@@ -8,13 +8,16 @@
 
 import UIKit
 
+let labelFontSize: CGFloat = buttonFontSize
+let labelFont = buttonFont
+
 class SHLabel: UILabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        //override
+        self.font = UIFont(name: labelFont, size: labelFontSize)
     }
 
 }

@@ -16,7 +16,7 @@ class SHHotColdLabel: UILabel {
         
         self.text = ""
         
-        //override
+        self.font = UIFont(name: labelFont, size: labelFontSize * 0.67)
     }
 
 }
