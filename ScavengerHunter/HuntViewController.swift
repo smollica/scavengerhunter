@@ -23,6 +23,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var hintButton: SHButton!
     @IBOutlet weak var nextClueButton: SHButton!
     @IBOutlet weak var quitButton: SHButton!
+    @IBOutlet weak var hintScroll: SHScroll!
     
     // MARK: Properties
     
@@ -61,6 +62,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         self.navigationController!.setNavigationBarHidden(true, animated: true)
         self.hintLabel.hidden = true
+        self.hintScroll.hidden = true
         
         createButtons()
         self.play = true
@@ -178,6 +180,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             getFields()
             setupGeoFence()
             self.hintLabel.hidden = true
+            self.hintScroll.hidden = true
             self.hotColdLabel.text = ""
             self.mapView.removeOverlays(self.mapView.overlays)
         } else {
@@ -188,6 +191,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func getHint() {
         if self.hintLabel.hidden {
             self.hintLabel.hidden = false
+            self.hintScroll.hidden = false
         } else if self.hotColdLabel.text == "" {
             self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
         } else {
@@ -222,7 +226,9 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             makeTreasure()
             self.hintLabel.text = "Clue " + String(self.currentClue!.number) + " Found!"
             self.hintLabel.hidden = false
+            self.hintScroll.hidden = false
             self.clueLabel.text = "CONGRATULATIONS"
+            self.hotColdLabel.hidden = true
         }
     }
     
@@ -358,7 +364,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         view.addConstraint(NSLayoutConstraint(item: plusButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: -buttonSpacing))
         
         playButton = SHMapButton(frame: CGRectZero)
-        playButton!.image = UIImage(named: "pause_filled-25")
+        playButton!.image = UIImage(named: "pause_filled-25x")
         let playTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.playPause))
         playButton!.addGestureRecognizer(playTapGesture )
         view.addSubview(playButton!)
@@ -368,7 +374,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         view.addConstraint(NSLayoutConstraint(item: playButton!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: minusButton!, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0))
         
         defaultButton = SHMapButton(frame: CGRectZero)
-        defaultButton!.image = UIImage(named: "wind_rose_filled-25")
+        defaultButton!.image = UIImage(named: "wind_rose_filled-25x")
         let defaultTapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.defaultMap))
         defaultButton!.addGestureRecognizer(defaultTapGesture)
         view.addSubview(defaultButton!)
@@ -397,10 +403,10 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func playPause() {
         if play == true {
-            playButton!.image = UIImage(named: "play_filled-25")
+            playButton!.image = UIImage(named: "play_filled-25x")
             play = false
         } else {
-            playButton!.image = UIImage(named: "pause_filled-25")
+            playButton!.image = UIImage(named: "pause_filled-25x")
             play = true
             refreshMap()
         }
@@ -410,6 +416,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         self.span.longitudeDelta =  0.002
         self.span.longitudeDelta =  0.002
         play = true
+        playButton!.image = UIImage(named: "pause_filled-25x")
         refreshMap()
     }
 

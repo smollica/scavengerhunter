@@ -13,7 +13,7 @@ class SHNavigationItem: UINavigationItem {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        //override
+        self.backBarButtonItem?.tintColor = UIColor.myColour2()
     }
 
 }

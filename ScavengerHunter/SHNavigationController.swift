@@ -15,6 +15,9 @@ class SHNavigationController: UINavigationController {
         
         self.navigationBar.backgroundColor = UIColor.myColour1()
         self.navigationBar.tintColor = UIColor.myColour2()
+        self.navigationItem.titleView?.tintColor = UIColor.myColour2()
+        self.navigationItem.titleView?.backgroundColor = UIColor.myColour2()
+        
     }
 
 }

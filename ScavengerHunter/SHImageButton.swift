@@ -17,7 +17,7 @@ class SHImageButton: UIImageView {
         
         self.tintColor = UIColor.myColour2()
         self.layer.borderColor = UIColor.myColour4().CGColor
-        self.layer.borderWidth = borderWidth * 2
+        self.layer.borderWidth = borderWidth
         self.layer.cornerRadius = cornerRadius * 2
         self.layer.shadowColor = UIColor.myColour3().CGColor
         self.layer.shadowOffset = CGSize(width: shadowOffset.width * 2, height: shadowOffset.height * 2)

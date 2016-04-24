@@ -9,34 +9,34 @@
 import UIKit
 
 extension UIColor {
-    class func myColour1() -> UIColor {
-        //blue-green
-        let myRed:CGFloat = 33 / 255
-        let myGreen:CGFloat = 124 / 255
-        let myBlue:CGFloat = 163 / 255
-
-        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
-    }
-    
     class func myColour2() -> UIColor {
-        //mustard
-        let myRed:CGFloat = 226 / 255
-        let myGreen:CGFloat = 153 / 255
-        let myBlue:CGFloat = 55 / 255
+        //rust
+        let myRed:CGFloat = 155 / 255
+        let myGreen:CGFloat = 79 / 255
+        let myBlue:CGFloat = 15 / 255
 
         return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
     }
     
-    class func myColour3() -> UIColor {
-        //asphalt
-        let myRed:CGFloat = 50 / 255
-        let myGreen:CGFloat = 56 / 255
-        let myBlue:CGFloat = 77 / 255
+    class func myColour1() -> UIColor {
+        //l-gold
+        let myRed:CGFloat = 245 / 255
+        let myGreen:CGFloat = 225 / 255
+        let myBlue:CGFloat = 86 / 255
 
         return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
     }
     
     class func myColour4() -> UIColor {
+        //asphalt
+        let myRed:CGFloat = 50 / 255
+        let myGreen:CGFloat = 56 / 255
+        let myBlue:CGFloat = 77 / 255
+
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 0.8)
+    }
+    
+    class func myColour3() -> UIColor {
         //shadow
         let myRed:CGFloat = 33 / 255
         let myGreen:CGFloat = 31 / 255
@@ -51,7 +51,7 @@ extension UIColor {
         let myGreen:CGFloat = 243 / 255
         let myBlue:CGFloat = 206 / 255
         
-        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 0.5)
+        return UIColor(red: myRed, green: myGreen, blue: myBlue, alpha: 0.4)
     }
     
     class func gradientPoint(factor factor:CGFloat, color1:UIColor, color2:UIColor) -> UIColor
@@ -99,6 +99,11 @@ extension UIColor {
  l-blue 5cc5ef  92  197 239
  orange e7552c  231 85  44
  l-ora  ffb745  255 183 69
+ 
+ other:
+ rust   9b4f0f  155 79  15 
+ gold   c99e10  201 158 16
+ l-gold f5e356  245 225 86
  
  fonts:
         ChalkboardSE-Regular (or Bold)
