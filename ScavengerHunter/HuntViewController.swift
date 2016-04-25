@@ -11,6 +11,8 @@ import MapKit
 import Parse
 import ParseUI
 
+let defaultHolColdText = "Tap for Distance"
+
 class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     // MARK: Outlets
@@ -87,10 +89,10 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     @IBAction func hotColdTapped(sender: AnyObject) {
-        if self.hotColdLabel.text == "" {
+        if self.hotColdLabel.text == defaultHolColdText {
             self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
         } else {
-            self.hotColdLabel.text = ""
+            self.hotColdLabel.text = defaultHolColdText
         }
     }
     
@@ -168,6 +170,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 
                 self.clueLabel.text = self.currentClue?.clue
                 self.hintLabel.text = self.currentClue?.hint
+                self.hotColdLabel.text = defaultHolColdText
                 
                 let clueImage = self.currentClue!.image
                 clueImage.getDataInBackgroundWithBlock({ (data, error) in
@@ -181,16 +184,17 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func nextClue() {
         self.hunt!.currentClue += 1
-        if self.hunt!.clues.count > 0 {
+        if self.hunt!.clues.count >= self.hunt!.currentClue {
             self.hunt!.clues.removeFirst()
             getFields()
             setupGeoFence()
             self.hintLabel.hidden = true
             self.hintScroll.hidden = true
-            self.hotColdLabel.text = ""
+            self.hotColdLabel.text = defaultHolColdText
             self.mapView.removeOverlays(self.mapView.overlays)
         } else {
             youWin()
+            self.performSegueWithIdentifier("quitHunt", sender: self)
         }
     }
     
@@ -207,7 +211,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         let targetLocation = CLLocation(latitude: (self.currentClue?.solution.latitude)!, longitude: (self.currentClue?.solution.longitude)!)
         self.currentDistance = (currentLocation?.distanceFromLocation(targetLocation))! - (self.currentGeoFence?.radius)!
         self.hotCold = self.currentDistance! / self.startingDistance!
-        if self.hotColdLabel.text != "" {
+        if self.hotColdLabel.text != defaultHolColdText {
             self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
         }
         if self.hotCold > 1.00 {
@@ -226,7 +230,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func checkFoundClue() {
-        if self.hotCold <= 0 && self.clueLabel.text != "CONGRATULATIONS" {
+        if self.currentDistance < 0 && self.clueLabel.text != "CONGRATULATIONS" {
             makeTreasure()
             self.hintLabel.text = "Clue " + String(self.currentClue!.number) + " Found!"
             self.hintLabel.hidden = false

@@ -16,7 +16,18 @@
                     <view key="view" contentMode="scaleToFill" id="iDo-TM-hgl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background3" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-q0-MXK">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Sqr-q0-MXK" secondAttribute="trailing" id="3Md-lg-e1A"/>
+                            <constraint firstItem="Sqr-q0-MXK" firstAttribute="top" secondItem="eqk-Na-hFP" secondAttribute="bottom" id="Cw2-eQ-FKI"/>
+                            <constraint firstItem="p0q-E9-zCl" firstAttribute="top" secondItem="Sqr-q0-MXK" secondAttribute="bottom" id="hcV-il-S2z"/>
+                            <constraint firstItem="Sqr-q0-MXK" firstAttribute="leading" secondItem="iDo-TM-hgl" secondAttribute="leading" id="oTR-fG-t0g"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -25,4 +36,7 @@
             <point key="canvasLocation" x="2087" y="1180"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background3" width="400" height="500"/>
+    </resources>
 </document>

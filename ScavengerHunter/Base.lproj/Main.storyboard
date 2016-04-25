@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lKg-z1-HgC" customClass="SHBackground" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasurehunter2" translatesAutoresizingMaskIntoConstraints="NO" id="9O8-uL-Gip" customClass="SHLogo" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="40" y="66" width="240" height="140"/>
@@ -65,7 +65,7 @@
                             <constraint firstItem="9O8-uL-Gip" firstAttribute="centerX" secondItem="SFE-fF-pDg" secondAttribute="centerX" id="J0a-j4-GWY"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="top" secondItem="pbr-va-aS9" secondAttribute="bottom" constant="50" id="Jvm-M9-oFX"/>
                             <constraint firstItem="Img-Lx-pVd" firstAttribute="centerY" secondItem="SFE-fF-pDg" secondAttribute="centerY" id="MWz-hn-KrP"/>
-                            <constraint firstItem="lKg-z1-HgC" firstAttribute="top" secondItem="1fg-OQ-Kde" secondAttribute="bottom" constant="-20" id="NQ2-UL-0rX"/>
+                            <constraint firstItem="lKg-z1-HgC" firstAttribute="top" secondItem="1fg-OQ-Kde" secondAttribute="bottom" id="NQ2-UL-0rX"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="top" secondItem="pbr-va-aS9" secondAttribute="bottom" constant="50" id="Ui2-gm-MD4"/>
                             <constraint firstItem="s0b-NS-cv0" firstAttribute="centerX" secondItem="pbr-va-aS9" secondAttribute="centerX" id="dy6-dX-tBL"/>
                             <constraint firstItem="lKg-z1-HgC" firstAttribute="leading" secondItem="SFE-fF-pDg" secondAttribute="leading" id="ebK-am-2W1"/>
@@ -117,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Bf-S4-I7s" customClass="SHBackground" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasurehunter" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-6P-4dC" customClass="SHLogo" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="40" y="120" width="240" height="140"/>
@@ -144,14 +144,14 @@
                                     <outletCollection property="gestureRecognizers" destination="THe-A8-RcU" appends="YES" id="fWi-wx-npb"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go on Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmy-QJ-c5i" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="69" y="495" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go on Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmy-QJ-c5i" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="50" y="495" width="125" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pk-EG-XR8" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="161" y="495" width="93" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pk-EG-XR8" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="145" y="495" width="125" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -162,24 +162,30 @@
                             <constraint firstItem="gmy-QJ-c5i" firstAttribute="centerX" secondItem="QZz-xf-SIt" secondAttribute="centerX" id="17L-TO-k11"/>
                             <constraint firstAttribute="bottom" secondItem="1Bf-S4-I7s" secondAttribute="bottom" id="3yn-Kz-pao"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="width" secondItem="QZz-xf-SIt" secondAttribute="width" id="4Ef-24-4Fr"/>
+                            <constraint firstItem="3pk-EG-XR8" firstAttribute="trailing" secondItem="zIz-VF-zPj" secondAttribute="trailing" id="8va-BQ-Z9W"/>
+                            <constraint firstItem="gmy-QJ-c5i" firstAttribute="leading" secondItem="QZz-xf-SIt" secondAttribute="leading" id="9GL-Cw-pBL"/>
                             <constraint firstAttribute="trailing" secondItem="zIz-VF-zPj" secondAttribute="trailing" constant="50" id="Pbi-lP-8JR"/>
                             <constraint firstItem="1Bf-S4-I7s" firstAttribute="leading" secondItem="MjH-ne-yah" secondAttribute="leading" id="RRl-E0-mf8"/>
                             <constraint firstItem="QZz-xf-SIt" firstAttribute="top" secondItem="pgi-6P-4dC" secondAttribute="bottom" constant="100" id="Xb0-M9-ueA"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="top" secondItem="QZz-xf-SIt" secondAttribute="top" id="ZAJ-hn-xRP"/>
                             <constraint firstItem="3pk-EG-XR8" firstAttribute="centerY" secondItem="gmy-QJ-c5i" secondAttribute="centerY" id="aGm-dj-EVs"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="leading" secondItem="QZz-xf-SIt" secondAttribute="trailing" constant="8" symbolic="YES" id="an1-kd-Q82"/>
+                            <constraint firstItem="gmy-QJ-c5i" firstAttribute="trailing" secondItem="QZz-xf-SIt" secondAttribute="trailing" id="bYF-L4-8ax"/>
                             <constraint firstItem="gmy-QJ-c5i" firstAttribute="top" secondItem="QZz-xf-SIt" secondAttribute="bottom" constant="10" id="cEm-ui-z8e"/>
                             <constraint firstItem="3pk-EG-XR8" firstAttribute="centerX" secondItem="zIz-VF-zPj" secondAttribute="centerX" id="gpL-Tj-Ikv"/>
                             <constraint firstItem="pgi-6P-4dC" firstAttribute="centerX" secondItem="MjH-ne-yah" secondAttribute="centerX" id="hQC-vn-GQA"/>
                             <constraint firstAttribute="trailing" secondItem="1Bf-S4-I7s" secondAttribute="trailing" id="rcO-H8-ICV"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="height" secondItem="QZz-xf-SIt" secondAttribute="height" id="tFe-K2-RkC"/>
+                            <constraint firstItem="3pk-EG-XR8" firstAttribute="leading" secondItem="zIz-VF-zPj" secondAttribute="leading" id="vbW-yD-vzD"/>
                             <constraint firstItem="QZz-xf-SIt" firstAttribute="leading" secondItem="MjH-ne-yah" secondAttribute="leading" constant="50" id="vgw-Kn-18q"/>
-                            <constraint firstItem="1Bf-S4-I7s" firstAttribute="top" secondItem="MjH-ne-yah" secondAttribute="top" id="wn3-Uj-UCK"/>
+                            <constraint firstItem="1Bf-S4-I7s" firstAttribute="top" secondItem="MjH-ne-yah" secondAttribute="top" constant="20" id="wn3-Uj-UCK"/>
                             <constraint firstItem="pgi-6P-4dC" firstAttribute="top" secondItem="Wyf-6u-60C" secondAttribute="bottom" constant="100" id="ynN-4A-74H"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="an1-kd-Q82"/>
+                                <exclude reference="17L-TO-k11"/>
+                                <exclude reference="gpL-Tj-Ikv"/>
                             </mask>
                         </variation>
                     </view>
@@ -665,7 +671,7 @@
                                     <outlet property="delegate" destination="BDV-wD-QGS" id="UPj-Le-ali"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-x5-G51" customClass="SHHotColdLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-x5-G51" customClass="SHHotColdLabel" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="264" width="320" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
@@ -1213,7 +1219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="trE-ye-Sv9" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="uwR-pT-Xxc" customClass="SHPicture" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="100" y="60" width="120" height="160"/>
@@ -1313,7 +1319,7 @@
                             <constraint firstItem="EPU-jx-r83" firstAttribute="centerX" secondItem="r38-bg-5n7" secondAttribute="centerX" id="Zay-67-9pl"/>
                             <constraint firstItem="jH8-uI-WBG" firstAttribute="centerY" secondItem="h3m-QI-eEF" secondAttribute="centerY" id="atf-I7-grx"/>
                             <constraint firstItem="oYR-eS-xjF" firstAttribute="top" secondItem="trE-ye-Sv9" secondAttribute="bottom" id="eV2-Un-bBS"/>
-                            <constraint firstItem="trE-ye-Sv9" firstAttribute="top" secondItem="r38-bg-5n7" secondAttribute="top" id="ea4-AL-11w"/>
+                            <constraint firstItem="trE-ye-Sv9" firstAttribute="top" secondItem="r38-bg-5n7" secondAttribute="top" constant="20" id="ea4-AL-11w"/>
                             <constraint firstItem="UdW-fx-8eX" firstAttribute="leading" secondItem="DCq-Gf-e7d" secondAttribute="leading" id="fmG-zf-6vy"/>
                             <constraint firstItem="DCq-Gf-e7d" firstAttribute="leading" secondItem="r38-bg-5n7" secondAttribute="leading" constant="10" id="gfJ-OG-4Qk"/>
                             <constraint firstAttribute="trailing" secondItem="trE-ye-Sv9" secondAttribute="trailing" id="h4T-he-Rxg"/>
@@ -1406,6 +1412,6 @@
         <image name="zoom_in-25" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jt7-D7-p7O"/>
+        <segue reference="Fag-xI-ber"/>
     </inferredMetricsTieBreakers>
 </document>

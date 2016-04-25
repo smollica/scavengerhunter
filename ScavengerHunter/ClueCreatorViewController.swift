@@ -125,7 +125,8 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         CLGeocoder().reverseGeocodeLocation(currentLocation!) { (placemarks, error) in
             if placemarks != nil {
                 self.solutionField.text = placemarks?.first!.name
-                self.search()
+                self.clueLocation = CLLocationCoordinate2D(latitude: currentLocation!.coordinate.latitude, longitude: currentLocation!.coordinate.longitude)
+                self.saveAndAnnotateSolution()
                 self.locationManager!.stopUpdatingLocation()
             }
         }
@@ -155,27 +156,33 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 
                 self.clueLocation = CLLocationCoordinate2D(latitude: selection!.location!.coordinate.latitude, longitude: selection!.location!.coordinate.longitude)
                 
-                //var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-               
-                let range = 0.002 / defaultAccuracy * (self.clue?.accuracy)!
-                let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
-                self.showGeoFence()
-    
-                let region = MKCoordinateRegion(center: self.clueLocation!, span: span)
-                
-                self.mapView.setRegion(region, animated: true)
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = self.clueLocation!
-                annotation.title = "clue solution"
-                
-                self.mapView.addAnnotation(annotation)
-                
-                self.cluePFGeoPoint = PFGeoPoint()
-                self.cluePFGeoPoint!.latitude = self.clueLocation!.latitude
-                self.cluePFGeoPoint!.longitude = self.clueLocation!.longitude
+                self.saveAndAnnotateSolution()
             }
         }
+    }
+    
+    func saveAndAnnotateSolution() {
+        //var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
+        
+        let range = 0.002 / defaultAccuracy * (self.clue?.accuracy)!
+        let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
+        self.showGeoFence()
+        
+        let region = MKCoordinateRegion(center: self.clueLocation!, span: span)
+        
+        self.mapView.setRegion(region, animated: true)
+        
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = self.clueLocation!
+        annotation.title = "clue solution"
+        
+        self.mapView.addAnnotation(annotation)
+        
+        self.cluePFGeoPoint = PFGeoPoint()
+        self.cluePFGeoPoint!.latitude = self.clueLocation!.latitude
+        self.cluePFGeoPoint!.longitude = self.clueLocation!.longitude
     }
     
     func editClue() {

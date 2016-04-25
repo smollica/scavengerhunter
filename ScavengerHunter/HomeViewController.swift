@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         self.loadingIndicator.hidden = true
-        signInButton.autoLayout(view)
+//        signInButton.autoLayout(view)
     }
     
     // MARK: Actions
