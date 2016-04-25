@@ -15,7 +15,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var searchField: SHTextField!
-    @IBOutlet weak var searchButton: SHButton!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tableView: SHTableView!
     
     // MARK: Properties
@@ -45,13 +45,14 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         })
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
-        self.searchButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        
+        fixButton()
     }
     
     // MARK: Actions
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
-//        performSearch()
+        performSearch()
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -111,6 +112,19 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
             }
         }
         self.tableView.reloadData()
+    }
+    
+    func fixButton() {
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        searchButton.backgroundColor = UIColor.myColour1()
+        searchButton.tintColor = UIColor.myColour2()
+        searchButton.layer.borderColor = UIColor.myColour4().CGColor
+        searchButton.layer.borderWidth = borderWidth
+        searchButton.layer.cornerRadius = cornerRadius
+        searchButton.layer.shadowColor = UIColor.myColour3().CGColor
+        searchButton.layer.shadowOffset = shadowOffset
+        searchButton.layer.shadowOpacity = shadowOpacity
+        searchButton.titleLabel!.font = UIFont(name: buttonFont, size: 16)
     }
     
     // MARK: Segue

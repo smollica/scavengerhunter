@@ -11,7 +11,7 @@ import MapKit
 import Parse
 import ParseUI
 
-let smallCell: Double = 35
+let smallCell: Double = 28
 let largeCell: Double = 265
 
 class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CreateClueTableViewCellDelegate {
@@ -41,7 +41,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
         
-        createHuntButton.autoLayout(view)
+        self.createHuntButton.titleLabel!.adjustsFontSizeToFitWidth = true
     }
     
     // MARK: Actions
@@ -140,8 +140,6 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             cell.expandButton.hidden = true
             cell.editButton.tag = -1
         }
-        
-//        cell.editButton.autoLayout(view)
         
         return cell
     }

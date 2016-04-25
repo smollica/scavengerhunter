@@ -10,9 +10,10 @@ import UIKit
 import MapKit
 import Parse
 
-let minAccuracy: Double = 50
+let minAccuracy: Double = 2
+let defaultAccuracy: Double = 50
 
-class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, SHImagePickerContext {
+class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate, SHImagePickerContext {
     
     // MARK: Outlets
     
@@ -23,6 +24,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     @IBOutlet weak var accuracyField: SHTextField!
     @IBOutlet weak var imageView: SHImage!
     @IBOutlet weak var creatClueButton: SHButton!
+    @IBOutlet weak var myLocationButton: SHButton!
     
     // MARK: Properties
     
@@ -33,6 +35,11 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     var newHunt: Hunt?
     var newClue = true
     
+    // MARK: LocationManager
+    
+    var locationManager: CLLocationManager?
+    var currentLocation: CLLocation?
+    
     // MARK: viewDidLoad
 
     override func viewDidLoad() {
@@ -40,7 +47,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         
         if clueIndex!.section == 1 {
             self.clue = Clue()
-            self.clue!.accuracy = minAccuracy
+            self.clue!.accuracy = defaultAccuracy
             self.clue!.number = self.newHunt!.clues.count + 1
         } else {
             self.clue = newHunt!.clues[clueIndex!.row]
@@ -52,7 +59,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
             search()
             self.clueField.text = clue!.clue
             self.hintField.text = clue!.hint
-            self.accuracyField.text = String(clue!.accuracy)
+            self.accuracyField.text = String(format: "%.0fm", clue!.accuracy)
             
             let clueImage = clue!.image
             clueImage.getDataInBackgroundWithBlock({ (data, error) in
@@ -63,6 +70,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         }
         
         creatClueButton.autoLayout(view)
+        self.myLocationButton.titleLabel!.adjustsFontSizeToFitWidth = true
     }
     
     // MARK: Actions
@@ -78,18 +86,54 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
             warningAlert("Missing Clue", optional: false)
         } else if clue!.solutionText == "" || clue!.solution == PFGeoPoint() {
             warningAlert("Missing Clue Solution", optional: false)
-        } else if clue!.hint == "No Hint Available" || clue!.accuracy == minAccuracy {
+        } else if clue!.hint == "No Hint Available" || clue!.accuracy == defaultAccuracy {
             var warning = ""
             if clue!.hint == "No Hint Available" {
                 warning += "Missing Clue Hint\n"
             }
-            if clue!.accuracy == minAccuracy {
-                warning += String(format: "Clue has Maximum Accuracy (%.0fm)!", minAccuracy)
+            if clue!.accuracy == defaultAccuracy {
+                warning += String(format: "Clue has Default Accuracy (%.0fm)!", defaultAccuracy)
             }
             warningAlert(warning, optional: true)
         } else {
             self.createClue()
         }
+    }
+    
+    @IBAction func myLocationPressed(sender: AnyObject) {
+        if self.locationManager == nil {
+            self.locationManager = CLLocationManager()
+            self.locationManager!.delegate = self
+        }
+        
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            locationManager!.requestAlwaysAuthorization()
+        }
+        
+    }
+    
+    // MARK: CLLocationManagerDelegate
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedAlways {
+            locationManager!.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation = locations.last
+        CLGeocoder().reverseGeocodeLocation(currentLocation!) { (placemarks, error) in
+            if placemarks != nil {
+                self.solutionField.text = placemarks?.first!.name
+                self.search()
+                self.locationManager!.stopUpdatingLocation()
+            }
+        }
+        
+        
+        //reverse geolocation!
+        
+        //plot in map
     }
 
     // MARK: UIImagePickerControllerDelegate
@@ -113,7 +157,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 
                 //var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
                
-                let range = 0.002 / minAccuracy * (self.clue?.accuracy)!
+                let range = 0.002 / defaultAccuracy * (self.clue?.accuracy)!
                 let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
                 self.showGeoFence()
     
@@ -165,7 +209,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 self.clue!.accuracy = minAccuracy
             }
         } else {
-            self.clue!.accuracy = minAccuracy
+            self.clue!.accuracy = defaultAccuracy
         }
         
         self.clue!.isExpanded = false
@@ -196,11 +240,11 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                     self.clue!.accuracy = accuracyDouble
                 } else {
                     self.clue!.accuracy = minAccuracy
-                    self.accuracyField.text = String(minAccuracy)
+                    self.accuracyField.text = String(format: "%.0fm", minAccuracy)
                 }
             } else {
-                self.clue!.accuracy = minAccuracy
-                self.accuracyField.text = String(minAccuracy)
+                self.clue!.accuracy = defaultAccuracy
+                self.accuracyField.text = String(format: "%.0fm", defaultAccuracy)
             }
         }
     }

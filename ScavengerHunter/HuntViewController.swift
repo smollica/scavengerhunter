@@ -86,7 +86,13 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         warningAlert("Are you sure you want to QUIT the hunt (cannot be undone)?", optional: true, todo: "quitHunt")
     }
     
-    // MARK: CLLocationManagerDelegate
+    @IBAction func hotColdTapped(sender: AnyObject) {
+        if self.hotColdLabel.text == "" {
+            self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
+        } else {
+            self.hotColdLabel.text = ""
+        }
+    }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedAlways {
@@ -192,8 +198,6 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         if self.hintLabel.hidden {
             self.hintLabel.hidden = false
             self.hintScroll.hidden = false
-        } else if self.hotColdLabel.text == "" {
-            self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
         } else {
             self.showGeoFence()
         }
@@ -330,7 +334,8 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func youWin() {
-        // fireworks display + you win 
+        // fireworks display
+        self.performSegueWithIdentifier("quitHunt", sender: self)
     }
     
     // MARK: Map Controls
@@ -340,7 +345,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: -20))
         
         
         minusButton = SHMapButton(frame: CGRectZero)

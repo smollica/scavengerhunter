@@ -13,10 +13,11 @@ class SHHotColdLabel: UILabel {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.userInteractionEnabled = true
         
         self.text = ""
         
-        self.font = UIFont(name: labelFont, size: labelFontSize * 0.67)
+        self.font = UIFont(name: labelFont, size: labelFontSize * 1.5)
     }
 
 }
