@@ -69,8 +69,8 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
             })
         }
         
-        creatClueButton.autoLayout(view)
         self.myLocationButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        self.mapView.layer.cornerRadius = cornerRadius
     }
     
     // MARK: Actions

@@ -18,6 +18,7 @@ class SHHotColdLabel: UILabel {
         self.text = ""
         
         self.font = UIFont(name: labelFont, size: labelFontSize * 1.5)
+        self.adjustsFontSizeToFitWidth = true
     }
 
 }

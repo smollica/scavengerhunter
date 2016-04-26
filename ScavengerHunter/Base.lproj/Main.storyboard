@@ -134,15 +134,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Bf-S4-I7s" customClass="SHBackground" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create_hunt2" translatesAutoresizingMaskIntoConstraints="NO" id="zIz-VF-zPj" customClass="SHImageButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="170" y="332" width="115" height="115"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create_hunt" translatesAutoresizingMaskIntoConstraints="NO" id="zIz-VF-zPj" customClass="SHImageButton" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="170" y="327" width="110" height="110"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="TDA-Ga-Cce" appends="YES" id="w9W-aV-EXY"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_hunt2" translatesAutoresizingMaskIntoConstraints="NO" id="QZz-xf-SIt" customClass="SHImageButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="35" y="332" width="115" height="115"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_hunt" translatesAutoresizingMaskIntoConstraints="NO" id="QZz-xf-SIt" customClass="SHImageButton" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="40" y="327" width="110" height="110"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="cZt-9N-ct4"/>
@@ -160,19 +160,19 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go on Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmy-QJ-c5i" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="35" y="457" width="115" height="21"/>
+                                <rect key="frame" x="40" y="447" width="110" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pk-EG-XR8" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="170" y="457" width="115" height="21"/>
+                                <rect key="frame" x="170" y="447" width="110" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasurehunter" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-6P-4dC" customClass="SHLogo" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="35" y="110" width="250" height="175"/>
+                                <rect key="frame" x="40" y="120" width="240" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="3zs-Z6-ddP"/>
                                     <constraint firstAttribute="height" constant="175" id="Xhu-2h-znZ"/>
@@ -194,7 +194,7 @@
                             <constraint firstItem="3pk-EG-XR8" firstAttribute="trailing" secondItem="zIz-VF-zPj" secondAttribute="trailing" id="8va-BQ-Z9W"/>
                             <constraint firstItem="gmy-QJ-c5i" firstAttribute="leading" secondItem="QZz-xf-SIt" secondAttribute="leading" id="9GL-Cw-pBL"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="leading" secondItem="QZz-xf-SIt" secondAttribute="trailing" constant="20" id="Gob-O0-qXq"/>
-                            <constraint firstItem="B4u-NK-rbD" firstAttribute="top" secondItem="gmy-QJ-c5i" secondAttribute="bottom" constant="90" id="KxP-O8-Ny1"/>
+                            <constraint firstItem="B4u-NK-rbD" firstAttribute="top" secondItem="gmy-QJ-c5i" secondAttribute="bottom" constant="100" id="KxP-O8-Ny1"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="height" secondItem="QZz-xf-SIt" secondAttribute="height" id="MRY-Yu-Cem"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="trailing" secondItem="pgi-6P-4dC" secondAttribute="trailing" id="O91-53-Ipa"/>
                             <constraint firstAttribute="trailing" secondItem="zIz-VF-zPj" secondAttribute="trailing" constant="50" id="Pbi-lP-8JR"/>
@@ -208,14 +208,14 @@
                             <constraint firstItem="3pk-EG-XR8" firstAttribute="centerX" secondItem="zIz-VF-zPj" secondAttribute="centerX" id="gpL-Tj-Ikv"/>
                             <constraint firstItem="pgi-6P-4dC" firstAttribute="centerX" secondItem="MjH-ne-yah" secondAttribute="centerX" id="hQC-vn-GQA"/>
                             <constraint firstItem="QZz-xf-SIt" firstAttribute="leading" secondItem="pgi-6P-4dC" secondAttribute="leading" id="lKV-rW-nxZ"/>
-                            <constraint firstItem="pgi-6P-4dC" firstAttribute="leading" secondItem="MjH-ne-yah" secondAttribute="leading" constant="35" id="oG2-9n-zBt"/>
+                            <constraint firstItem="pgi-6P-4dC" firstAttribute="leading" secondItem="MjH-ne-yah" secondAttribute="leading" constant="40" id="oG2-9n-zBt"/>
                             <constraint firstAttribute="trailing" secondItem="1Bf-S4-I7s" secondAttribute="trailing" id="rcO-H8-ICV"/>
                             <constraint firstItem="zIz-VF-zPj" firstAttribute="height" secondItem="QZz-xf-SIt" secondAttribute="height" id="tFe-K2-RkC"/>
                             <constraint firstItem="3pk-EG-XR8" firstAttribute="leading" secondItem="zIz-VF-zPj" secondAttribute="leading" id="vbW-yD-vzD"/>
                             <constraint firstItem="QZz-xf-SIt" firstAttribute="leading" secondItem="MjH-ne-yah" secondAttribute="leading" constant="50" id="vgw-Kn-18q"/>
                             <constraint firstItem="1Bf-S4-I7s" firstAttribute="top" secondItem="MjH-ne-yah" secondAttribute="top" constant="20" id="wn3-Uj-UCK"/>
-                            <constraint firstItem="pgi-6P-4dC" firstAttribute="top" secondItem="Wyf-6u-60C" secondAttribute="bottom" constant="90" id="ynN-4A-74H"/>
-                            <constraint firstAttribute="trailing" secondItem="pgi-6P-4dC" secondAttribute="trailing" constant="35" id="z9n-Tu-Yaz"/>
+                            <constraint firstItem="pgi-6P-4dC" firstAttribute="top" secondItem="Wyf-6u-60C" secondAttribute="bottom" constant="100" id="ynN-4A-74H"/>
+                            <constraint firstAttribute="trailing" secondItem="pgi-6P-4dC" secondAttribute="trailing" constant="40" id="z9n-Tu-Yaz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -268,15 +268,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="24y-Kf-WMe" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-f7-uVI" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="264" width="300" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="getFields" destination="psl-0q-eDo" eventType="editingDidEnd" id="UaT-cO-4d2"/>
-                                    <outlet property="delegate" destination="psl-0q-eDo" id="fWY-VH-A8q"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="prize" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1gf-bD-qXl" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="314" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -286,21 +277,30 @@
                                     <outlet property="delegate" destination="psl-0q-eDo" id="nRs-QD-AdR"/>
                                 </connections>
                             </textField>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="Th8-nt-nkW" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="Th8-nt-nkW" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="40" y="104" width="240" height="140"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="Th8-nt-nkW" secondAttribute="height" multiplier="12:7" id="Imc-Q2-dD1"/>
                                     <constraint firstAttribute="height" constant="140" id="Lwi-6X-eRY"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="YLq-he-H0G"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="gvB-fu-dMb"/>
                                     <constraint firstAttribute="width" constant="240" id="rJ8-P6-4yo"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Lwi-6X-eRY"/>
+                                        <exclude reference="YLq-he-H0G"/>
+                                        <exclude reference="gvB-fu-dMb"/>
+                                        <exclude reference="rJ8-P6-4yo"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="eFR-ni-jqD" appends="YES" id="HFJ-u4-aXb"/>
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKi-OR-Ic0" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="114" y="492" width="93" height="36"/>
+                                <rect key="frame" x="100" y="492" width="120" height="36"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Add Clues"/>
@@ -320,6 +320,15 @@
                                     <outlet property="delegate" destination="psl-0q-eDo" id="rSm-63-Vok"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-f7-uVI" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="10" y="264" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="getFields" destination="psl-0q-eDo" eventType="editingDidEnd" id="UaT-cO-4d2"/>
+                                    <outlet property="delegate" destination="psl-0q-eDo" id="fWY-VH-A8q"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -332,7 +341,11 @@
                             <constraint firstItem="tKi-OR-Ic0" firstAttribute="centerX" secondItem="AQR-Ew-ydb" secondAttribute="centerX" id="QpQ-g5-A8Z"/>
                             <constraint firstAttribute="trailing" secondItem="tKi-OR-Ic0" secondAttribute="trailing" constant="25" id="S5F-VU-qah"/>
                             <constraint firstItem="1gf-bD-qXl" firstAttribute="leading" secondItem="VBI-f7-uVI" secondAttribute="leading" id="VIi-q9-c6j"/>
+                            <constraint firstAttribute="trailing" secondItem="Th8-nt-nkW" secondAttribute="trailing" constant="40" id="VqN-f9-AhG"/>
                             <constraint firstItem="24y-Kf-WMe" firstAttribute="top" secondItem="AQR-Ew-ydb" secondAttribute="top" constant="64" id="XOY-Be-6FR"/>
+                            <constraint firstItem="tKi-OR-Ic0" firstAttribute="leading" secondItem="AQR-Ew-ydb" secondAttribute="leading" constant="100" id="aJc-Im-cfz"/>
+                            <constraint firstAttribute="trailing" secondItem="tKi-OR-Ic0" secondAttribute="trailing" constant="100" id="bKv-Up-jCd"/>
+                            <constraint firstItem="Th8-nt-nkW" firstAttribute="leading" secondItem="AQR-Ew-ydb" secondAttribute="leading" constant="40" id="bnI-Ll-Xpc"/>
                             <constraint firstItem="Th8-nt-nkW" firstAttribute="top" secondItem="vRB-VT-dKG" secondAttribute="bottom" constant="40" id="dgh-70-07A"/>
                             <constraint firstItem="Th8-nt-nkW" firstAttribute="top" secondItem="vRB-VT-dKG" secondAttribute="bottom" constant="50" id="djq-Ux-gh2"/>
                             <constraint firstItem="ZYx-0e-tvU" firstAttribute="top" secondItem="tKi-OR-Ic0" secondAttribute="bottom" constant="40" id="j0V-cQ-wYs"/>
@@ -347,10 +360,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Dfc-b9-zzl"/>
                                 <exclude reference="djq-Ux-gh2"/>
                                 <exclude reference="oma-ev-XzI"/>
                                 <exclude reference="QpQ-g5-A8Z"/>
                                 <exclude reference="S5F-VU-qah"/>
+                                <exclude reference="uME-9U-51W"/>
                             </mask>
                         </variation>
                     </view>
@@ -414,43 +429,49 @@
                                     <action selector="searchButtonPressed:" destination="vjO-qb-jPE" eventType="touchUpInside" id="pw8-Jp-042"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ldl-FU-5jw" customClass="SHTableView" customModule="ScavengerHunter" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ldl-FU-5jw" customClass="SHTableView" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="134" width="320" height="434"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="huntSearchCell" rowHeight="63" id="eNf-4z-eYs" customClass="HuntSearchTableViewCell" customModule="ScavengerHunter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="63"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="huntSearchCell" rowHeight="65" id="eNf-4z-eYs" customClass="HuntSearchTableViewCell" customModule="ScavengerHunter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eNf-4z-eYs" id="xMG-mg-Asa">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-KM-spI" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
-                                                    <rect key="frame" x="4" y="4" width="95" height="55"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-KM-spI" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                                                    <rect key="frame" x="5" y="5" width="95" height="55"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" secondItem="MYP-KM-spI" secondAttribute="height" multiplier="12:7" id="232-n2-jkY"/>
                                                         <constraint firstAttribute="width" constant="95" id="SjX-In-XHr"/>
                                                         <constraint firstAttribute="height" constant="55" id="wIa-kT-K2r"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="SjX-In-XHr"/>
+                                                        </mask>
+                                                    </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-ac-zIb" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                                    <rect key="frame" x="109" y="21" width="87" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-ac-zIb" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
+                                                    <rect key="frame" x="110" y="22" width="87" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-Iq-Ysq" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                                    <rect key="frame" x="260" y="21" width="50" height="21"/>
+                                                    <rect key="frame" x="260" y="22" width="50" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="MYP-KM-spI" firstAttribute="top" secondItem="xMG-mg-Asa" secondAttribute="top" constant="4" id="3sl-c9-f17"/>
+                                                <constraint firstItem="MYP-KM-spI" firstAttribute="top" secondItem="xMG-mg-Asa" secondAttribute="top" constant="5" id="3sl-c9-f17"/>
                                                 <constraint firstAttribute="bottom" secondItem="MYP-KM-spI" secondAttribute="bottom" constant="4" id="H4I-oB-3M4"/>
                                                 <constraint firstAttribute="trailing" secondItem="bOD-Iq-Ysq" secondAttribute="trailing" constant="10" id="Lws-hy-AsU"/>
                                                 <constraint firstItem="a5d-ac-zIb" firstAttribute="leading" secondItem="MYP-KM-spI" secondAttribute="trailing" constant="10" id="dLH-M7-tJR"/>
-                                                <constraint firstItem="MYP-KM-spI" firstAttribute="leading" secondItem="xMG-mg-Asa" secondAttribute="leading" constant="4" id="eVN-gf-Kmp"/>
+                                                <constraint firstItem="MYP-KM-spI" firstAttribute="leading" secondItem="xMG-mg-Asa" secondAttribute="leading" constant="5" id="eVN-gf-Kmp"/>
                                                 <constraint firstItem="a5d-ac-zIb" firstAttribute="centerY" secondItem="MYP-KM-spI" secondAttribute="centerY" id="qJD-HX-onl"/>
                                                 <constraint firstItem="bOD-Iq-Ysq" firstAttribute="centerY" secondItem="a5d-ac-zIb" secondAttribute="centerY" id="xFt-hH-X6n"/>
                                             </constraints>
@@ -532,11 +553,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F6i-Az-Y9D" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-cF-7EW" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="110" y="483" width="100" height="45"/>
+                                <rect key="frame" x="100" y="483" width="120" height="45"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="GRy-pl-zGy"/>
@@ -553,23 +571,26 @@
                                     <action selector="startHuntButtonTapped:" destination="0co-fM-xF2" eventType="touchUpInside" id="irc-cn-MeL"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="bxV-FX-0Us" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="40" y="114" width="240" height="140"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bxV-FX-0Us" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="40" y="104" width="240" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="04r-G4-LuA"/>
                                     <constraint firstAttribute="width" constant="240" id="ZBg-yG-I6L"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="osc-9b-HIo"/>
                                     <constraint firstAttribute="height" constant="140" id="pGK-gN-0if"/>
+                                    <constraint firstAttribute="width" secondItem="bxV-FX-0Us" secondAttribute="height" multiplier="12:7" id="ylk-Wa-y0E"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="04r-G4-LuA"/>
+                                        <exclude reference="ZBg-yG-I6L"/>
                                         <exclude reference="osc-9b-HIo"/>
+                                        <exclude reference="pGK-gN-0if"/>
                                     </mask>
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esv-LK-wiG" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="294" width="280" height="27"/>
+                                <rect key="frame" x="40" y="264" width="240" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="EEn-qh-4MC"/>
                                 </constraints>
@@ -578,25 +599,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Prize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXU-9g-Kfd" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="368" width="280" height="27"/>
+                                <rect key="frame" x="40" y="338" width="240" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYb-TC-6bl" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="331" width="280" height="27"/>
+                                <rect key="frame" x="40" y="301" width="240" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Clues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44N-26-Rm8" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="405" width="280" height="27"/>
+                                <rect key="frame" x="40" y="375" width="240" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOM-Z5-uf1" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="442" width="280" height="21"/>
+                                <rect key="frame" x="40" y="412" width="240" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9no-0j-Hvi"/>
                                 </constraints>
@@ -609,6 +630,9 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F6i-Az-Y9D" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -616,12 +640,15 @@
                             <constraint firstItem="F6i-Az-Y9D" firstAttribute="top" secondItem="mLu-u9-2X8" secondAttribute="top" constant="64" id="5gC-3p-C6p"/>
                             <constraint firstItem="SOM-Z5-uf1" firstAttribute="leading" secondItem="44N-26-Rm8" secondAttribute="leading" id="8rX-oK-eSq"/>
                             <constraint firstItem="xXU-9g-Kfd" firstAttribute="leading" secondItem="esv-LK-wiG" secondAttribute="leading" id="AOw-gH-nUf"/>
+                            <constraint firstAttribute="trailing" secondItem="jQm-cF-7EW" secondAttribute="trailing" constant="100" id="BFl-Zv-F1P"/>
                             <constraint firstItem="SOM-Z5-uf1" firstAttribute="trailing" secondItem="44N-26-Rm8" secondAttribute="trailing" id="BV0-Zf-HIQ"/>
                             <constraint firstItem="44N-26-Rm8" firstAttribute="height" secondItem="xXU-9g-Kfd" secondAttribute="height" id="Blg-sN-TGL"/>
-                            <constraint firstItem="esv-LK-wiG" firstAttribute="top" secondItem="bxV-FX-0Us" secondAttribute="bottom" constant="40" id="FHn-4K-ote"/>
+                            <constraint firstItem="esv-LK-wiG" firstAttribute="top" secondItem="bxV-FX-0Us" secondAttribute="bottom" constant="20" id="FHn-4K-ote"/>
+                            <constraint firstAttribute="trailing" secondItem="bxV-FX-0Us" secondAttribute="trailing" constant="40" id="FfQ-tV-aBK"/>
                             <constraint firstItem="SOM-Z5-uf1" firstAttribute="top" secondItem="44N-26-Rm8" secondAttribute="bottom" constant="10" id="HCZ-aa-qEQ"/>
                             <constraint firstAttribute="trailing" secondItem="esv-LK-wiG" secondAttribute="trailing" constant="20" id="Itv-HU-MyI"/>
                             <constraint firstItem="wYb-TC-6bl" firstAttribute="trailing" secondItem="esv-LK-wiG" secondAttribute="trailing" id="MOH-RD-LJV"/>
+                            <constraint firstItem="esv-LK-wiG" firstAttribute="trailing" secondItem="bxV-FX-0Us" secondAttribute="trailing" id="Nma-ff-nS0"/>
                             <constraint firstItem="wYb-TC-6bl" firstAttribute="top" secondItem="esv-LK-wiG" secondAttribute="bottom" constant="10" id="Q3K-BA-F5a"/>
                             <constraint firstItem="xXU-9g-Kfd" firstAttribute="trailing" secondItem="esv-LK-wiG" secondAttribute="trailing" id="RF9-yy-GYT"/>
                             <constraint firstItem="pcc-vq-J7y" firstAttribute="top" secondItem="jQm-cF-7EW" secondAttribute="bottom" constant="40" id="TmC-bc-hNc"/>
@@ -631,11 +658,14 @@
                             <constraint firstItem="pcc-vq-J7y" firstAttribute="top" secondItem="F6i-Az-Y9D" secondAttribute="bottom" id="Y7B-cM-nGm"/>
                             <constraint firstItem="esv-LK-wiG" firstAttribute="leading" secondItem="mLu-u9-2X8" secondAttribute="leading" constant="20" id="d5O-EC-fjQ"/>
                             <constraint firstItem="44N-26-Rm8" firstAttribute="top" secondItem="xXU-9g-Kfd" secondAttribute="bottom" constant="10" id="e17-34-rCS"/>
-                            <constraint firstItem="bxV-FX-0Us" firstAttribute="top" secondItem="j4f-Yx-29g" secondAttribute="bottom" constant="50" id="eg0-Hp-ce2"/>
+                            <constraint firstItem="bxV-FX-0Us" firstAttribute="top" secondItem="j4f-Yx-29g" secondAttribute="bottom" constant="40" id="eg0-Hp-ce2"/>
                             <constraint firstItem="44N-26-Rm8" firstAttribute="trailing" secondItem="xXU-9g-Kfd" secondAttribute="trailing" id="gVe-h9-s2a"/>
                             <constraint firstItem="xXU-9g-Kfd" firstAttribute="top" secondItem="esv-LK-wiG" secondAttribute="bottom" constant="15" id="gWr-bA-zbl"/>
+                            <constraint firstItem="esv-LK-wiG" firstAttribute="leading" secondItem="bxV-FX-0Us" secondAttribute="leading" id="hBx-Iu-69S"/>
                             <constraint firstItem="jQm-cF-7EW" firstAttribute="top" secondItem="SOM-Z5-uf1" secondAttribute="bottom" constant="8" symbolic="YES" id="hVk-gx-z2m"/>
                             <constraint firstItem="pcc-vq-J7y" firstAttribute="top" secondItem="SOM-Z5-uf1" secondAttribute="bottom" constant="79" id="mjr-0Q-q1b"/>
+                            <constraint firstItem="jQm-cF-7EW" firstAttribute="leading" secondItem="mLu-u9-2X8" secondAttribute="leading" constant="100" id="mmm-Ux-XHQ"/>
+                            <constraint firstItem="bxV-FX-0Us" firstAttribute="leading" secondItem="mLu-u9-2X8" secondAttribute="leading" constant="40" id="pb7-y2-r4h"/>
                             <constraint firstItem="wYb-TC-6bl" firstAttribute="leading" secondItem="esv-LK-wiG" secondAttribute="leading" id="rYa-5Q-0Mc"/>
                             <constraint firstItem="jQm-cF-7EW" firstAttribute="top" secondItem="SOM-Z5-uf1" secondAttribute="bottom" constant="20" id="tKN-Tc-lRH"/>
                             <constraint firstItem="xXU-9g-Kfd" firstAttribute="top" secondItem="wYb-TC-6bl" secondAttribute="bottom" constant="10" id="uGK-Zz-N5c"/>
@@ -646,9 +676,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="yRS-j9-VRl"/>
+                                <exclude reference="Itv-HU-MyI"/>
+                                <exclude reference="d5O-EC-fjQ"/>
                                 <exclude reference="gWr-bA-zbl"/>
                                 <exclude reference="hVk-gx-z2m"/>
                                 <exclude reference="xkr-9u-61H"/>
+                                <exclude reference="z8F-EW-f22"/>
                                 <exclude reference="mjr-0Q-q1b"/>
                             </mask>
                         </variation>
@@ -683,7 +717,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjL-ne-si2">
-                                <rect key="frame" x="0.0" y="264" width="320" height="304"/>
+                                <rect key="frame" x="0.0" y="304" width="320" height="264"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igf-5v-MN2" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
@@ -730,7 +764,7 @@
                                     <outletCollection property="gestureRecognizers" destination="fR1-SH-0Ku" appends="YES" id="FtP-5D-ObO"/>
                                 </connections>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="K24-M7-oxS" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K24-M7-oxS" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="314" width="120" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="EHg-M0-R8Q"/>
@@ -782,6 +816,7 @@
                             <constraint firstAttribute="trailing" secondItem="8fU-e4-2pz" secondAttribute="trailing" constant="10" id="EgJ-YQ-caY"/>
                             <constraint firstItem="j0v-Ms-l3H" firstAttribute="width" secondItem="8kn-2U-9ew" secondAttribute="width" id="FsK-Aj-zty"/>
                             <constraint firstAttribute="trailing" secondItem="mMV-Vr-tSc" secondAttribute="trailing" id="GTQ-BI-cg3"/>
+                            <constraint firstItem="PjL-ne-si2" firstAttribute="top" secondItem="o5n-x5-G51" secondAttribute="bottom" id="GtV-Sj-KUm"/>
                             <constraint firstItem="K24-M7-oxS" firstAttribute="leading" secondItem="HQ7-x5-dFB" secondAttribute="leading" constant="10" id="JWT-aG-tJZ"/>
                             <constraint firstItem="igf-5v-MN2" firstAttribute="leading" secondItem="8kn-2U-9ew" secondAttribute="trailing" constant="15" id="KGe-zF-uDf"/>
                             <constraint firstItem="Pww-GW-McU" firstAttribute="leading" secondItem="8fU-e4-2pz" secondAttribute="leading" constant="-20" id="LU7-eR-sRW"/>
@@ -820,6 +855,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="UCR-Yv-wjz"/>
                                 <exclude reference="70Y-4C-A1d"/>
                                 <exclude reference="hmI-Pf-fVH"/>
                                 <exclude reference="mnV-5B-1Uf"/>
@@ -876,15 +912,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vha-Rg-dUa" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="263" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vrq-gi-MVP" customClass="SHTableView" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="164" width="320" height="404"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vrq-gi-MVP" customClass="SHTableView" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="154" width="320" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="createClueCell" rowHeight="263" id="NGl-RL-N4Q" customClass="CreateClueTableViewCell" customModule="ScavengerHunter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="263"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="createClueCell" rowHeight="250" id="NGl-RL-N4Q" customClass="CreateClueTableViewCell" customModule="ScavengerHunter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NGl-RL-N4Q" id="Qsp-PP-OUd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="262"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asb-FZ-AMD" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
@@ -894,13 +930,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MiE-uW-DuY">
-                                                    <rect key="frame" x="200" y="36" width="110" height="105"/>
+                                                    <rect key="frame" x="176" y="36" width="134" height="91"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="x4y-VB-Gtz" id="Wfi-HJ-ca0"/>
                                                     </connections>
                                                 </mapView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tw-Iw-OaD" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                                    <rect key="frame" x="121" y="226" width="78" height="30"/>
+                                                    <rect key="frame" x="121" y="212" width="78" height="30"/>
                                                     <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="  Edit Clue  "/>
                                                     <connections>
@@ -919,7 +955,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-yN-Db2" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="151" width="300" height="65"/>
+                                                    <rect key="frame" x="10" y="137" width="300" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="OR1-aT-ra7"/>
                                                     </constraints>
@@ -927,12 +963,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="WY3-bH-FUO" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="36" width="180" height="105"/>
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="WY3-bH-FUO" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="36" width="156" height="91"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="180" id="t2u-UF-Nqf"/>
-                                                        <constraint firstAttribute="height" constant="105" id="wyx-YF-oKk"/>
+                                                        <constraint firstAttribute="width" constant="156" id="t2u-UF-Nqf"/>
+                                                        <constraint firstAttribute="height" constant="91" id="wyx-YF-oKk"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -977,7 +1013,7 @@
                                     <outlet property="delegate" destination="x4y-VB-Gtz" id="nWN-Dx-wEQ"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="KOj-Dg-ARp" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KOj-Dg-ARp" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="74" width="120" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="EjL-2v-G9S"/>
@@ -1035,7 +1071,7 @@
                             <constraint firstItem="8UY-Pn-iZG" firstAttribute="width" secondItem="jRN-Fl-nuT" secondAttribute="width" id="ZGP-ZX-dIt"/>
                             <constraint firstItem="59A-r2-eDz" firstAttribute="centerX" secondItem="jRN-Fl-nuT" secondAttribute="centerX" id="cbO-Cu-xhb"/>
                             <constraint firstItem="jRN-Fl-nuT" firstAttribute="leading" secondItem="KOj-Dg-ARp" secondAttribute="trailing" constant="25" id="d5H-PZ-F43"/>
-                            <constraint firstItem="vrq-gi-MVP" firstAttribute="top" secondItem="KOj-Dg-ARp" secondAttribute="bottom" constant="20" id="dm2-lR-hCU"/>
+                            <constraint firstItem="vrq-gi-MVP" firstAttribute="top" secondItem="KOj-Dg-ARp" secondAttribute="bottom" constant="10" id="dm2-lR-hCU"/>
                             <constraint firstItem="8UY-Pn-iZG" firstAttribute="leading" secondItem="KOj-Dg-ARp" secondAttribute="trailing" constant="20" id="j7w-5L-aLM"/>
                             <constraint firstItem="KOj-Dg-ARp" firstAttribute="leading" secondItem="z0V-yw-ouQ" secondAttribute="leading" constant="10" id="kiI-8G-XFH"/>
                             <constraint firstItem="vrq-gi-MVP" firstAttribute="leading" secondItem="z0V-yw-ouQ" secondAttribute="leading" id="ms4-P5-qva"/>
@@ -1086,11 +1122,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xs0-dK-5Zb" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="clue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yig-eb-Jh2" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="302" width="300" height="30"/>
+                                <rect key="frame" x="10" y="294" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1099,7 +1132,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hint (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-9J-drD" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="352" width="300" height="30"/>
+                                <rect key="frame" x="10" y="344" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1108,7 +1141,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="accuracy (in meters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-nV-KKQ" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="402" width="300" height="30"/>
+                                <rect key="frame" x="10" y="394" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1116,10 +1149,12 @@
                                     <outlet property="delegate" destination="TeI-1P-KDs" id="dKR-3b-Apl"/>
                                 </connections>
                             </textField>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="2Hs-ga-562" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="80" y="452" width="160" height="105"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="2Hs-ga-562" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="114" y="444" width="92" height="54"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="2Hs-ga-562" secondAttribute="height" multiplier="12:7" id="0aQ-cd-2ZE"/>
+                                    <constraint firstAttribute="height" constant="25" id="K7p-Z9-cbj"/>
                                     <constraint firstAttribute="height" constant="105" id="N2L-TN-npn"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="UW8-zT-NnY"/>
                                     <constraint firstAttribute="width" constant="160" id="axa-11-wRv"/>
@@ -1127,7 +1162,10 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="K7p-Z9-cbj"/>
+                                        <exclude reference="N2L-TN-npn"/>
                                         <exclude reference="UW8-zT-NnY"/>
+                                        <exclude reference="axa-11-wRv"/>
                                         <exclude reference="bie-ZG-AGq"/>
                                     </mask>
                                 </variation>
@@ -1136,27 +1174,37 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-mn-vMC" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="107" y="492" width="106" height="36"/>
+                                <rect key="frame" x="97" y="518" width="126" height="30"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="38G-G1-XF2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Create Clue"/>
+                                <state key="normal" title="  Create Clue  "/>
                                 <connections>
                                     <action selector="createCluePressed:" destination="TeI-1P-KDs" eventType="touchUpInside" id="XzB-PS-iHR"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eDg-FK-T8y">
-                                <rect key="frame" x="40" y="104" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="1yT-eF-fB4"/>
                                     <constraint firstAttribute="width" constant="240" id="42O-Gf-3VJ"/>
+                                    <constraint firstAttribute="width" secondItem="eDg-FK-T8y" secondAttribute="height" multiplier="2:1" id="HgQ-bk-nw2"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1yT-eF-fB4"/>
+                                        <exclude reference="42O-Gf-3VJ"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="TeI-1P-KDs" id="YNg-gM-DTv"/>
                                 </connections>
                             </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location (solution)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1r-Px-98r" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="252" width="170" height="30"/>
+                                <rect key="frame" x="10" y="244" width="170" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="cJL-WT-tic"/>
                                 </constraints>
@@ -1173,7 +1221,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIe-ut-WdE" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="190" y="252" width="120" height="30"/>
+                                <rect key="frame" x="190" y="244" width="120" height="30"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="HYt-sD-CmO"/>
@@ -1185,26 +1233,42 @@
                                     <action selector="myLocationPressed:" destination="TeI-1P-KDs" eventType="touchUpInside" id="Grp-Mt-IKU"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xs0-dK-5Zb" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xs0-dK-5Zb" secondAttribute="trailing" id="2aX-G6-aN3"/>
+                            <constraint firstItem="eDg-FK-T8y" firstAttribute="leading" secondItem="a8l-PS-tig" secondAttribute="leading" id="32P-2V-Phi"/>
+                            <constraint firstItem="ggE-9J-drD" firstAttribute="leading" secondItem="Yig-eb-Jh2" secondAttribute="leading" id="3ir-8D-2kc"/>
                             <constraint firstItem="2Hs-ga-562" firstAttribute="top" secondItem="3IG-nV-KKQ" secondAttribute="bottom" constant="20" id="3yQ-Ld-mwq"/>
-                            <constraint firstItem="v8W-35-XFZ" firstAttribute="top" secondItem="SMi-mn-vMC" secondAttribute="bottom" constant="40" id="7at-VN-wKW"/>
+                            <constraint firstItem="v8W-35-XFZ" firstAttribute="top" secondItem="SMi-mn-vMC" secondAttribute="bottom" constant="20" id="7at-VN-wKW"/>
                             <constraint firstItem="xs0-dK-5Zb" firstAttribute="top" secondItem="a8l-PS-tig" secondAttribute="top" constant="64" id="Cfo-Nf-2Ws"/>
                             <constraint firstItem="CIe-ut-WdE" firstAttribute="centerY" secondItem="b1r-Px-98r" secondAttribute="centerY" id="EFc-Re-Y4Z"/>
+                            <constraint firstItem="ggE-9J-drD" firstAttribute="trailing" secondItem="Yig-eb-Jh2" secondAttribute="trailing" id="ELS-IZ-svE"/>
                             <constraint firstItem="Yig-eb-Jh2" firstAttribute="top" secondItem="b1r-Px-98r" secondAttribute="bottom" constant="20" id="EOA-b4-R3R"/>
                             <constraint firstItem="ggE-9J-drD" firstAttribute="trailing" secondItem="Yig-eb-Jh2" secondAttribute="trailing" id="Ext-yv-xzT"/>
                             <constraint firstItem="eDg-FK-T8y" firstAttribute="centerX" secondItem="a8l-PS-tig" secondAttribute="centerX" id="Fow-ja-smJ"/>
-                            <constraint firstItem="eDg-FK-T8y" firstAttribute="top" secondItem="WaF-Vt-zDm" secondAttribute="bottom" constant="40" id="Gc8-lq-aJA"/>
+                            <constraint firstItem="eDg-FK-T8y" firstAttribute="top" secondItem="WaF-Vt-zDm" secondAttribute="bottom" id="Gc8-lq-aJA"/>
                             <constraint firstItem="Yig-eb-Jh2" firstAttribute="centerX" secondItem="2Hs-ga-562" secondAttribute="centerX" id="GpO-Rn-nHA"/>
+                            <constraint firstItem="Yig-eb-Jh2" firstAttribute="leading" secondItem="b1r-Px-98r" secondAttribute="leading" id="IGs-yr-h1v"/>
                             <constraint firstItem="2Hs-ga-562" firstAttribute="centerX" secondItem="a8l-PS-tig" secondAttribute="centerX" id="IYq-6Z-8Mb"/>
+                            <constraint firstItem="Yig-eb-Jh2" firstAttribute="height" secondItem="b1r-Px-98r" secondAttribute="height" id="IjP-wJ-GaB"/>
+                            <constraint firstItem="b1r-Px-98r" firstAttribute="leading" secondItem="a8l-PS-tig" secondAttribute="leading" constant="10" id="LSA-ee-M1o"/>
+                            <constraint firstAttribute="trailing" secondItem="eDg-FK-T8y" secondAttribute="trailing" id="MV1-9H-ual"/>
                             <constraint firstItem="2Hs-ga-562" firstAttribute="top" secondItem="WaF-Vt-zDm" secondAttribute="bottom" constant="20" id="N8D-3N-Je6"/>
+                            <constraint firstItem="ggE-9J-drD" firstAttribute="height" secondItem="Yig-eb-Jh2" secondAttribute="height" id="OK3-Pz-vOi"/>
                             <constraint firstItem="Yig-eb-Jh2" firstAttribute="top" secondItem="eDg-FK-T8y" secondAttribute="bottom" constant="20" id="OSJ-uA-LA3"/>
+                            <constraint firstAttribute="trailing" secondItem="CIe-ut-WdE" secondAttribute="trailing" constant="10" id="Oie-kW-Zdk"/>
+                            <constraint firstItem="Yig-eb-Jh2" firstAttribute="height" secondItem="b1r-Px-98r" secondAttribute="height" id="Oiv-CS-Lla"/>
                             <constraint firstItem="v8W-35-XFZ" firstAttribute="top" secondItem="xs0-dK-5Zb" secondAttribute="bottom" id="QVe-iK-vVJ"/>
                             <constraint firstAttribute="trailing" secondItem="Yig-eb-Jh2" secondAttribute="trailing" constant="10" id="SUp-xe-ALN"/>
                             <constraint firstItem="ggE-9J-drD" firstAttribute="centerX" secondItem="Yig-eb-Jh2" secondAttribute="centerX" id="TDr-fw-Vcq"/>
+                            <constraint firstItem="3IG-nV-KKQ" firstAttribute="leading" secondItem="ggE-9J-drD" secondAttribute="leading" id="TXR-dD-fUi"/>
+                            <constraint firstItem="SMi-mn-vMC" firstAttribute="top" secondItem="2Hs-ga-562" secondAttribute="bottom" constant="20" id="Wsd-Tq-jvN"/>
                             <constraint firstItem="CIe-ut-WdE" firstAttribute="trailing" secondItem="Yig-eb-Jh2" secondAttribute="trailing" id="Ybl-cm-m1J"/>
+                            <constraint firstItem="3IG-nV-KKQ" firstAttribute="trailing" secondItem="ggE-9J-drD" secondAttribute="trailing" id="bSg-Hx-Mau"/>
                             <constraint firstItem="ggE-9J-drD" firstAttribute="leading" secondItem="Yig-eb-Jh2" secondAttribute="leading" id="dxP-nl-S4O"/>
                             <constraint firstItem="xs0-dK-5Zb" firstAttribute="leading" secondItem="a8l-PS-tig" secondAttribute="leading" id="eSn-tc-3mN"/>
                             <constraint firstItem="Yig-eb-Jh2" firstAttribute="leading" secondItem="a8l-PS-tig" secondAttribute="leading" constant="10" id="fL5-Zm-dyg"/>
@@ -1212,24 +1276,40 @@
                             <constraint firstItem="3IG-nV-KKQ" firstAttribute="leading" secondItem="Yig-eb-Jh2" secondAttribute="leading" id="gZw-aO-IvW"/>
                             <constraint firstAttribute="trailing" secondItem="SMi-mn-vMC" secondAttribute="trailing" constant="25" id="hBv-VJ-zWN"/>
                             <constraint firstItem="CIe-ut-WdE" firstAttribute="leading" secondItem="b1r-Px-98r" secondAttribute="trailing" constant="10" id="hLK-LL-Yt9"/>
+                            <constraint firstItem="SMi-mn-vMC" firstAttribute="centerX" secondItem="xs0-dK-5Zb" secondAttribute="centerX" id="kVU-BN-qeO"/>
                             <constraint firstItem="b1r-Px-98r" firstAttribute="leading" secondItem="Yig-eb-Jh2" secondAttribute="leading" id="mlq-KK-FNy"/>
                             <constraint firstItem="CIe-ut-WdE" firstAttribute="height" secondItem="b1r-Px-98r" secondAttribute="height" id="nse-oO-evp"/>
                             <constraint firstItem="3IG-nV-KKQ" firstAttribute="top" secondItem="ggE-9J-drD" secondAttribute="bottom" constant="20" id="qee-Xm-O4z"/>
                             <constraint firstItem="ggE-9J-drD" firstAttribute="top" secondItem="Yig-eb-Jh2" secondAttribute="bottom" constant="20" id="qsB-jO-rEi"/>
+                            <constraint firstItem="3IG-nV-KKQ" firstAttribute="height" secondItem="ggE-9J-drD" secondAttribute="height" id="r6k-pm-sfj"/>
                             <constraint firstItem="b1r-Px-98r" firstAttribute="top" secondItem="eDg-FK-T8y" secondAttribute="bottom" constant="20" id="uCF-ew-DYL"/>
                             <constraint firstItem="SMi-mn-vMC" firstAttribute="centerX" secondItem="3IG-nV-KKQ" secondAttribute="centerX" id="vLg-mQ-7Pp"/>
                             <constraint firstItem="Yig-eb-Jh2" firstAttribute="top" secondItem="2Hs-ga-562" secondAttribute="bottom" constant="20" id="vYb-nT-BZY"/>
                             <constraint firstItem="b1r-Px-98r" firstAttribute="trailing" secondItem="Yig-eb-Jh2" secondAttribute="trailing" id="wLp-hR-abX"/>
                             <constraint firstItem="3IG-nV-KKQ" firstAttribute="trailing" secondItem="Yig-eb-Jh2" secondAttribute="trailing" id="zL6-zH-tTd"/>
+                            <constraint firstItem="Yig-eb-Jh2" firstAttribute="trailing" secondItem="CIe-ut-WdE" secondAttribute="trailing" id="zNu-bf-Mlw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Fow-ja-smJ"/>
+                                <exclude reference="mlq-KK-FNy"/>
                                 <exclude reference="wLp-hR-abX"/>
+                                <exclude reference="Ybl-cm-m1J"/>
                                 <exclude reference="GpO-Rn-nHA"/>
                                 <exclude reference="OSJ-uA-LA3"/>
+                                <exclude reference="Oiv-CS-Lla"/>
+                                <exclude reference="SUp-xe-ALN"/>
+                                <exclude reference="fL5-Zm-dyg"/>
                                 <exclude reference="vYb-nT-BZY"/>
+                                <exclude reference="Ext-yv-xzT"/>
+                                <exclude reference="TDr-fw-Vcq"/>
+                                <exclude reference="dxP-nl-S4O"/>
+                                <exclude reference="gBo-kQ-TbA"/>
+                                <exclude reference="gZw-aO-IvW"/>
+                                <exclude reference="zL6-zH-tTd"/>
                                 <exclude reference="N8D-3N-Je6"/>
                                 <exclude reference="hBv-VJ-zWN"/>
+                                <exclude reference="vLg-mQ-7Pp"/>
                             </mask>
                         </variation>
                     </view>
@@ -1269,11 +1349,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="trE-ye-Sv9" customClass="SHWallpaper" customModule="ScavengerHunter" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="trE-ye-Sv9" customClass="SHBackground" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdW-fx-8eX" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="280" width="300" height="30"/>
+                                <rect key="frame" x="35" y="300" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
@@ -1281,7 +1361,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8j-CJ-uQQ" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="330" width="300" height="30"/>
+                                <rect key="frame" x="35" y="350" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1289,7 +1369,7 @@
                                 </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="d2Z-4r-Gbn">
-                                <rect key="frame" x="0.0" y="417" width="320" height="60"/>
+                                <rect key="frame" x="35" y="407" width="250" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kfr-gx-IIN"/>
                                 </constraints>
@@ -1298,13 +1378,13 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpx-ua-kQ4" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="380" width="86" height="17"/>
+                                <rect key="frame" x="35" y="390" width="86" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3m-QI-eEF" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="179" y="499" width="101" height="39"/>
+                                <rect key="frame" x="179" y="489" width="101" height="39"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="  Sign Up  "/>
@@ -1313,7 +1393,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCq-Gf-e7d" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="230" width="300" height="30"/>
+                                <rect key="frame" x="35" y="250" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1321,13 +1401,13 @@
                                 </connections>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EPU-jx-r83">
-                                <rect key="frame" x="141" y="499" width="39" height="39"/>
+                                <rect key="frame" x="141" y="489" width="39" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="tjH-3g-izN"/>
                                 </constraints>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH8-uI-WBG" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="40" y="499" width="101" height="39"/>
+                                <rect key="frame" x="40" y="489" width="101" height="39"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title=" Cancel  "/>
@@ -1336,7 +1416,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="uwR-pT-Xxc" customClass="SHPicture" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="100" y="50" width="120" height="160"/>
+                                <rect key="frame" x="100" y="70" width="120" height="160"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="SWz-Gm-tUi"/>
@@ -1352,18 +1432,20 @@
                             <constraint firstAttribute="trailing" secondItem="d2Z-4r-Gbn" secondAttribute="trailing" id="0UN-qN-23U"/>
                             <constraint firstItem="DCq-Gf-e7d" firstAttribute="top" secondItem="uwR-pT-Xxc" secondAttribute="bottom" constant="20" id="4FO-eh-crA"/>
                             <constraint firstItem="A8j-CJ-uQQ" firstAttribute="leading" secondItem="UdW-fx-8eX" secondAttribute="leading" id="4Jh-cK-wTi"/>
-                            <constraint firstItem="uwR-pT-Xxc" firstAttribute="top" secondItem="PWr-lC-M3l" secondAttribute="bottom" constant="30" id="51A-ed-8Vl"/>
-                            <constraint firstAttribute="trailing" secondItem="DCq-Gf-e7d" secondAttribute="trailing" constant="10" id="5sv-7O-lh7"/>
+                            <constraint firstItem="uwR-pT-Xxc" firstAttribute="top" secondItem="PWr-lC-M3l" secondAttribute="bottom" constant="50" id="51A-ed-8Vl"/>
+                            <constraint firstAttribute="trailing" secondItem="DCq-Gf-e7d" secondAttribute="trailing" constant="35" id="5sv-7O-lh7"/>
                             <constraint firstItem="EPU-jx-r83" firstAttribute="height" secondItem="h3m-QI-eEF" secondAttribute="height" id="6B3-o2-9gL"/>
+                            <constraint firstItem="d2Z-4r-Gbn" firstAttribute="leading" secondItem="A8j-CJ-uQQ" secondAttribute="leading" id="6Zt-nH-B3C"/>
                             <constraint firstItem="trE-ye-Sv9" firstAttribute="leading" secondItem="r38-bg-5n7" secondAttribute="leading" id="7Pf-e7-xWi"/>
                             <constraint firstItem="jH8-uI-WBG" firstAttribute="leading" secondItem="r38-bg-5n7" secondAttribute="leading" constant="40" id="9le-Yg-byY"/>
                             <constraint firstItem="EPU-jx-r83" firstAttribute="centerY" secondItem="h3m-QI-eEF" secondAttribute="centerY" id="CQa-KG-W2v"/>
+                            <constraint firstItem="d2Z-4r-Gbn" firstAttribute="trailing" secondItem="A8j-CJ-uQQ" secondAttribute="trailing" id="Fax-LE-jj1"/>
                             <constraint firstAttribute="trailing" secondItem="h3m-QI-eEF" secondAttribute="trailing" constant="40" id="FzX-Pw-hqO"/>
                             <constraint firstItem="jH8-uI-WBG" firstAttribute="height" secondItem="h3m-QI-eEF" secondAttribute="height" id="HDu-Bn-ONG"/>
                             <constraint firstItem="A8j-CJ-uQQ" firstAttribute="top" secondItem="UdW-fx-8eX" secondAttribute="bottom" constant="20" id="KaF-5a-ruw"/>
                             <constraint firstItem="xpx-ua-kQ4" firstAttribute="leading" secondItem="A8j-CJ-uQQ" secondAttribute="leading" id="LMp-hz-9Ha"/>
                             <constraint firstItem="UdW-fx-8eX" firstAttribute="top" secondItem="DCq-Gf-e7d" secondAttribute="bottom" constant="20" id="MTk-vl-tY4"/>
-                            <constraint firstItem="d2Z-4r-Gbn" firstAttribute="top" secondItem="xpx-ua-kQ4" secondAttribute="bottom" constant="20" id="O7G-2w-cW0"/>
+                            <constraint firstItem="d2Z-4r-Gbn" firstAttribute="top" secondItem="xpx-ua-kQ4" secondAttribute="bottom" id="O7G-2w-cW0"/>
                             <constraint firstItem="A8j-CJ-uQQ" firstAttribute="trailing" secondItem="UdW-fx-8eX" secondAttribute="trailing" id="Pzw-ok-zfH"/>
                             <constraint firstItem="d2Z-4r-Gbn" firstAttribute="leading" secondItem="r38-bg-5n7" secondAttribute="leading" id="Wdt-Ap-Ab4"/>
                             <constraint firstItem="UdW-fx-8eX" firstAttribute="trailing" secondItem="DCq-Gf-e7d" secondAttribute="trailing" id="Xhu-NH-yr3"/>
@@ -1372,17 +1454,19 @@
                             <constraint firstItem="oYR-eS-xjF" firstAttribute="top" secondItem="trE-ye-Sv9" secondAttribute="bottom" id="eV2-Un-bBS"/>
                             <constraint firstItem="trE-ye-Sv9" firstAttribute="top" secondItem="r38-bg-5n7" secondAttribute="top" constant="20" id="ea4-AL-11w"/>
                             <constraint firstItem="UdW-fx-8eX" firstAttribute="leading" secondItem="DCq-Gf-e7d" secondAttribute="leading" id="fmG-zf-6vy"/>
-                            <constraint firstItem="DCq-Gf-e7d" firstAttribute="leading" secondItem="r38-bg-5n7" secondAttribute="leading" constant="10" id="gfJ-OG-4Qk"/>
+                            <constraint firstItem="DCq-Gf-e7d" firstAttribute="leading" secondItem="r38-bg-5n7" secondAttribute="leading" constant="35" id="gfJ-OG-4Qk"/>
                             <constraint firstAttribute="trailing" secondItem="trE-ye-Sv9" secondAttribute="trailing" id="h4T-he-Rxg"/>
                             <constraint firstItem="uwR-pT-Xxc" firstAttribute="centerX" secondItem="r38-bg-5n7" secondAttribute="centerX" id="hhd-Uu-0xg"/>
                             <constraint firstItem="jH8-uI-WBG" firstAttribute="width" secondItem="h3m-QI-eEF" secondAttribute="width" id="lop-YC-i1J"/>
-                            <constraint firstItem="oYR-eS-xjF" firstAttribute="top" secondItem="h3m-QI-eEF" secondAttribute="bottom" constant="30" id="mRt-xa-EK5"/>
+                            <constraint firstItem="oYR-eS-xjF" firstAttribute="top" secondItem="h3m-QI-eEF" secondAttribute="bottom" constant="40" id="mRt-xa-EK5"/>
                             <constraint firstItem="h3m-QI-eEF" firstAttribute="top" secondItem="d2Z-4r-Gbn" secondAttribute="bottom" constant="20" id="nYl-Jr-KCk"/>
-                            <constraint firstItem="xpx-ua-kQ4" firstAttribute="top" secondItem="A8j-CJ-uQQ" secondAttribute="bottom" constant="20" id="pcB-76-gQq"/>
+                            <constraint firstItem="xpx-ua-kQ4" firstAttribute="top" secondItem="A8j-CJ-uQQ" secondAttribute="bottom" constant="10" id="pcB-76-gQq"/>
                             <constraint firstItem="h3m-QI-eEF" firstAttribute="centerX" secondItem="r38-bg-5n7" secondAttribute="centerX" id="stI-SG-O6c"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="0UN-qN-23U"/>
+                                <exclude reference="Wdt-Ap-Ab4"/>
                                 <exclude reference="nYl-Jr-KCk"/>
                                 <exclude reference="stI-SG-O6c"/>
                             </mask>
@@ -1452,11 +1536,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="create_hunt2" width="160" height="160"/>
-        <image name="empty" width="220" height="160"/>
+        <image name="create_hunt" width="190" height="190"/>
+        <image name="default" width="360" height="210"/>
         <image name="magical_scroll-25" width="25" height="25"/>
         <image name="plus_math-25" width="25" height="25"/>
-        <image name="start_hunt2" width="236" height="213"/>
+        <image name="start_hunt" width="170" height="170"/>
         <image name="treasurehunter" width="284" height="177"/>
         <image name="treasurehunter2" width="300" height="168"/>
         <image name="user" width="550" height="550"/>

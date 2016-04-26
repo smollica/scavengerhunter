@@ -15,6 +15,7 @@ import Parse
 import ParseUI
 
 let defaultHolColdText = "Tap for Distance"
+let wintHolColdText = "YOU FOUND THE LAST CLUE"
 
 class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -38,11 +39,13 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     var currentClue: Clue?
     var hotCold: Double?
     var treasureView: UIImageView?
+    var fullScreenDismiss: UIView?
     var plusButton: SHMapButton?
     var minusButton: SHMapButton?
     var playButton: SHMapButton?
     var defaultButton: SHMapButton?
     var play: Bool?
+    var shouldUpdateColour: Bool = true
     var videoPlayer: AVPlayer?
 
     
@@ -125,23 +128,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         self.lastLocation = currentLocation
     }
-    
-//    func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
-//        if state == .Inside {
-//            self.showGeoFence()
-//            //win alert
-//            nextClue()
-//        }
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-//        if region == self.currentGeoFence {
-//            self.showGeoFence()
-//            //win alert
-//            nextClue()
-//        }
-//    }
-    
+
     // MARK: GeoFencing
     
     func setupGeoFence() {
@@ -149,8 +136,6 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         let targetRadius = self.currentClue?.accuracy
 
         self.currentGeoFence = CLCircularRegion(center: targetLocation2D, radius: targetRadius!, identifier: (self.currentClue?.clue)!)
-//        self.currentGeoFence!.notifyOnEntry = true
-//        self.currentGeoFence!.notifyOnExit = false
         
         let targetLocation = CLLocation(latitude: (self.currentClue?.solution.latitude)!, longitude: (self.currentClue?.solution.longitude)!)
         
@@ -201,7 +186,6 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             self.mapView.removeOverlays(self.mapView.overlays)
         } else {
             youWin()
-//            self.performSegueWithIdentifier("quitHunt", sender: self)
         }
     }
     
@@ -215,24 +199,26 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func updateColour() {
-        let targetLocation = CLLocation(latitude: (self.currentClue?.solution.latitude)!, longitude: (self.currentClue?.solution.longitude)!)
-        self.currentDistance = (currentLocation?.distanceFromLocation(targetLocation))! - (self.currentGeoFence?.radius)!
-        self.hotCold = self.currentDistance! / self.startingDistance!
-        if self.hotColdLabel.text != defaultHolColdText {
-            self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
-        }
-        if self.hotCold > 1.00 {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(0.5), color1: UIColor.blueColor(), color2: UIColor.blueColor())
-        } else if self.hotCold >= 0.75 {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.75) * 4), color1: UIColor.greenColor(), color2: UIColor.blueColor())
-        } else if self.hotCold >= 0.50 {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.5) * 4), color1: UIColor.yellowColor(), color2: UIColor.greenColor())
-        } else if self.hotCold >= 0.25 {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.25) * 4), color1: UIColor.orangeColor(), color2: UIColor.yellowColor())
-        } else if self.hotCold >= 0 {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(self.hotCold! * 4), color1: UIColor.redColor(), color2: UIColor.orangeColor())
-        } else {
-            self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(0.5), color1: UIColor.redColor(), color2: UIColor.redColor())
+        if shouldUpdateColour {
+            let targetLocation = CLLocation(latitude: (self.currentClue?.solution.latitude)!, longitude: (self.currentClue?.solution.longitude)!)
+            self.currentDistance = (currentLocation?.distanceFromLocation(targetLocation))! - (self.currentGeoFence?.radius)!
+            self.hotCold = self.currentDistance! / self.startingDistance!
+            if self.hotColdLabel.text != defaultHolColdText || self.hotColdLabel.text != defaultHolColdText {
+                self.hotColdLabel.text = String(format: "%.0f m", self.currentDistance!)
+            }
+            if self.hotCold > 1.00 {
+                self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(0.5), color1: UIColor.blueColor(), color2: UIColor.blueColor())
+            } else if self.hotCold >= 0.75 {
+                self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.75) * 4), color1: UIColor.greenColor(), color2: UIColor.blueColor())
+            } else if self.hotCold >= 0.50 {
+                self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.5) * 4), color1: UIColor.yellowColor(), color2: UIColor.greenColor())
+            } else if self.hotCold >= 0.25 {
+                self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat((self.hotCold! - 0.25) * 4), color1: UIColor.orangeColor(), color2: UIColor.yellowColor())
+            } else if self.hotCold >= 0 {
+                self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(self.hotCold! * 4), color1: UIColor.redColor(), color2: UIColor.orangeColor())
+            } else {
+                self.hotColdLabel.backgroundColor = UIColor.gradientPoint(factor: CGFloat(0.5), color1: UIColor.redColor(), color2: UIColor.redColor())
+            }
         }
     }
     
@@ -304,23 +290,34 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         treasureView!.userInteractionEnabled = true
         addTapGesture(treasureView!)
         
+        fullScreenDismiss = UIView(frame: self.view.frame)
+        fullScreenDismiss!.userInteractionEnabled = true
+        
         let cX = CGFloat(view.frame.width / 2)
         let cY = CGFloat((view.frame.height / 2 - 20) / 2)
         
-        let emitter = SKEmitterNode(fileNamed: "MyParticle.sks")!
-        emitter.position = CGPointMake(cX , cY)
-        emitter.particleBirthRate = 200
+        let emitter1 = SKEmitterNode(fileNamed: "MyParticle.sks")!
+        emitter1.position = CGPointMake(cX , cY)
+        emitter1.particleColor = UIColor.myColour1()
+        
+        let emitter2 = SKEmitterNode(fileNamed: "MyParticle.sks")!
+        emitter2.position = CGPointMake(cX , cY)
+        emitter2.particleColor = UIColor.myColour2()
+        
         let scene = SKScene(size: CGSize(width: cX * 2, height: cY * 2))
         scene.backgroundColor = UIColor.clearColor()
-        scene.addChild(emitter)
+        scene.addChild(emitter2)
+        scene.addChild(emitter1)
         
         let skView = SKView(frame: CGRect(x: 0, y: 0, width: cX * 2, height: cX * 2))
         skView.allowsTransparency = true
         skView.presentScene(scene)
         view.addSubview(skView)
-      
-        view.addSubview(treasureView!)
         
+        view.addSubview(fullScreenDismiss!)
+        view.addSubview(treasureView!)
+        addTapGesture(fullScreenDismiss!)
+
         let centerX = NSLayoutConstraint(item: treasureView!, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: mapView, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0)
         view.addConstraint(centerX)
         
@@ -354,7 +351,9 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
 
     func dismissTreasure() {
-        treasureView!.userInteractionEnabled = false
+        fullScreenDismiss!.userInteractionEnabled = false
+        fullScreenDismiss!.hidden = true
+        fullScreenDismiss!.removeFromSuperview()
         treasureView!.hidden = true
         treasureView!.removeFromSuperview()
         nextClue()
@@ -365,11 +364,17 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         self.clueImageView.hidden = true
         self.clueLabel.hidden = true
         self.clueScroll.hidden = true
-        self.hotColdLabel.hidden = true
         self.hintLabel.hidden = true
         self.hintScroll.hidden = true
         self.hintButton.hidden = true
         self.nextClueButton.hidden = true
+        
+        self.shouldUpdateColour = false
+        self.hotColdLabel.text = wintHolColdText
+        self.hotColdLabel.textColor = UIColor.myColour2()
+        self.hotColdLabel.backgroundColor = UIColor.myColour1()
+        
+        self.hotColdLabel.gestureRecognizers?.removeAll()
     }
     
     func playFireworks() {
@@ -382,6 +387,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         let playerLayer = AVPlayerLayer(player: videoPlayer)
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         playerLayer.zPosition = -1
+        
         
         playerLayer.frame = fireworksView.frame
         view.layer.addSublayer(playerLayer)

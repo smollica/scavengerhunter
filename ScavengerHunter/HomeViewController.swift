@@ -31,6 +31,8 @@ class HomeViewController: UIViewController {
 
         self.loadingIndicator.hidden = true
         
+        transition()
+        
         playVideo()
     }
     
@@ -63,6 +65,33 @@ class HomeViewController: UIViewController {
         videoPlayer?.play()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.loopVideo), name: AVPlayerItemDidPlayToEndTimeNotification,object: nil)
+    }
+    
+    func transition() {
+        let topCover = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20))
+        topCover.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(topCover)
+        
+        let cover = UIImageView(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: self.view.frame.height - 20))
+        cover.image = UIImage(named: "background3")
+        self.view.addSubview(cover)
+        
+        let logoY = (self.view.frame.height / 2) - (175 / 2) + (20 / 2)
+        let logo = UIImageView(frame: CGRect(x: 38, y: logoY, width: self.view.frame.width - (38 * 2), height: 175))
+        logo.image = UIImage(named: "treasurehunter2")
+        logo.contentMode = .ScaleAspectFill
+        logo.clipsToBounds = true
+        self.view.addSubview(logo)
+        
+        UIView.animateWithDuration(0.75, delay: 0, options: .CurveEaseIn, animations: {
+            topCover.alpha = 0
+            cover.alpha = 0
+            logo.alpha = 0
+        }) { (finished) in
+            topCover.removeFromSuperview()
+            cover.removeFromSuperview()
+            logo.removeFromSuperview()
+        }
     }
     
     // MARK: NotificationCenter

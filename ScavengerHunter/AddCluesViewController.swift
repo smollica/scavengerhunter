@@ -12,7 +12,7 @@ import Parse
 import ParseUI
 
 let smallCell: Double = 28
-let largeCell: Double = 265
+let largeCell: Double = 250
 
 class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CreateClueTableViewCellDelegate {
     
@@ -128,6 +128,8 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             cell.editButton.tag = indexPath.row
             
             cell.expandButton.hidden = false
+            
+            cell.mapView.layer.cornerRadius = cornerRadius
             
             if clue.isExpanded {
                 cell.expandButton.setImage(UIImage(named: "minus_math-25"), forState: UIControlState.Normal)
