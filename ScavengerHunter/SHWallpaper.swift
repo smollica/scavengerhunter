@@ -17,4 +17,5 @@ class SHWallpaper: UIImageView {
         self.image = UIImage(named: "background1")
         self.alpha = 0.075
     }
+    
 }

@@ -29,11 +29,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.loadingIndicator.hidden = true
-        
         transition()
-        
         playVideo()
+        
+        self.loadingIndicator.hidden = true
     }
     
     // MARK: Actions
@@ -140,14 +139,6 @@ class HomeViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // MARK: Unwind Segue
-    
-    @IBAction func unwindHome(segue: UIStoryboardSegue) {
-        //do nothing here
-    }    
-    
-    // MARK: Alert
-    
     func errorAlert(error: NSError) {
         let alertController = UIAlertController(title: "Error!", message: error.description, preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -155,5 +146,11 @@ class HomeViewController: UIViewController {
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: Unwind Segue
+    
+    @IBAction func unwindHome(segue: UIStoryboardSegue) {
+        //do nothing here
+    }    
 
 }

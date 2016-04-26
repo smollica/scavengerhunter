@@ -25,10 +25,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadingIndicator.hidden = true
-        cancelButton.autoLayout(view)
-        signUpButton.autoLayout(view)
     }
     
     // MARK: Actions
@@ -58,6 +56,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, SHImagePicker
             } else if error != nil {
                 self.errorAlert(error!)
             }
+            
             self.cancelButton.hidden = false
             self.signUpButton.hidden = false
             self.loadingIndicator.hidden = true

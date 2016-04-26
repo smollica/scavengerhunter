@@ -36,19 +36,6 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
         
     }
     
-    // MARK: UIImagePickerControllerDelegate
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        dismissViewControllerAnimated(true) {}
-        self.huntImageView.image = image
-    }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
-    }
-    
     // MARK: Actions
     
     @IBAction func imageTapped(sender: AnyObject) {
@@ -76,6 +63,19 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
             let huntImageData = UIImageJPEGRepresentation(huntImage, 0.4)
             newHunt.image = PFFile(data: huntImageData!)!
         }
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        dismissViewControllerAnimated(true) {}
+        self.huntImageView.image = image
+    }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
     }
     
     // MARK: Segue

@@ -35,6 +35,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         super.viewDidLoad()
         
         getFields()
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     
@@ -65,13 +66,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             warningAlert(clueCountWarning, optional: true)
         }
     }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
-    }
-    
+
     // MARK: UITableViewDataSource/Delegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -161,15 +156,18 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             return CGFloat(largeCell)
         }
     }
+
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            newHunt.clues.removeAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        } else if editingStyle == .Insert {
-//        }
-//    }
-  
+    /*  to come - must implement delete logic to clues (clue number update)
+     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            newHunt.clues.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+        }
+    } */
+    
     // MARK CreateClueTableViewCellDelegate
     
     func reloadTable() {
@@ -185,6 +183,29 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         }
         performSegueWithIdentifier("clueDetails", sender: self)
     }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    // MARK: MKMapViewDelegate
+    
+    func showGeoFence(cell: CreateClueTableViewCell) {
+        let center = CLLocationCoordinate2D(latitude: cell.clue!.solution.latitude, longitude: (cell.clue?.solution.longitude)!)
+        let visualGeoFence = MKCircle(centerCoordinate: center, radius: cell.clue!.accuracy)
+        cell.mapView.addOverlay(visualGeoFence)
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleView = MKCircleRenderer(overlay: overlay)
+        circleView.fillColor = UIColor.orangeColor().colorWithAlphaComponent(0.4)
+        circleView.strokeColor = UIColor.redColor()
+        circleView.lineWidth = 1
+        return circleView
+    }
+    
     
     // MARK: Helper Functions
     
@@ -214,22 +235,6 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             self.loadingIndicator.stopAnimating()
             self.performSegueWithIdentifier("backToSelection", sender: self)
         }
-    }
-    
-    // MARK: MKMapViewDelegate
-    
-    func showGeoFence(cell: CreateClueTableViewCell) {
-        let center = CLLocationCoordinate2D(latitude: cell.clue!.solution.latitude, longitude: (cell.clue?.solution.longitude)!)
-        let visualGeoFence = MKCircle(centerCoordinate: center, radius: cell.clue!.accuracy)
-        cell.mapView.addOverlay(visualGeoFence)
-    }
-    
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let circleView = MKCircleRenderer(overlay: overlay)
-        circleView.fillColor = UIColor.orangeColor().colorWithAlphaComponent(0.4)
-        circleView.strokeColor = UIColor.redColor()
-        circleView.lineWidth = 1
-        return circleView
     }
     
     // MARK: Segue

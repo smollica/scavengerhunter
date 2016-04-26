@@ -130,11 +130,49 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
                 self.locationManager!.stopUpdatingLocation()
             }
         }
-        
-        
-        //reverse geolocation!
-        
-        //plot in map
+    }
+    
+    // MARK: MKMapViewDelegate
+    
+    func showGeoFence() {
+        self.mapView.removeOverlays(self.mapView.overlays)
+        let visualGeoFence = MKCircle(centerCoordinate: self.clueLocation!, radius: (self.clue?.accuracy)!)
+        self.mapView.addOverlay(visualGeoFence)
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleView = MKCircleRenderer(overlay: overlay)
+        circleView.fillColor = UIColor.orangeColor().colorWithAlphaComponent(0.4)
+        circleView.strokeColor = UIColor.redColor()
+        circleView.lineWidth = 1
+        return circleView
+    }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == self.solutionField {
+            search()
+        } else if textField == self.accuracyField {
+            if self.clueLocation != nil {
+                search()
+            }
+            if let accuracyString = accuracyField.text, let accuracyDouble = Double(accuracyString) {
+                if accuracyDouble > minAccuracy {
+                    self.clue!.accuracy = accuracyDouble
+                } else {
+                    self.clue!.accuracy = minAccuracy
+                    self.accuracyField.text = String(format: "%.0fm", minAccuracy)
+                }
+            } else {
+                self.clue!.accuracy = defaultAccuracy
+                self.accuracyField.text = String(format: "%.0fm", defaultAccuracy)
+            }
+        }
     }
 
     // MARK: UIImagePickerControllerDelegate
@@ -162,8 +200,6 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     }
     
     func saveAndAnnotateSolution() {
-        //var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-        
         let range = 0.002 / defaultAccuracy * (self.clue?.accuracy)!
         let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
         self.showGeoFence()
@@ -227,49 +263,6 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
             self.newHunt!.clues.append(self.clue!)
         }
         performSegueWithIdentifier("unwindToClues", sender: self)
-    }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if textField == self.solutionField {
-            search()
-        } else if textField == self.accuracyField {
-            if self.clueLocation != nil {
-                search()
-            }
-            if let accuracyString = accuracyField.text, let accuracyDouble = Double(accuracyString) {
-                if accuracyDouble > minAccuracy {
-                    self.clue!.accuracy = accuracyDouble
-                } else {
-                    self.clue!.accuracy = minAccuracy
-                    self.accuracyField.text = String(format: "%.0fm", minAccuracy)
-                }
-            } else {
-                self.clue!.accuracy = defaultAccuracy
-                self.accuracyField.text = String(format: "%.0fm", defaultAccuracy)
-            }
-        }
-    }
-    
-    // MARK: MKMapViewDelegate
-    
-    func showGeoFence() {
-        self.mapView.removeOverlays(self.mapView.overlays)
-        let visualGeoFence = MKCircle(centerCoordinate: self.clueLocation!, radius: (self.clue?.accuracy)!)
-        self.mapView.addOverlay(visualGeoFence)
-    }
-    
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let circleView = MKCircleRenderer(overlay: overlay)
-        circleView.fillColor = UIColor.orangeColor().colorWithAlphaComponent(0.4)
-        circleView.strokeColor = UIColor.redColor()
-        circleView.lineWidth = 1
-        return circleView
     }
     
     // MARK: Alert

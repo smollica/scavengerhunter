@@ -15,7 +15,7 @@ class SHHotColdLabel: UILabel {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.userInteractionEnabled = true
         
-        self.text = ""
+        self.text = defaultHolColdText
         
         self.font = UIFont(name: labelFont, size: labelFontSize * 1.5)
         self.adjustsFontSizeToFitWidth = true

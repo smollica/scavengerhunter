@@ -44,9 +44,8 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
             }
         })
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
-        
         fixButton()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     
     // MARK: Actions
@@ -57,12 +56,6 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.performSegueWithIdentifier("back", sender: self)
-    }
-   
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
     }
     
     // MARK: UITableViewDataSource/Delegate
@@ -98,6 +91,12 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.currentCell = indexPath.row
         self.performSegueWithIdentifier("huntDetail", sender: self)
+    }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
     }
     
     // MARK: Helper Functions
