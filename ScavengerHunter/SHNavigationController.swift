@@ -17,6 +17,8 @@ class SHNavigationController: UINavigationController {
         self.navigationBar.tintColor = UIColor.myColour2()
         self.navigationItem.titleView?.tintColor = UIColor.myColour2()
         self.navigationItem.titleView?.backgroundColor = UIColor.myColour2()
+        
+        self.navigationBar.titleTextAttributes = ([NSFontAttributeName:UIFont(name: labelFont, size: labelFontSize)!, NSForegroundColorAttributeName: UIColor.myColour2()])
     }
 
 }

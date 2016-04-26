@@ -20,14 +20,44 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background3" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-q0-MXK">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasurehunter2" translatesAutoresizingMaskIntoConstraints="NO" id="s7A-1F-KN1">
+                                <rect key="frame" x="35" y="207" width="250" height="175"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="MuQ-Jj-8Hr"/>
+                                    <constraint firstAttribute="width" constant="240" id="QZB-Hf-vVF"/>
+                                    <constraint firstAttribute="height" constant="140" id="Wb5-eL-Sor"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QZB-Hf-vVF"/>
+                                        <exclude reference="Wb5-eL-Sor"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Sqr-q0-MXK" secondAttribute="trailing" id="3Md-lg-e1A"/>
                             <constraint firstItem="Sqr-q0-MXK" firstAttribute="top" secondItem="eqk-Na-hFP" secondAttribute="bottom" id="Cw2-eQ-FKI"/>
+                            <constraint firstItem="s7A-1F-KN1" firstAttribute="leading" secondItem="iDo-TM-hgl" secondAttribute="leading" constant="45" id="E8m-8q-Sef"/>
+                            <constraint firstAttribute="trailing" secondItem="s7A-1F-KN1" secondAttribute="trailing" constant="35" id="LT7-iS-s09"/>
+                            <constraint firstItem="s7A-1F-KN1" firstAttribute="centerY" secondItem="Sqr-q0-MXK" secondAttribute="centerY" id="TTx-3Z-nEG"/>
+                            <constraint firstItem="s7A-1F-KN1" firstAttribute="top" secondItem="eqk-Na-hFP" secondAttribute="bottom" constant="96" id="cQc-8d-6Jc"/>
+                            <constraint firstItem="s7A-1F-KN1" firstAttribute="centerX" secondItem="Sqr-q0-MXK" secondAttribute="centerX" id="ebk-B3-I0R"/>
                             <constraint firstItem="p0q-E9-zCl" firstAttribute="top" secondItem="Sqr-q0-MXK" secondAttribute="bottom" id="hcV-il-S2z"/>
                             <constraint firstItem="Sqr-q0-MXK" firstAttribute="leading" secondItem="iDo-TM-hgl" secondAttribute="leading" id="oTR-fG-t0g"/>
+                            <constraint firstItem="s7A-1F-KN1" firstAttribute="leading" secondItem="iDo-TM-hgl" secondAttribute="leading" constant="35" id="v15-Gy-bQv"/>
+                            <constraint firstItem="s7A-1F-KN1" firstAttribute="top" secondItem="eqk-Na-hFP" secondAttribute="bottom" constant="96" id="wqt-9Y-2Iw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="E8m-8q-Sef"/>
+                                <exclude reference="cQc-8d-6Jc"/>
+                                <exclude reference="ebk-B3-I0R"/>
+                                <exclude reference="wqt-9Y-2Iw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -38,5 +68,6 @@
     </scenes>
     <resources>
         <image name="background3" width="400" height="500"/>
+        <image name="treasurehunter2" width="300" height="168"/>
     </resources>
 </document>

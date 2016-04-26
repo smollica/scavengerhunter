@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import AVKit
+import AVFoundation
 
 class HomeViewController: UIViewController {
     
@@ -17,6 +19,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signInButton: SHLargeButton!
     @IBOutlet weak var signUpButton: SHLargeButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var videoView: UIView!
+    
+    // MARK: Properties
+    
+    var videoPlayer: AVPlayer?
     
     // MARK: viewDidLoad
 
@@ -24,7 +31,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         self.loadingIndicator.hidden = true
-//        signInButton.autoLayout(view)
+        
+        playVideo()
     }
     
     // MARK: Actions
@@ -37,8 +45,36 @@ class HomeViewController: UIViewController {
         }
     }
     
-    // MARK: Alerts
+    // MARK: Helper Functions
     
+    func playVideo() {
+        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("tropical", withExtension: "mp4")!
+        
+        videoPlayer = AVPlayer(URL: videoURL)
+        videoPlayer?.actionAtItemEnd = .None
+        videoPlayer?.muted = true
+
+        let playerLayer = AVPlayerLayer(player: videoPlayer)
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer.zPosition = -1
+
+        playerLayer.frame = view.frame
+        playerLayer.bounds = CGRect(x: -300, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        view.layer.addSublayer(playerLayer)
+        videoPlayer?.play()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.loopVideo), name: AVPlayerItemDidPlayToEndTimeNotification,object: nil)
+    }
+    
+    // MARK: NotificationCenter
+
+    func loopVideo() {
+        videoPlayer?.seekToTime(kCMTimeZero)
+        videoPlayer?.play()
+        }
+
+    // MARK: Alerts
+
     func loginAlert() {
         let alertController = UIAlertController(title: "Log In Please", message:"", preferredStyle: UIAlertControllerStyle.Alert)
         

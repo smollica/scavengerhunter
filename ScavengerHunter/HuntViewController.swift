@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SpriteKit
 import Parse
 import ParseUI
 
@@ -99,6 +100,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedAlways {
             locationManager!.startUpdatingLocation()
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         }
     }
     
@@ -194,7 +196,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             self.mapView.removeOverlays(self.mapView.overlays)
         } else {
             youWin()
-            self.performSegueWithIdentifier("quitHunt", sender: self)
+//            self.performSegueWithIdentifier("quitHunt", sender: self)
         }
     }
     
@@ -236,7 +238,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             self.hintLabel.hidden = false
             self.hintScroll.hidden = false
             self.clueLabel.text = "CONGRATULATIONS"
-            self.hotColdLabel.hidden = true
+            self.hotColdLabel.text = defaultHolColdText
         }
     }
     
@@ -292,10 +294,26 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func makeTreasure() {
         treasureView = UIImageView(frame: CGRectZero)
-        treasureView!.image = UIImage(named: "treasure3")
+        treasureView!.image = UIImage(named: "treasure")
         treasureView!.alpha = 0
         treasureView!.userInteractionEnabled = true
         addTapGesture(treasureView!)
+        
+        let cX = CGFloat(view.frame.width / 2)
+        let cY = CGFloat((view.frame.height / 2 - 20) / 2)
+        
+        let emitter = SKEmitterNode(fileNamed: "MyParticle.sks")!
+        emitter.position = CGPointMake(cX , cY)
+        emitter.particleBirthRate = 200
+        let scene = SKScene(size: CGSize(width: cX * 2, height: cY * 2))
+        scene.backgroundColor = UIColor.clearColor()
+        scene.addChild(emitter)
+        
+        let skView = SKView(frame: CGRect(x: 0, y: 0, width: cX * 2, height: cX * 2))
+        skView.allowsTransparency = true
+        skView.presentScene(scene)
+        view.addSubview(skView)
+      
         view.addSubview(treasureView!)
         
         let centerX = NSLayoutConstraint(item: treasureView!, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: mapView, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0)
@@ -319,7 +337,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             self.view.layoutIfNeeded()
             self.treasureView!.alpha = 1
         }) { (finished) in
-            //do nothing here
+            skView.removeFromSuperview()
         }
     }
     
@@ -338,9 +356,9 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func youWin() {
-        // fireworks display
-        self.performSegueWithIdentifier("quitHunt", sender: self)
+        //
     }
+
     
     // MARK: Map Controls
     

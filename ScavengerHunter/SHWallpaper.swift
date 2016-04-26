@@ -15,6 +15,6 @@ class SHWallpaper: UIImageView {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.image = UIImage(named: "background1")
-        self.alpha = 0.05
+        self.alpha = 0.075
     }
 }
