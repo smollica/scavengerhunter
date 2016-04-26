@@ -19,7 +19,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signInButton: SHLargeButton!
     @IBOutlet weak var signUpButton: SHLargeButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var videoView: UIView!
     
     // MARK: Properties
     
@@ -48,7 +47,7 @@ class HomeViewController: UIViewController {
     // MARK: Helper Functions
     
     func playVideo() {
-        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("tropical", withExtension: "mp4")!
+        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("treasure", withExtension: "mp4")!
         
         videoPlayer = AVPlayer(URL: videoURL)
         videoPlayer?.actionAtItemEnd = .None
@@ -59,7 +58,7 @@ class HomeViewController: UIViewController {
         playerLayer.zPosition = -1
 
         playerLayer.frame = view.frame
-        playerLayer.bounds = CGRect(x: -300, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        playerLayer.bounds = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         view.layer.addSublayer(playerLayer)
         videoPlayer?.play()
         

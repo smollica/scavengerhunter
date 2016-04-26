@@ -34,7 +34,9 @@
 		E5B6B0B61CCD8C510060B92C /* SHWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B0B51CCD8C510060B92C /* SHWallpaper.swift */; };
 		E5B6B0B91CCEBBDF0060B92C /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B0B71CCEBBDF0060B92C /* MyParticle.sks */; };
 		E5B6B0BA1CCEBBDF0060B92C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B0B81CCEBBDF0060B92C /* spark.png */; };
-		E5B6B0C11CCEE8300060B92C /* tropical.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B0C01CCEE8300060B92C /* tropical.mp4 */; };
+		E5B6B0C31CCF1ED80060B92C /* tropical.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B0C21CCF1ED80060B92C /* tropical.mp4 */; };
+		E5B6B0CD1CCF2CD30060B92C /* treasure.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B0CC1CCF2CD30060B92C /* treasure.mp4 */; };
+		E5B6B0CF1CCF33B80060B92C /* fireworks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B0CE1CCF33B80060B92C /* fireworks.mp4 */; };
 		E5E289CA1CC96B5500EFC52C /* ClueCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */; };
 		E5E6B8BA1CCB562000F1B8D9 /* SHNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8B91CCB562000F1B8D9 /* SHNavigationItem.swift */; };
 		E5E6B8BC1CCBD83B00F1B8D9 /* SHHotColdLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6B8BB1CCBD83B00F1B8D9 /* SHHotColdLabel.swift */; };
@@ -82,7 +84,9 @@
 		E5B6B0B51CCD8C510060B92C /* SHWallpaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHWallpaper.swift; sourceTree = "<group>"; };
 		E5B6B0B71CCEBBDF0060B92C /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		E5B6B0B81CCEBBDF0060B92C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		E5B6B0C01CCEE8300060B92C /* tropical.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tropical.mp4; sourceTree = "<group>"; };
+		E5B6B0C21CCF1ED80060B92C /* tropical.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tropical.mp4; sourceTree = "<group>"; };
+		E5B6B0CC1CCF2CD30060B92C /* treasure.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = treasure.mp4; sourceTree = "<group>"; };
+		E5B6B0CE1CCF33B80060B92C /* fireworks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fireworks.mp4; sourceTree = "<group>"; };
 		E5E289C91CC96B5500EFC52C /* ClueCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClueCreatorViewController.swift; sourceTree = "<group>"; };
 		E5E6B8B91CCB562000F1B8D9 /* SHNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationItem.swift; sourceTree = "<group>"; };
 		E5E6B8BB1CCBD83B00F1B8D9 /* SHHotColdLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHHotColdLabel.swift; sourceTree = "<group>"; };
@@ -160,7 +164,6 @@
 		E5A06A131CC571B100F8B7F6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				E5B6B0BB1CCEDC230060B92C /* Movies */,
 				E5A06A011CC5709100F8B7F6 /* AppDelegate.swift */,
 				E5A06A081CC5709100F8B7F6 /* Assets.xcassets */,
 				E5A06A0D1CC5709100F8B7F6 /* Info.plist */,
@@ -183,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A06A341CC6B45100F8B7F6 /* Custom UI */,
+				E5B6B0BB1CCEDC230060B92C /* Movies */,
 				E5A06A2E1CC594E600F8B7F6 /* CreateClueTableViewCell.swift */,
 				E5A06A301CC5955C00F8B7F6 /* HuntSearchTableViewCell.swift */,
 				E5B6B0B71CCEBBDF0060B92C /* MyParticle.sks */,
@@ -244,7 +248,9 @@
 		E5B6B0BB1CCEDC230060B92C /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				E5B6B0C01CCEE8300060B92C /* tropical.mp4 */,
+				E5B6B0C21CCF1ED80060B92C /* tropical.mp4 */,
+				E5B6B0CE1CCF33B80060B92C /* fireworks.mp4 */,
+				E5B6B0CC1CCF2CD30060B92C /* treasure.mp4 */,
 			);
 			name = Movies;
 			sourceTree = "<group>";
@@ -311,11 +317,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B6B0CF1CCF33B80060B92C /* fireworks.mp4 in Resources */,
 				E5B6B0BA1CCEBBDF0060B92C /* spark.png in Resources */,
-				E5B6B0C11CCEE8300060B92C /* tropical.mp4 in Resources */,
+				E5B6B0C31CCF1ED80060B92C /* tropical.mp4 in Resources */,
 				E5A06A0C1CC5709100F8B7F6 /* LaunchScreen.storyboard in Resources */,
 				E5A06A091CC5709100F8B7F6 /* Assets.xcassets in Resources */,
 				E5A06A071CC5709100F8B7F6 /* Main.storyboard in Resources */,
+				E5B6B0CD1CCF2CD30060B92C /* treasure.mp4 in Resources */,
 				E5B6B0B91CCEBBDF0060B92C /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

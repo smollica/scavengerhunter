@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import SpriteKit
+import AVKit
+import AVFoundation
 import Parse
 import ParseUI
 
@@ -27,6 +29,8 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var nextClueButton: SHButton!
     @IBOutlet weak var quitButton: SHButton!
     @IBOutlet weak var hintScroll: SHScroll!
+    @IBOutlet weak var clueScroll: SHScroll!
+    @IBOutlet weak var fireworksView: UIView!
     
     // MARK: Properties
     
@@ -39,7 +43,8 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     var playButton: SHMapButton?
     var defaultButton: SHMapButton?
     var play: Bool?
-    var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
+    var videoPlayer: AVPlayer?
+
     
     // MARK: LocationManager
     
@@ -50,6 +55,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     var currentGeoFence: CLCircularRegion?
     var startingDistance: CLLocationDistance?
     var currentDistance: CLLocationDistance?
+    var span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
     
     // MARK: viewDidLoad
 
@@ -185,8 +191,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func nextClue() {
-        self.hunt!.currentClue += 1
-        if self.hunt!.clues.count >= self.hunt!.currentClue {
+        if self.hunt!.clues.count > 1 {
             self.hunt!.clues.removeFirst()
             getFields()
             setupGeoFence()
@@ -341,7 +346,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
     }
     
-    func addTapGesture(imageView: UIImageView) {
+    func addTapGesture(imageView: UIView) {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.userInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HuntViewController.dismissTreasure))
@@ -356,9 +361,42 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func youWin() {
-        //
+        playFireworks()
+        self.clueImageView.hidden = true
+        self.clueLabel.hidden = true
+        self.clueScroll.hidden = true
+        self.hotColdLabel.hidden = true
+        self.hintLabel.hidden = true
+        self.hintScroll.hidden = true
+        self.hintButton.hidden = true
+        self.nextClueButton.hidden = true
     }
-
+    
+    func playFireworks() {
+        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("fireworks", withExtension: "mp4")!
+        
+        videoPlayer = AVPlayer(URL: videoURL)
+        videoPlayer?.actionAtItemEnd = .None
+        videoPlayer?.muted = true
+        
+        let playerLayer = AVPlayerLayer(player: videoPlayer)
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer.zPosition = -1
+        
+        playerLayer.frame = fireworksView.frame
+        view.layer.addSublayer(playerLayer)
+        videoPlayer?.play()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HuntViewController.loopFireworks), name: AVPlayerItemDidPlayToEndTimeNotification,object: nil)
+    }
+    
+    // MARK: NotificationCenter
+    
+    func loopFireworks() {
+        videoPlayer?.seekToTime(kCMTimeZero)
+        videoPlayer?.play()
+    }
+    
     
     // MARK: Map Controls
     
