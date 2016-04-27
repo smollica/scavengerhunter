@@ -44,7 +44,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     var minusButton: SHMapButton?
     var playButton: SHMapButton?
     var defaultButton: SHMapButton?
-    var play: Bool?
+    var play: Bool = true
     var shouldUpdateColour: Bool = true
     var videoPlayer: AVPlayer?
     
@@ -76,11 +76,6 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         self.hintScroll.hidden = true
         
         createButtons()
-        self.play = true
-        
-        hintButton.autoLayout(view)
-        nextClueButton.autoLayout(view)
-        quitButton.autoLayout(view)
     }
     
     // MARK: Actions
@@ -90,7 +85,11 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     @IBAction func nextClueButtonPressed(sender: AnyObject) {
-        warningAlert("Are you sure you want to go on to the SKIP to the NEXT STAGE of the hunt (cannot be undone)?", optional: true, todo: "nextClue")
+        if self.hunt!.clues.count == 1 {
+            warningAlert("This is the last CLUE and cannot be skipped!", optional: true, todo: "nextClue")
+        } else {
+            warningAlert("Are you sure you want to go on to the SKIP to the NEXT STAGE of the hunt (cannot be undone)?", optional: true, todo: "nextClue")
+        }
     }
     
     @IBAction func quitButtonPressed(sender: AnyObject) {
@@ -260,9 +259,6 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func createButtons() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: -20))
         
         

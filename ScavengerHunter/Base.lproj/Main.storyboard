@@ -587,11 +587,11 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-cF-7EW" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="100" y="498" width="120" height="30"/>
+                                <rect key="frame" x="100" y="493" width="120" height="35"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="GRy-pl-zGy"/>
-                                    <constraint firstAttribute="height" constant="30" id="Rnx-hl-pUJ"/>
+                                    <constraint firstAttribute="height" constant="35" id="Rnx-hl-pUJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Start Hunt"/>
@@ -650,7 +650,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOM-Z5-uf1" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="40" y="412" width="240" height="66"/>
+                                <rect key="frame" x="40" y="412" width="240" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9no-0j-Hvi"/>
                                 </constraints>
@@ -747,11 +747,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjL-ne-si2">
-                                <rect key="frame" x="0.0" y="304" width="320" height="264"/>
+                                <rect key="frame" x="0.0" y="376" width="320" height="192"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igf-5v-MN2" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="198" y="509" width="45" height="39"/>
+                                <rect key="frame" x="220" y="513" width="90" height="35"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Quit"/>
@@ -760,10 +760,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kn-2U-9ew" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="138" y="509" width="45" height="39"/>
+                                <rect key="frame" x="115" y="513" width="90" height="35"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="Mky-ot-FPA"/>
+                                    <constraint firstAttribute="width" constant="90" id="Jvr-Qn-9ap"/>
+                                    <constraint firstAttribute="height" constant="35" id="Mky-ot-FPA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Skip"/>
@@ -772,16 +773,16 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMV-Vr-tSc">
-                                <rect key="frame" x="0.0" y="64" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="272"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="qpK-Ty-zvg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="qpK-Ty-zvg"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="BDV-wD-QGS" id="UPj-Le-ali"/>
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-x5-G51" customClass="SHHotColdLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="264" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="336" width="320" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -795,23 +796,23 @@
                                 </connections>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K24-M7-oxS" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="314" width="120" height="70"/>
+                                <rect key="frame" x="10" y="386" width="120" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="EHg-M0-R8Q"/>
                                     <constraint firstAttribute="height" constant="70" id="IO6-KO-loP"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JH1-Ca-Q1X" customClass="SHScroll" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="140" y="314" width="170" height="70"/>
+                                <rect key="frame" x="140" y="386" width="170" height="70"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-gt-akA" customClass="SHSmallLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="170" y="319" width="110" height="60"/>
+                                <rect key="frame" x="170" y="391" width="110" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0v-Ms-l3H" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="78" y="509" width="45" height="39"/>
+                                <rect key="frame" x="10" y="513" width="90" height="35"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Hint"/>
@@ -820,10 +821,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pww-GW-McU" customClass="SHScroll" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="394" width="300" height="105"/>
+                                <rect key="frame" x="10" y="466" width="300" height="37"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-e4-2pz" customClass="SHLabel" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="40" y="399" width="240" height="95"/>
+                                <rect key="frame" x="40" y="471" width="240" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1043,7 +1044,7 @@
                                             <outlet property="clueLabel" destination="LqA-yN-Db2" id="UeU-qF-ton"/>
                                             <outlet property="clueNumberLabel" destination="asb-FZ-AMD" id="Ort-Xy-R8F"/>
                                             <outlet property="editButton" destination="2tw-Iw-OaD" id="Ni1-nz-21K"/>
-                                            <outlet property="editButtonTopConstrain" destination="tgi-cf-7wZ" id="RIk-Y3-OYy"/>
+                                            <outlet property="editButtonTopConstraint" destination="tgi-cf-7wZ" id="go0-nt-bv1"/>
                                             <outlet property="expandButton" destination="9ic-rm-wZf" id="aUp-r1-Nlv"/>
                                             <outlet property="mapView" destination="MiE-uW-DuY" id="FyY-7F-Bw2"/>
                                         </connections>
@@ -1054,7 +1055,7 @@
                                     <outlet property="delegate" destination="x4y-VB-Gtz" id="nWN-Dx-wEQ"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KOj-Dg-ARp" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="KOj-Dg-ARp" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
                                 <rect key="frame" x="10" y="74" width="120" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="EjL-2v-G9S"/>
@@ -1194,7 +1195,7 @@
                                 </connections>
                             </textField>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="2Hs-ga-562" customClass="SHImage" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="114" y="444" width="92" height="54"/>
+                                <rect key="frame" x="118" y="444" width="84" height="49"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2Hs-ga-562" secondAttribute="height" multiplier="12:7" id="0aQ-cd-2ZE"/>
@@ -1218,10 +1219,10 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-mn-vMC" customClass="SHButton" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="97" y="518" width="126" height="30"/>
+                                <rect key="frame" x="97" y="513" width="126" height="35"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="38G-G1-XF2"/>
+                                    <constraint firstAttribute="height" constant="35" id="38G-G1-XF2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="  Create Clue  "/>

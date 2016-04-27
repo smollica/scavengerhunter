@@ -32,10 +32,5 @@ class SHButton: UIButton {
         self.titleLabel!.font = UIFont(name: buttonFont, size: buttonFontSize)
         self.titleLabel!.adjustsFontSizeToFitWidth = true
     }
-    
-    func autoLayout(superView: UIView) {
-        superView.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Width, multiplier: 0.275, constant: 0))
-        superView.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: superview, attribute: NSLayoutAttribute.Width, multiplier: 0.275 * 0.35, constant: 0))
-    }
 
 }

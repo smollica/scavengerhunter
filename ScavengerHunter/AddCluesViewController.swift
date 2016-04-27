@@ -13,6 +13,8 @@ import ParseUI
 
 let smallCell: Double = 50
 let largeCell: Double = 280
+let smallTopConstraint = CGFloat(smallCell - 52)
+let largeTopConstraint = CGFloat(largeCell - 52)
 
 class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CreateClueTableViewCellDelegate {
     
@@ -90,7 +92,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         if indexPath.section == 0 {
             
             cell.editButton.setTitle("  Edit Clue  ", forState: UIControlState.Normal)
-            cell.editButtonTopConstrain.constant = 230
+            cell.editButtonTopConstraint.constant = largeTopConstraint
                     
             cell.clueNumberLabel.hidden = false
             cell.clueImageView!.hidden = false
@@ -145,7 +147,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         } else {
             cell.editButton.setTitle("  Create New Clue  ", forState: UIControlState.Normal)
             cell.editButton.tag = -1
-            cell.editButtonTopConstrain.constant = 0
+            cell.editButtonTopConstraint.constant = smallTopConstraint
             
             cell.clueNumberLabel.hidden = true
             cell.clueImageView!.hidden = true

@@ -45,6 +45,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         })
         
         fixButton()
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     

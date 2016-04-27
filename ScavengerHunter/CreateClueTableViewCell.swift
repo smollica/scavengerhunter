@@ -28,7 +28,7 @@ class CreateClueTableViewCell: UITableViewCell, MKMapViewDelegate {
     @IBOutlet weak var clueLabel: SHLabel!
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var editButton: SHButton!
-    @IBOutlet weak var editButtonTopConstrain: NSLayoutConstraint!
+    @IBOutlet weak var editButtonTopConstraint: NSLayoutConstraint!
     
     // MARK: Properties
 
