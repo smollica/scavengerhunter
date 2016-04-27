@@ -12,10 +12,8 @@ class SHLargeLabel: SHLabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.translatesAutoresizingMaskIntoConstraints = false
         
         self.font = UIFont(name: labelFont, size: labelFontSize * 2)
-        self.adjustsFontSizeToFitWidth = true
     }
     
 }

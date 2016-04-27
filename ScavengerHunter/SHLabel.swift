@@ -18,7 +18,6 @@ class SHLabel: UILabel {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.font = UIFont(name: labelFont, size: labelFontSize)
-        self.adjustsFontSizeToFitWidth = true
     }
 
 }

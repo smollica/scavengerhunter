@@ -46,10 +46,10 @@ class HuntDetailViewController: UIViewController {
     // MARK: Helper Functions
     
     func setFields() {
-        self.huntNameLabel.text = "Hunt Name: " + self.hunt!.name
+        self.huntNameLabel.text = self.hunt!.name
         self.huntPrizeLabel.text = "Hunt Prize: " + self.hunt!.prize
         self.numberOfCluesLabel.text = "Hunt Size: " + "\(self.hunt!.clues.count)" + " Clues"
-        self.huntDescriptionLabel.text = "Hunt Description: " + self.hunt!.desc
+        self.huntDescriptionLabel.text = self.hunt!.desc
         
         let huntImage = hunt!.image
         huntImage.getDataInBackgroundWithBlock({ (data, error) in

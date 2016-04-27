@@ -38,6 +38,8 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         
         getFields()
         
+        self.huntNameLabel.adjustsFontSizeToFitWidth = true
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style:.Plain, target:nil, action:nil)
     }
     

@@ -87,6 +87,7 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         }
         
         cell.numberOfCluesLabel.text = clueCountLabel
+        cell.numberOfCluesLabel.adjustsFontSizeToFitWidth = true
         
         return cell
     }

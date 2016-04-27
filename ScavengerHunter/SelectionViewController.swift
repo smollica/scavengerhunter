@@ -16,13 +16,16 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var logoImageView: SHLogo!
     @IBOutlet weak var playHuntImageView: SHImageButton!
     @IBOutlet weak var createHuntImageView: SHImageButton!
+    @IBOutlet weak var goOnHuntLabel: SHLabel!
+    @IBOutlet weak var createHuntLabel: SHLabel!
     
     // MARK: viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //
+        self.goOnHuntLabel.adjustsFontSizeToFitWidth = true
+        self.createHuntLabel.adjustsFontSizeToFitWidth = true
     }
     
     // MARK: Actions

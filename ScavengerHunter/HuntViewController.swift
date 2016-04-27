@@ -76,6 +76,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         self.hintScroll.hidden = true
         
         createButtons()
+        
     }
     
     // MARK: Actions
