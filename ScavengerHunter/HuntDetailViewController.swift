@@ -47,8 +47,9 @@ class HuntDetailViewController: UIViewController {
     
     func setFields() {
         self.huntNameLabel.text = self.hunt!.name
-        self.huntPrizeLabel.text = "Hunt Prize: " + self.hunt!.prize
-        self.numberOfCluesLabel.text = "Hunt Size: " + "\(self.hunt!.clues.count)" + " Clues"
+        self.huntCreatorLabel.attributedText = labelMaker("Hunt Creator: ", labelDescriptor: self.hunt!.creator!.username!)
+        self.huntPrizeLabel.attributedText = labelMaker("Hunt Prize: ", labelDescriptor: self.hunt!.prize)
+        self.numberOfCluesLabel.attributedText = labelMaker("Hunt Size: ", labelDescriptor: "\(self.hunt!.clues.count)" + " Clues")
         self.huntDescriptionLabel.text = self.hunt!.desc
         
         let huntImage = hunt!.image
@@ -57,8 +58,20 @@ class HuntDetailViewController: UIViewController {
                 self.huntImageView.image = UIImage(data: data!)
             }
         })
-
-        self.huntCreatorLabel.text = "Hunt Creator: " + self.hunt!.creator!.username!
+    }
+    
+    func labelMaker(labelIndicator: String, labelDescriptor: String) -> NSMutableAttributedString {
+        let boldFont = UIFont(name: boldLabelFont, size: smallLabelFontSize)
+        let boldDictionary = [NSFontAttributeName: boldFont!] as [String: AnyObject]
+        
+        let normalFont = UIFont(name: labelFont, size: smallLabelFontSize)
+        let normalDictionary = [NSFontAttributeName: normalFont!] as [String: AnyObject]
+        
+        let descriptor = NSAttributedString(string: labelDescriptor, attributes: normalDictionary)
+        let label = NSMutableAttributedString(string: labelIndicator, attributes: boldDictionary)
+        label.appendAttributedString(descriptor)
+        
+        return label
     }
     
     func organizeClues() {

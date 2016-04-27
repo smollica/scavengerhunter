@@ -43,7 +43,7 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
     }
    
     @IBAction func backButtonPressed(sender: AnyObject) {
-        self.performSegueWithIdentifier("unwindToSelection", sender: self)
+        self.warningAlert("Your current HUNT will be LOST by clicking Back!", optional: true)
     }
     
     @IBAction func getFields() {
@@ -85,6 +85,22 @@ class CreateHuntViewController: UIViewController, UITextFieldDelegate, SHImagePi
             let vc = segue.destinationViewController as! AddCluesViewController
             vc.newHunt = self.newHunt
         }
+    }
+    
+    // MARK: Alert
+    
+    func warningAlert(string: String, optional: Bool) {
+        let alertController = UIAlertController(title: "Warning!", message: string, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        if optional {
+            alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: { action in
+                self.performSegueWithIdentifier("unwindToSelection", sender: self)
+            }))
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }

@@ -48,7 +48,8 @@ class HomeViewController: UIViewController {
     // MARK: Helper Functions
     
     func playVideo() {
-        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("treasure", withExtension: "mp4")!
+        /* let videoURL: NSURL = NSBundle.mainBundle().URLForResource("treasure", withExtension: "mp4")! */
+        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("tropical", withExtension: "mp4")!
         
         videoPlayer = AVPlayer(URL: videoURL)
         videoPlayer?.actionAtItemEnd = .None
@@ -59,7 +60,8 @@ class HomeViewController: UIViewController {
         playerLayer.zPosition = -1
 
         playerLayer.frame = view.frame
-        playerLayer.bounds = view.frame
+        /* playerLayer.bounds = view.frame */
+        playerLayer.bounds = CGRect(x: -250, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         view.layer.addSublayer(playerLayer)
         videoPlayer?.play()
         

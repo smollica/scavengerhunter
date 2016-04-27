@@ -107,16 +107,22 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         }
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager!.requestAlwaysAuthorization()
+            /* locationManager!.requestAlwaysAuthorization() */
+            locationManager!.requestWhenInUseAuthorization()
         }
         
+    }
+    
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        warnBack()
     }
     
     // MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedAlways {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             locationManager!.startUpdatingLocation()
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         }
     }
     
@@ -281,4 +287,17 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    func warnBack() {
+        let alertController = UIAlertController(title: "Warning!", message: "Your current CLUE will be LOST by clicking Back!", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: { action in
+            self.performSegueWithIdentifier("unwindToClues", sender: self)
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+
 }

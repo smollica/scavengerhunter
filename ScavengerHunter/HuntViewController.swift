@@ -68,7 +68,8 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         self.locationManager!.delegate = self
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager!.requestAlwaysAuthorization()
+            /* locationManager!.requestAlwaysAuthorization() */
+            locationManager!.requestWhenInUseAuthorization()
         }
         
         self.navigationController!.setNavigationBarHidden(true, animated: true)
@@ -87,7 +88,8 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     @IBAction func nextClueButtonPressed(sender: AnyObject) {
         if self.hunt!.clues.count == 1 {
-            warningAlert("This is the last CLUE and cannot be skipped!", optional: true, todo: "nextClue")
+            /* warningAlert("This is the last CLUE and cannot be skipped!", optional: true, todo: "nextClue") */
+            warningAlert("This is the last CLUE and cannot be skipped!", optional: false, todo: "")
         } else {
             warningAlert("Are you sure you want to go on to the SKIP to the NEXT STAGE of the hunt (cannot be undone)?", optional: true, todo: "nextClue")
         }
@@ -108,7 +110,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     // MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedAlways {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             locationManager!.startUpdatingLocation()
             locationManager!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         }
@@ -158,13 +160,13 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         self.startingDistance = (currentLocation?.distanceFromLocation(targetLocation))! - (self.currentGeoFence?.radius)!
         
-        monitorForGeoFence()
+        /* monitorForGeoFence() */
     }
     
-    func monitorForGeoFence() {
+    /* func monitorForGeoFence() {
         self.locationManager?.startMonitoringForRegion(self.currentGeoFence!)
         self.locationManager?.requestStateForRegion(self.currentGeoFence!)
-    }
+    } */
 
     // MARK: Helper Functions
     
@@ -206,6 +208,16 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         if self.hintLabel.hidden {
             self.hintLabel.hidden = false
             self.hintScroll.hidden = false
+            self.hintLabel.alpha = 0
+            self.hintScroll.alpha = 0
+            
+            UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
+                self.hintLabel.alpha = 0.85
+                self.hintScroll.alpha = 0.85
+            }) { (finished) in
+                //
+            }
+           
         } else {
             self.showGeoFence()
         }

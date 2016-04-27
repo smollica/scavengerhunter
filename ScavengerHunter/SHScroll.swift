@@ -15,7 +15,7 @@ class SHScroll: UIImageView {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.image = UIImage(named: "scroll")
-        self.alpha = 0.6
+        self.alpha = 0.85
     }
 
 }
