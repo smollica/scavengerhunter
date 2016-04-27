@@ -28,7 +28,7 @@ class CreateClueTableViewCell: UITableViewCell, MKMapViewDelegate {
     @IBOutlet weak var clueLabel: SHLabel!
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var editButton: SHButton!
-
+    @IBOutlet weak var editButtonTopConstrain: NSLayoutConstraint!
     
     // MARK: Properties
 
@@ -41,6 +41,7 @@ class CreateClueTableViewCell: UITableViewCell, MKMapViewDelegate {
             self.clue!.isExpanded = true
             self.expandButton.setImage(UIImage(named: "minus_math-25"), forState: UIControlState.Normal)
             self.delegate?.reloadTable()
+            
         } else if self.clue!.isExpanded {
             self.clue!.isExpanded = false
             self.expandButton.setImage(UIImage(named: "plus_math-25"), forState: UIControlState.Normal)

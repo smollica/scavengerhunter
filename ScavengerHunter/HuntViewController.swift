@@ -90,7 +90,7 @@ class HuntViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     @IBAction func nextClueButtonPressed(sender: AnyObject) {
-        warningAlert("Are you sure you want to go on to the NEXT CLUE (cannot be undone)?", optional: true, todo: "nextClue")
+        warningAlert("Are you sure you want to go on to the SKIP to the NEXT STAGE of the hunt (cannot be undone)?", optional: true, todo: "nextClue")
     }
     
     @IBAction func quitButtonPressed(sender: AnyObject) {

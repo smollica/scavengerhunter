@@ -77,6 +77,8 @@ class HuntSearchViewController: UIViewController, UITextFieldDelegate, UITableVi
         })
        
         cell.huntNameLabel.text = hunt.name
+        cell.huntPrizeLabel.text = "Prize: " + hunt.prize
+        cell.huntCreatorLabel.text = "Creator: " + (hunt.creator?.username)!
         
         var clueCountLabel = "\(hunt.clues.count)" + " Clue"
         if hunt.clues.count > 1 {

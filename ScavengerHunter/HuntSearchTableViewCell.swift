@@ -16,6 +16,8 @@ class HuntSearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var huntImageView: SHImage!
     @IBOutlet weak var huntNameLabel: SHLabel!
-    @IBOutlet weak var numberOfCluesLabel: SHLabel!
+    @IBOutlet weak var huntPrizeLabel: SHSmallLabel!
+    @IBOutlet weak var huntCreatorLabel: SHSmallLabel!
+    @IBOutlet weak var numberOfCluesLabel: SHSmallLabel!
 
 }

@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
         playerLayer.zPosition = -1
 
         playerLayer.frame = view.frame
-        playerLayer.bounds = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        playerLayer.bounds = view.frame
         view.layer.addSublayer(playerLayer)
         videoPlayer?.play()
         

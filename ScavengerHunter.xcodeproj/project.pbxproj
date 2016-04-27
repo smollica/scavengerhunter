@@ -30,6 +30,7 @@
 		E5A06A381CC6CADD00F8B7F6 /* SHImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A371CC6CADD00F8B7F6 /* SHImage.swift */; };
 		E5A06A3A1CC6CB6C00F8B7F6 /* SHImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */; };
 		E5A06A3D1CC6E67B00F8B7F6 /* SHLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */; };
+		E5A4D9BC1CD0396C0076CA43 /* SHLargeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4D9BB1CD0396C0076CA43 /* SHLargeLabel.swift */; };
 		E5B6B0B41CCD63E10060B92C /* SHScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B0B31CCD63E10060B92C /* SHScroll.swift */; };
 		E5B6B0B61CCD8C510060B92C /* SHWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B0B51CCD8C510060B92C /* SHWallpaper.swift */; };
 		E5B6B0B91CCEBBDF0060B92C /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B0B71CCEBBDF0060B92C /* MyParticle.sks */; };
@@ -80,6 +81,7 @@
 		E5A06A371CC6CADD00F8B7F6 /* SHImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHImage.swift; sourceTree = "<group>"; };
 		E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHImageButton.swift; sourceTree = "<group>"; };
 		E5A06A3C1CC6E67B00F8B7F6 /* SHLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLocation.swift; sourceTree = "<group>"; };
+		E5A4D9BB1CD0396C0076CA43 /* SHLargeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHLargeLabel.swift; sourceTree = "<group>"; };
 		E5B6B0B31CCD63E10060B92C /* SHScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHScroll.swift; sourceTree = "<group>"; };
 		E5B6B0B51CCD8C510060B92C /* SHWallpaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHWallpaper.swift; sourceTree = "<group>"; };
 		E5B6B0B71CCEBBDF0060B92C /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				E5A06A391CC6CB6C00F8B7F6 /* SHImageButton.swift */,
 				E5F1D8D71CCAE9C200886715 /* SHLabel.swift */,
 				E5E6B8BD1CCBD8D800F1B8D9 /* SHSmallLabel.swift */,
+				E5A4D9BB1CD0396C0076CA43 /* SHLargeLabel.swift */,
 				E5E6B8BF1CCBD96700F1B8D9 /* SHTextField.swift */,
 				E5E6B8B91CCB562000F1B8D9 /* SHNavigationItem.swift */,
 				E5E6B8BB1CCBD83B00F1B8D9 /* SHHotColdLabel.swift */,
@@ -415,6 +418,7 @@
 				E5B6B0B41CCD63E10060B92C /* SHScroll.swift in Sources */,
 				E5A06A271CC573E700F8B7F6 /* HuntViewController.swift in Sources */,
 				E5E6B8BA1CCB562000F1B8D9 /* SHNavigationItem.swift in Sources */,
+				E5A4D9BC1CD0396C0076CA43 /* SHLargeLabel.swift in Sources */,
 				E5A06A381CC6CADD00F8B7F6 /* SHImage.swift in Sources */,
 				E5E6B8C61CCCA2F400F1B8D9 /* SHTableView.swift in Sources */,
 			);

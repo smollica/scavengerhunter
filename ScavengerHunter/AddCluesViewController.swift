@@ -11,8 +11,8 @@ import MapKit
 import Parse
 import ParseUI
 
-let smallCell: Double = 28
-let largeCell: Double = 250
+let smallCell: Double = 50
+let largeCell: Double = 280
 
 class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CreateClueTableViewCellDelegate {
     
@@ -88,6 +88,16 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         cell.delegate = self
         
         if indexPath.section == 0 {
+            
+            cell.editButton.setTitle("  Edit Clue  ", forState: UIControlState.Normal)
+            cell.editButtonTopConstrain.constant = 230
+                    
+            cell.clueNumberLabel.hidden = false
+            cell.clueImageView!.hidden = false
+            cell.mapView.hidden = false
+            cell.clueLabel.hidden = false
+            cell.expandButton.hidden = false
+            
             let clue = newHunt.clues[indexPath.row]
             cell.clue = clue
             cell.clueLabel.text = clue.clue
@@ -103,7 +113,7 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             let defaultPFGeoPoint = PFGeoPoint(latitude: 0, longitude: 0)
             
             if clue.solution != defaultPFGeoPoint {
-                let range = 0.002 / minAccuracy * clue.accuracy
+                let range = 0.002 / defaultAccuracy * clue.accuracy
                 let span = MKCoordinateSpan(latitudeDelta: range, longitudeDelta: range)
                 self.showGeoFence(cell)
                 
@@ -133,9 +143,15 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
             }
             
         } else {
-            cell.clueNumberLabel.text = "Add Clue"
-            cell.expandButton.hidden = true
+            cell.editButton.setTitle("  Create New Clue  ", forState: UIControlState.Normal)
             cell.editButton.tag = -1
+            cell.editButtonTopConstrain.constant = 0
+            
+            cell.clueNumberLabel.hidden = true
+            cell.clueImageView!.hidden = true
+            cell.mapView.hidden = true
+            cell.clueLabel.hidden = true
+            cell.expandButton.hidden = true
         }
         
         return cell
@@ -153,20 +169,42 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
                 }
             }
         } else {
-            return CGFloat(largeCell)
+            return CGFloat(smallCell)
         }
     }
-
     
-    /*  to come - must implement delete logic to clues (clue number update)
-     
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        if indexPath.section == 0 {
+            return .Delete
+        } else {
+            return .None
+        }
+    }
+    
+    func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
+        let clue = newHunt.clues[indexPath.row]
+        if clue.isExpanded == false {
+            clue.isExpanded = true
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        }
+    }
+ 
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             newHunt.clues.removeAtIndex(indexPath.row)
+            
+            var renumberClue = 1
+            
+            for clue in newHunt.clues {
+                clue.number = renumberClue
+                renumberClue += 1
+            }
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            
+            self.tableView.reloadData()
         }
-    } */
+    }
     
     // MARK CreateClueTableViewCellDelegate
     
