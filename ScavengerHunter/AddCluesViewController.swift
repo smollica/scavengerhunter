@@ -248,7 +248,6 @@ class AddCluesViewController: UIViewController, UITextFieldDelegate, UITableView
         return circleView
     }
     
-    
     // MARK: Helper Functions
     
     func getFields() {

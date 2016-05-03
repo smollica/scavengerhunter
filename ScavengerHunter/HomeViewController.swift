@@ -133,6 +133,10 @@ class HomeViewController: UIViewController {
                     self.loadingIndicator.stopAnimating()
                     self.performSegueWithIdentifier("signInSegue", sender: self)
                 }  else if error != nil {
+                    self.signInButton.hidden = false
+                    self.signUpButton.hidden = false
+                    self.loadingIndicator.hidden = true
+                    self.loadingIndicator.stopAnimating()
                     self.errorAlert(error!)
                 }
             })

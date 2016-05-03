@@ -321,7 +321,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Aw-fo-f5f" customClass="SHTextField" customModule="ScavengerHunter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="344" width="300" height="129"/>
+                                <rect key="frame" x="10" y="344" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="x75-w2-Ko7"/>
                                 </constraints>
@@ -350,6 +350,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1gf-bD-qXl" firstAttribute="top" secondItem="VBI-f7-uVI" secondAttribute="bottom" constant="20" id="3NP-kg-e9K"/>
+                            <constraint firstItem="4Aw-fo-f5f" firstAttribute="height" secondItem="1gf-bD-qXl" secondAttribute="height" id="An5-rJ-3it"/>
                             <constraint firstItem="4Aw-fo-f5f" firstAttribute="trailing" secondItem="1gf-bD-qXl" secondAttribute="trailing" id="Ay8-JO-8JZ"/>
                             <constraint firstItem="Th8-nt-nkW" firstAttribute="centerX" secondItem="AQR-Ew-ydb" secondAttribute="centerX" id="Dfc-b9-zzl"/>
                             <constraint firstItem="VBI-f7-uVI" firstAttribute="top" secondItem="Th8-nt-nkW" secondAttribute="bottom" constant="20" id="F1M-IO-gcI"/>
@@ -384,6 +385,7 @@
                                 <exclude reference="oma-ev-XzI"/>
                                 <exclude reference="QpQ-g5-A8Z"/>
                                 <exclude reference="S5F-VU-qah"/>
+                                <exclude reference="aUs-Nm-WG5"/>
                                 <exclude reference="uME-9U-51W"/>
                             </mask>
                         </variation>
@@ -402,6 +404,7 @@
                         <outlet property="huntImageView" destination="Th8-nt-nkW" id="kRp-JC-Bfa"/>
                         <outlet property="nameField" destination="VBI-f7-uVI" id="stE-PD-YvX"/>
                         <outlet property="prizeField" destination="1gf-bD-qXl" id="teF-MX-qDC"/>
+                        <outlet property="topConstrain" destination="dgh-70-07A" id="RYE-kJ-n9C"/>
                         <segue destination="iHO-HJ-wZd" kind="unwind" identifier="unwindToSelection" unwindAction="unwindToSelection:" id="NrK-vH-bwz"/>
                     </connections>
                 </viewController>
@@ -1407,6 +1410,7 @@
                         <outlet property="mapView" destination="eDg-FK-T8y" id="xBs-X3-oqF"/>
                         <outlet property="myLocationButton" destination="CIe-ut-WdE" id="5DO-yj-a0B"/>
                         <outlet property="solutionField" destination="b1r-Px-98r" id="eJC-uj-UlM"/>
+                        <outlet property="topConstrain" destination="Gc8-lq-aJA" id="NMd-u2-K2a"/>
                         <segue destination="MoX-oe-plu" kind="unwind" identifier="unwindToClues" unwindAction="unwindToClues:" id="TLh-eA-M1t"/>
                     </connections>
                 </viewController>
@@ -1547,6 +1551,7 @@
                         <outlet property="passwordField" destination="UdW-fx-8eX" id="Rii-mC-z47"/>
                         <outlet property="pictureImageView" destination="uwR-pT-Xxc" id="dt9-rI-kDf"/>
                         <outlet property="signUpButton" destination="h3m-QI-eEF" id="EhC-2X-1X0"/>
+                        <outlet property="topConstrain" destination="51A-ed-8Vl" id="hy4-UL-IeI"/>
                         <outlet property="usernameField" destination="DCq-Gf-e7d" id="GqL-zs-ANm"/>
                         <segue destination="LEy-zb-Iae" kind="show" identifier="signUpSegue" id="Fag-xI-ber"/>
                         <segue destination="aLM-e4-Ffn" kind="unwind" identifier="unwindHome" unwindAction="unwindHome:" id="zgd-l4-QJ5"/>
@@ -1612,6 +1617,6 @@
         <image name="user" width="550" height="550"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jt7-D7-p7O"/>
+        <segue reference="Fag-xI-ber"/>
     </inferredMetricsTieBreakers>
 </document>

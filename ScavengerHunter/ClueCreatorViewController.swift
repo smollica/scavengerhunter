@@ -25,6 +25,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     @IBOutlet weak var imageView: SHImage!
     @IBOutlet weak var creatClueButton: SHButton!
     @IBOutlet weak var myLocationButton: SHButton!
+    @IBOutlet weak var topConstrain: NSLayoutConstraint!
     
     // MARK: Properties
     
@@ -34,6 +35,7 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
     var clue: Clue?
     var newHunt: Hunt?
     var newClue = true
+    var originalTopConstrain: CGFloat?
     
     // MARK: LocationManager
     
@@ -70,6 +72,8 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
         }
         
         self.myLocationButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        
+        keyboardNotificationCenter()
     }
     
     // MARK: Actions
@@ -268,6 +272,33 @@ class ClueCreatorViewController: UIViewController, UITextFieldDelegate, MKMapVie
             self.newHunt!.clues.append(self.clue!)
         }
         performSegueWithIdentifier("unwindToClues", sender: self)
+    }
+    
+    // MARK: Keyboard Adjustments
+    
+    func keyboardNotificationCenter() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        let value = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let frame = value.CGRectValue()
+        let displayOffset = self.accuracyField.frame.origin.y + self.accuracyField.frame.height + 20
+        
+        if displayOffset >= frame.origin.y {
+            self.originalTopConstrain = self.topConstrain.constant
+            self.topConstrain.constant = self.topConstrain.constant - (displayOffset - frame.origin.y)
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let constant = self.originalTopConstrain {
+            self.topConstrain.constant = constant
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: Alert
